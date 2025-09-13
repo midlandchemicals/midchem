@@ -21,9 +21,9 @@ function App() {
             <main>
               <HeroSection />
               <SolutionsBanner />
+              <AboutSection />
               <ProductsSection />
               <ServicesSection />
-              <AboutSection />
               <ContactSection />
             </main>
             <Footer />

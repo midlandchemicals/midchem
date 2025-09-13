@@ -140,12 +140,12 @@ export function SolutionsBanner() {
         </h2>
         <p className="solutions-subtitle">
           We provide bespoke white-label chemical manufacturing, specialising in tailored formulations 
-          that meet the exacting needs of the <strong>agriculture</strong> sector and a wide range of industries including 
+          that meet the exacting needs of the <strong>agriculture</strong> sector and a wide range of industries including  {""}
           <strong>aerospace, automotive, construction,</strong> and <strong>healthcare</strong>.
         </p>
         <div className="solutions-actions">
           <a href="#benefits" className="btn outline">All Industries We Serve</a>
-          <a href="#benefits" className="btn primary">Discover Ilex®</a>
+          <a href="https://ilex-envirosciences.com/" target="_blank" rel="noopener noreferrer" className="btn primary">Discover Ilex®</a>
         </div>
       </div>
     </>

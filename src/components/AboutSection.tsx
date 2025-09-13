@@ -1,204 +1,166 @@
-import { Card, CardContent } from "./ui/card";
-import { Badge } from "./ui/badge";
-import { ImageWithFallback } from "./ui/ImageWithFallback";
-
 export function AboutSection() {
-  const stats = [
-    { value: "1991", label: "Established" },
-    { value: "70+", label: "Years R&D Experience" },
-    { value: "UK", label: "Based" },
-    { value: "Independent", label: "Ownership" },
-  ];
-
-  const certifications = [
-    "ISO 9001:2015",
-    "ISO 14001:2015",
-    "REACH Compliant",
-    "CLP/GHS Compliant",
-    "UN Approved Packaging",
-    "UK Reg: 02591575",
-  ];
-
   return (
-    <section id="about" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Content */}
-          <div className="space-y-8">
-            <div className="space-y-4">
-              <h2 className="text-3xl md:text-4xl text-gray-900">
-                About Midland Chemicals Ltd
-              </h2>
-              <p className="text-lg text-gray-600 leading-relaxed">
-                Midland Chemicals Ltd is a privately owned, independent UK
-                manufacturer of chemicals established in 1991, based in
-                Atherstone, Warwickshire, UK.
-              </p>
-              <p className="text-gray-600 leading-relaxed">
-                Our reputation for producing high quality products and a high
-                level of technical support has led to us supplying to our
-                customers throughout the UK, Europe and worldwide.
-              </p>
-              <p className="text-gray-600 leading-relaxed">
-                Our highly knowledgeable research and development team, with a
-                combined experience of over 70 years in the industry, is always
-                available to discuss the formulation and specification of new
-                products to your requirements.
-              </p>
-            </div>
+    <>
+      <style>{`
+        :root {
+          --bg: #f5f7fa;        
+          --panel: #ffffff;     
+          --panel-2: #e3ebf5;  
+          --brand: #1f4e79;    
+          --brand-2: #3a7ca5;   
+          --text: #0d1b2a;    
+          --text-dim: #556b7a; 
+          --ring: rgba(102,246,193,.35);
+          --radius: 20px;
+          --shadow: 0 10px 40px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.04);
+        }
+        .section {
+          padding: 84px 0;
+        }
+        .container {
+          width: min(1000px, 85vw);
+          margin: 0 auto;
+        }
+        .section-title {
+          font-family: 'Plus Jakarta Sans', sans-serif;
+          font-size: clamp(30px, 4vw, 48px);
+          margin: 0 0 12px;
+          color: var(--text);
+          text-align: center;
+        }
+        .lead {
+          color: var(--text-dim);
+          margin: 0 0 28px;
+          font-size: 1.2rem;
+          text-align: center;
+        }
+        .grid {
+          display: grid;
+          gap: 20px;
+        }
+        .cols-3 {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        .card {
+          background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+          border: 1px solid rgba(255,255,255,.08);
+          border-radius: var(--radius);
+          box-shadow: var(--shadow);
+          padding: 26px;
+        }
+        .card h3 {
+          margin: 0 0 8px;
+          color: var(--text);
+        }
+        .card p {
+          margin: 0;
+          color: var(--text-dim);
+        }
 
-            {/* Stats */}
-            <div
-              className="grid gap-2 md:gap-6 w-full"
-              style={{
-                gridTemplateColumns: "repeat(auto-fit, minmax(60px, 100px))",
-              }}
-            >
-              {stats.map((stat, index) => (
-                <div key={index} className="flex flex-col items-start">
-                  <div className="text-3xl text-primary mb-1">{stat.value}</div>
-                  <div className="text-sm text-gray-500">{stat.label}</div>
-                </div>
-              ))}
-            </div>
+        /* Team styles */
+        .about-team {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+          margin-bottom: 24px;
+        }
 
-            {/* Certifications */}
-            <div className="space-y-4">
-              <h3 className="text-xl text-gray-900">
-                Certifications & Compliance
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {certifications.map((cert) => (
-                  <Badge key={cert} variant="outline" className="px-3 py-1">
-                    {cert}
-                  </Badge>
-                ))}
+        .team-member {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 12px;
+          padding: 16px 20px;
+          border-radius: 12px;
+          background: var(--brand-2);
+          box-shadow: var(--shadow);
+          text-align: center;
+          color: #fff;
+        }
+
+        .avatar {
+          width: 52px;
+          height: 52px;
+          border-radius: 50%;
+          background: var(--brand);
+          color: #fff;
+          font-weight: 700;
+          font-size: 1rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+        }
+
+        .team-member .info h3 {
+          margin: 0 0 4px;
+          font-size: 1.2rem;
+          color: #ffffff;
+        }
+
+        .team-member .info p.muted {
+          font-size: 1rem;
+          color: #ffffff;
+          margin: 0 0 6px;
+        }
+
+        .team-member .info .bio {
+          font-size: 1rem;
+          line-height: 1.4;
+          color: #ffffff;
+          margin: 6px 0 10px;
+        }
+
+        .team-member .info a {
+          font-size: 1rem;
+          color: #000;
+          font-weight: 500;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+          .about-team {
+            flex-direction: column;
+            gap: 20px;
+          }
+        }
+      `}</style>
+      <section id="about" className="section">
+        <div className="container">
+          <h2 className="section-title">About Us</h2>
+          <p className="lead">Midland Chemicals Ltd is a privately owned, independent UK manufacturer of chemicals established in 1991, based in Atherstone, Warwickshire, UK. Our reputation for producing high-quality products and a high level of technical support has led to us supplying to customers throughout the UK, Europe, and worldwide.</p>
+          <p className="lead">Our highly knowledgeable research and development team, with a combined experience of over 70 years in the industry, is always available to discuss the formulation and specification of new products to your requirements.</p>
+          <div className="about-team">
+            <div className="team-member">
+              <div className="avatar">SP</div>
+              <div className="info">
+                <h3>Sunny Pathak</h3>
+                <p className="muted">Managing Director</p>
+                <p className="bio">Sunny founded Midland Chemicals in 1991 and brings over 40 years of hands-on experience in the chemical industry. He partners closely with clients to tackle complex formulation and process challenges, delivering practical, custom made chemical solutions that help their business succeed.</p>
+                <a href="mailto:sunny@midlandchem.com">sunny@midlandchem.com</a>
               </div>
             </div>
-
-            {/* Management */}
-            <div className="space-y-4">
-              <h3 className="text-xl text-gray-900">Leadership</h3>
-              <div className="flex items-center space-x-4 bg-gray-50 rounded-lg p-4">
-                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
-                  <span className="text-primary text-xl">SP</span>
-                </div>
-                <div>
-                  <h4 className="font-medium text-gray-900">
-                    Sunil Pathak (M.Sc.)
-                  </h4>
-                  <p className="text-gray-600">Managing Director</p>
-                </div>
+            <div className="team-member">
+              <div className="avatar">RC</div>
+              <div className="info">
+                <h3>Robert Cameron</h3>
+                <p className="muted">Technical Manager</p>
+                <p className="bio">Robert brings years of technical chemistry expertise and a practical understanding of product innovation. He works alongside customers to solve complex challenges and develops bespoke formulations that give them a competitive edge.</p>
+                <a href="mailto:robert@midlandchem.com">robert@midlandchem.com</a>
+              </div>
+            </div>
+            <div className="team-member">
+              <div className="avatar">BA</div>
+              <div className="info">
+                <h3>Brian Acconley</h3>
+                <p className="muted">Agricultural Consultant</p>
+                <p className="bio">Brian Acconley is an expert agricultural chemical specialist, dedicated to helping farmers and businesses achieve optimal results. At Midland Chemicals, he collaborates closely with clients to design and develop products precisely tailored to their specific requirements.</p>
+                <a href="mailto:brian@ilex-envirosciences.com">brian@ilex-envirosciences.com</a>
               </div>
             </div>
           </div>
-
-          {/* Images */}
-          <div className="space-y-6">
-            <Card className="overflow-hidden">
-              <CardContent className="p-0">
-                <div className="aspect-[4/3]">
-                  <ImageWithFallback
-                    src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=600&h=450&fit=crop"
-                    alt="Chemical manufacturing facility in Atherstone"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </CardContent>
-            </Card>
-
-            <div className="grid grid-cols-2 gap-4">
-              <Card className="overflow-hidden">
-                <CardContent className="p-0">
-                  <div className="aspect-square">
-                    <ImageWithFallback
-                      src="https://images.unsplash.com/photo-1576086213369-97a306d36557?w=300&h=300&fit=crop"
-                      alt="Quality control laboratory"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                </CardContent>
-              </Card>
-              <Card className="overflow-hidden">
-                <CardContent className="p-0">
-                  <div className="aspect-square">
-                    <ImageWithFallback
-                      src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=300&h=300&fit=crop"
-                      alt="R&D team at work"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
         </div>
-
-        {/* Policy Statements */}
-        <div className="mt-20 grid grid-cols-1 md:grid-cols-2 gap-8">
-          <Card className="p-6">
-            <CardContent className="space-y-4">
-              <h3 className="text-xl text-gray-900">Quality Policy</h3>
-              <p className="text-gray-600">
-                At Midland Chemicals, quality is of the utmost importance. We
-                work to a quality system in line with ISO 9001:2015 to maintain
-                and improve performance in all areas of operation.
-              </p>
-              <div className="text-sm text-gray-500">
-                <p>• Reliable suppliers for consistent quality</p>
-                <p>• Standardized manufacturing processes</p>
-                <p>• Annual review and audit of quality systems</p>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card className="p-6">
-            <CardContent className="space-y-4">
-              <h3 className="text-xl text-gray-900">Environmental Policy</h3>
-              <p className="text-gray-600">
-                Product performance is interlinked with a longstanding concern
-                for health, safety and the environment, guaranteeing customers'
-                peace of mind.
-              </p>
-              <div className="text-sm text-gray-500">
-                <p>• Environmental impact evaluation</p>
-                <p>• ISO 14001:2015 compliance</p>
-                <p>• Waste reduction and recycling</p>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-
-        {/* REACH Statement */}
-        <div className="mt-12 bg-gray-50 rounded-2xl p-8">
-          <h3 className="text-2xl text-gray-900 mb-4 text-center">
-            REACH & CLP Compliance
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h4 className="font-medium text-gray-900 mb-2">
-                REACH Compliance
-              </h4>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                Midland Chemicals Ltd is fully committed to REACH and maintains
-                status as a "down-stream user". We constantly update our
-                operations to remain fully compliant with European chemicals
-                regulations.
-              </p>
-            </div>
-            <div>
-              <h4 className="font-medium text-gray-900 mb-2">
-                CLP (GHS) Implementation
-              </h4>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                We are completely up to date with the new classification,
-                labelling and packaging system. All our MSDS and labels are CLP
-                compliant format, updated since September 2015.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
