@@ -3,13 +3,6 @@ import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { Label } from "./ui/label";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "./ui/select";
 import { MapPin, Phone, Mail, Clock, CheckCircle } from "lucide-react";
 import { useState } from "react";
 
@@ -18,14 +11,8 @@ export function ContactSection() {
     name: "",
     email: "",
     phone: "",
-    text: "",
-    lastname: "",
     company: "",
-    requirement: "",
-    productCode: "",
-    location: "",
-    industry: "",
-    service: "",
+    text: "",
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -48,33 +35,16 @@ export function ContactSection() {
     }
   };
 
-  const handleSelectChange = (name: string, value: string) => {
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-
-    // Clear error when user selects a value
-    if (errors[name]) {
-      setErrors((prev) => ({
-        ...prev,
-        [name]: "",
-      }));
-    }
-  };
-
   const validateForm = () => {
     const newErrors: Record<string, string> = {};
 
-    // Required fields (lastname is optional)
+    // Required fields
     const requiredFields = {
-      name: "First Name",
+      name: "Name",
       email: "Email",
       phone: "Phone",
       company: "Company",
-      industry: "Industry",
-      service: "Service Required",
-      text: "Requirements Details",
+      text: "Requirements",
     };
 
     Object.entries(requiredFields).forEach(([field]) => {
@@ -258,50 +228,22 @@ export function ContactSection() {
                   </p>
                 </CardHeader>
                 <form id="inquiry-form" onSubmit={handleSubmit}>
-                  <input
-                    type="hidden"
-                    name="industry"
-                    value={formData.industry}
-                  />
-                  <input
-                    type="hidden"
-                    name="service"
-                    value={formData.service}
-                  />
-                  <input
-                    type="hidden"
-                    name="location"
-                    value={formData.location}
-                  />
                   <CardContent className="space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div className="space-y-2">
-                        <Label htmlFor="firstName">First Name *</Label>
-                        <Input
-                          id="firstName"
-                          name="name"
-                          value={formData.name}
-                          onChange={handleInputChange}
-                          placeholder="John"
-                          className={`py-3 ${
-                            errors.name ? "border-red-500" : ""
-                          }`}
-                        />
-                        {errors.name && (
-                          <p className="text-red-500 text-sm">{errors.name}</p>
-                        )}
-                      </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="lastName">Last Name</Label>
-                        <Input
-                          id="lastName"
-                          name="lastname"
-                          value={formData.lastname}
-                          onChange={handleInputChange}
-                          placeholder="Doe"
-                          className="py-3"
-                        />
-                      </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="name">Name *</Label>
+                      <Input
+                        id="name"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleInputChange}
+                        placeholder="Your Name"
+                        className={`py-3 ${
+                          errors.name ? "border-red-500" : ""
+                        }`}
+                      />
+                      {errors.name && (
+                        <p className="text-red-500 text-sm">{errors.name}</p>
+                      )}
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -341,134 +283,27 @@ export function ContactSection() {
                       </div>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div className="space-y-2">
-                        <Label htmlFor="company">Company *</Label>
-                        <Input
-                          id="company"
-                          name="company"
-                          value={formData.company}
-                          onChange={handleInputChange}
-                          placeholder="Your Company Name"
-                          className={`py-3 ${
-                            errors.company ? "border-red-500" : ""
-                          }`}
-                        />
-                        {errors.company && (
-                          <p className="text-red-500 text-sm">
-                            {errors.company}
-                          </p>
-                        )}
-                      </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="location">Location</Label>
-                        <Select
-                          value={formData.location}
-                          onValueChange={(value) =>
-                            handleSelectChange("location", value)
-                          }
-                        >
-                          <SelectTrigger className="py-3">
-                            <SelectValue placeholder="Select location" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="uk">United Kingdom</SelectItem>
-                            <SelectItem value="europe">Europe</SelectItem>
-                            <SelectItem value="United-states">
-                              United States
-                            </SelectItem>
-                            <SelectItem value="worldwide">Worldwide</SelectItem>
-                            <SelectItem value="other">Other</SelectItem>
-                          </SelectContent>
-                        </Select>
-                      </div>
-                    </div>
-
                     <div className="space-y-2">
-                      <Label htmlFor="industry">Industry *</Label>
-                      <Select
-                        value={formData.industry}
-                        onValueChange={(value) =>
-                          handleSelectChange("industry", value)
-                        }
-                      >
-                        <SelectTrigger
-                          className={`py-3 ${
-                            errors.industry ? "border-red-500" : ""
-                          }`}
-                        >
-                          <SelectValue placeholder="Select your industry" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="aerospace">Aerospace</SelectItem>
-                          <SelectItem value="agricultural">
-                            Agricultural
-                          </SelectItem>
-                          <SelectItem value="automotive">Automotive</SelectItem>
-                          <SelectItem value="construction">
-                            Construction
-                          </SelectItem>
-                          <SelectItem value="education">Education</SelectItem>
-                          <SelectItem value="healthcare">Healthcare</SelectItem>
-                          <SelectItem value="industrial">
-                            Industrial Cleaning
-                          </SelectItem>
-                          <SelectItem value="power">
-                            Power Generation
-                          </SelectItem>
-                          <SelectItem value="retail">Retail</SelectItem>
-                          <SelectItem value="other">Other</SelectItem>
-                        </SelectContent>
-                      </Select>
-                      {errors.industry && (
+                      <Label htmlFor="company">Company *</Label>
+                      <Input
+                        id="company"
+                        name="company"
+                        value={formData.company}
+                        onChange={handleInputChange}
+                        placeholder="Your Company Name"
+                        className={`py-3 ${
+                          errors.company ? "border-red-500" : ""
+                        }`}
+                      />
+                      {errors.company && (
                         <p className="text-red-500 text-sm">
-                          {errors.industry}
+                          {errors.company}
                         </p>
                       )}
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="service">Service Required *</Label>
-                      <Select
-                        value={formData.service}
-                        onValueChange={(value) =>
-                          handleSelectChange("service", value)
-                        }
-                      >
-                        <SelectTrigger
-                          className={`py-3 ${
-                            errors.service ? "border-red-500" : ""
-                          }`}
-                        >
-                          <SelectValue placeholder="Select service type" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="toll">
-                            Toll Manufacturing
-                          </SelectItem>
-                          <SelectItem value="private">
-                            Private/White Label
-                          </SelectItem>
-                          <SelectItem value="custom">
-                            Custom Formulation
-                          </SelectItem>
-                          <SelectItem value="bulk">Bulk Supply</SelectItem>
-                          <SelectItem value="sanitizer">
-                            Hand Sanitizer
-                          </SelectItem>
-                          <SelectItem value="consultation">
-                            Technical Consultation
-                          </SelectItem>
-                          <SelectItem value="other">Other</SelectItem>
-                        </SelectContent>
-                      </Select>
-                      {errors.service && (
-                        <p className="text-red-500 text-sm">{errors.service}</p>
-                      )}
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label htmlFor="message">Requirements Details *</Label>
+                      <Label htmlFor="message">Requirements *</Label>
                       <Textarea
                         id="message"
                         name="text"
