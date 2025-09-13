@@ -16,13 +16,8 @@ export function Navigation() {
 
   return (
     <nav 
-      className="sticky top-0 z-50 text-white border-b border-white/10"
-      style={{
-        backdropFilter: 'saturate(1.4) blur(10px)',
-        background: 'linear-gradient(180deg, rgba(7,11,18,.85), rgba(7,11,18,.45))',
-        backgroundColor: '#1f4e79',
-        backgroundBlendMode: 'multiply'
-      }}
+      className="sticky top-0 bg-white border-b z-50 text-white border-b border-white/10"
+    
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">

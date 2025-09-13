@@ -4,9 +4,9 @@ import { Footer } from "./components/Footer";
 import { HeroSection } from "./components/HeroSection";
 import { Navigation } from "./components/Navigation";
 import ProductCatalog from "./components/ProductCatalouge";
-
 import { ProductsSection } from "./components/ProductsSection";
 import { ServicesSection } from "./components/ServicesSection";
+import { SolutionsBanner } from "./components/SolutionsBanner";
 import { Routes, Route, Navigate } from "react-router-dom";
 import ProductDetail from "./components/ProductDetail";
 
@@ -16,10 +16,11 @@ function App() {
       <Route
         path="/"
         element={
-          <div className="min-h-screen  bg-background">
+          <div className="min-h-screen" style={{ background: 'radial-gradient(1200px 800px at 80% -10%, rgba(102,246,193,.08), transparent 60%), radial-gradient(1200px 800px at -10% 10%, rgba(109,225,255,.08), transparent 50%), #f5f7fa' }}>
             <Navigation></Navigation>
             <main>
               <HeroSection />
+              <SolutionsBanner />
               <ProductsSection />
               <ServicesSection />
               <AboutSection />
