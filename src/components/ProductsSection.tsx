@@ -2,14 +2,14 @@ import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
 import {
-  Plane,
+  
   Tractor,
   Car,
   Construction,
-  GraduationCap,
-  Heart,
+  
+  
   Factory,
-  Zap,
+  
   ShoppingCart,
 } from "lucide-react";
 import { ImageWithFallback } from "./ui/ImageWithFallback";
@@ -20,26 +20,7 @@ export function ProductsSection() {
   const navigate = useNavigate();
   const { setSelectedChemical } = useProductStore();
   const industryCategories = [
-    {
-      id: 1,
-      title: "Aerospace",
-      description:
-        "Specialized chemicals for the aerospace industry including cleaning and maintenance solutions.",
-      icon: Plane,
-      image:
-        "https://plus.unsplash.com/premium_photo-1661501377764-3a603bc122c8?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      products: [
-        "Aircraft Cleaners",
-        "Degreasers",
-        "Paint Strippers",
-        "Maintenance Chemicals",
-      ],
-      applications: [
-        "Aircraft Maintenance",
-        "Component Cleaning",
-        "Surface Preparation",
-      ],
-    },
+    
     {
       id: 2,
       title: "Agricultural",
@@ -49,14 +30,13 @@ export function ProductsSection() {
       image:
         "https://images.unsplash.com/photo-1743362814840-bc41dd1b3a2d?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       products: [
-        "Fertilizer Additives",
-        "Crop Protection",
-        "Soil Conditioners",
-        "Agricultural Cleaners",
+        "Concentrated Foliar Nutrients",
+        "Biostimulants",
+        "Seed Treatments",
       ],
       applications: [
         "Crop Enhancement",
-        "Equipment Maintenance",
+        "Higher Yield",
         "Soil Treatment",
       ],
     },
@@ -69,12 +49,11 @@ export function ProductsSection() {
       image:
         "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       products: [
-        "Car Care Products",
-        "Engine Cleaners",
-        "Paint Strippers",
-        "Lubricants",
+        "Car Wash Products",
+        "Screenwashes & De-Icers",
+        "Leather Protection",
       ],
-      applications: ["Vehicle Maintenance", "Manufacturing", "Refinishing"],
+      applications: ["Car Wash", "Professional Care", "Corporate Solutions"],
     },
     {
       id: 4,
@@ -85,49 +64,14 @@ export function ProductsSection() {
       image:
         "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       products: [
-        "Concrete Additives",
-        "Sealers",
-        "Cleaners",
-        "Surface Treatments",
+        "Brick Acid",
+        "Grafitti Remover",
+        "Masonry Silicon",
       ],
-      applications: ["Building Construction", "Infrastructure", "Maintenance"],
+      applications: ["Building Chemicals", "Construction Sites", "New Build Homes"],
     },
-    {
-      id: 5,
-      title: "Education",
-      description:
-        "Safe and reliable chemicals for educational institutions and research facilities.",
-      icon: GraduationCap,
-      image:
-        "https://images.unsplash.com/photo-1532094349884-543bc11b234d?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      products: [
-        "Laboratory Chemicals",
-        "Cleaning Solutions",
-        "Disinfectants",
-        "Teaching Aids",
-      ],
-      applications: ["Laboratory Work", "Facility Cleaning", "Research"],
-    },
-    {
-      id: 6,
-      title: "Healthcare",
-      description:
-        "Medical-grade chemicals and sanitizers including hand sanitizer manufacturing.",
-      icon: Heart,
-      image:
-        "https://images.unsplash.com/photo-1578496479763-c21c718af028?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      products: [
-        "Hand Sanitizers",
-        "Disinfectants",
-        "Medical Cleaners",
-        "Sterilization Solutions",
-      ],
-      applications: [
-        "Healthcare Facilities",
-        "Medical Equipment",
-        "Infection Control",
-      ],
-    },
+  
+   
     {
       id: 7,
       title: "Industrial Cleaning",
@@ -139,53 +83,32 @@ export function ProductsSection() {
       products: [
         "Industrial Degreasers",
         "Heavy-Duty Cleaners",
-        "Solvent Cleaners",
-        "Maintenance Products",
+        "Alumuminium Cleaners",
       ],
       applications: [
         "Equipment Cleaning",
-        "Facility Maintenance",
-        "Industrial Processing",
-      ],
-    },
-    {
-      id: 8,
-      title: "Power Generation",
-      description:
-        "Chemicals for power generation facilities and energy infrastructure.",
-      icon: Zap,
-      image:
-        "https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?q=80&w=1674&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      products: [
-        "Cooling System Chemicals",
-        "Boiler Treatments",
-        "Cleaners",
-        "Corrosion Inhibitors",
-      ],
-      applications: [
-        "Power Plants",
-        "Energy Infrastructure",
         "Equipment Maintenance",
+        "Paint Strippers",
       ],
     },
+   
     {
       id: 9,
-      title: "Retail",
+      title: "Retail Cleaners",
       description:
         "Consumer and retail chemicals for various commercial applications.",
       icon: ShoppingCart,
       image:
         "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       products: [
-        "Retail Cleaners",
-        "Consumer Products",
-        "Specialty Formulations",
-        "Custom Solutions",
+        "Floor Cleaners",
+        "Surface Cleaners",
+        "Washing-Up Liquid",
       ],
       applications: [
-        "Retail Environments",
-        "Consumer Use",
-        "Commercial Cleaning",
+        "Restaurants & Hotels",
+        "Schools",
+        "Gyms",
       ],
     },
   ];
@@ -198,12 +121,7 @@ export function ProductsSection() {
           <h2 className="text-3xl md:text-4xl text-gray-900">
             Industries We Serve
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            From general cleaning chemicals such as disinfectants to specialty
-            chemicals such as paint strippers, our knowledge and experience
-            enable us to develop products to suit very specific customer
-            requirements.
-          </p>
+         
         </div>
 
         {/* Products Grid */}
