@@ -7,25 +7,30 @@ export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
-    { label: "Home", href: "#home" },
-    { label: "Products", href: "#products" },
-    { label: "Services", href: "#services" },
-    { label: "About", href: "#about" },
-    { label: "Contact", href: "#contact" },
+    
+    { label: "About Us", href: "#about" },
+    { label: "Our Services", href: "#services" },
+    { label: "Our Products", href: "#products" },
+    { label: "Contact Us", href: "#contact" },
   ];
 
   return (
-    <nav className="bg-white shadow-sm sticky top-0 z-50">
+    <nav 
+      className="sticky top-0 z-50 text-white border-b border-white/10"
+      style={{
+        backdropFilter: 'saturate(1.4) blur(10px)',
+        background: 'linear-gradient(180deg, rgba(7,11,18,.85), rgba(7,11,18,.45))',
+        backgroundColor: '#1f4e79',
+        backgroundBlendMode: 'multiply'
+      }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <div className="flex-shrink-0 flex items-center">
-            <img
-              src={logo}
-              alt="Midland Chemicals Ltd logo"
-              className="h-16 w-auto"
-            />
-          </div>
+          <a className="flex items-center gap-3 font-bold tracking-wide" href="#top" aria-label="Midland Chemicals Home">
+           
+            <img src={logo} alt="Midland Chemicals Ltd logo" className="h-16 w-auto" />
+          </a>
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
@@ -34,7 +39,7 @@ export function Navigation() {
                 <a
                   key={item.label}
                   href={item.href}
-                  className="text-gray-600 hover:text-primary px-4 py-2 text-base font-medium transition-colors"
+                  className="bg-[#2b648a] text-white px-4 py-2.5 rounded-full font-bold shadow-xl hover:shadow-2xl hover:-translate-y-0.5 hover:scale-105 transition-all duration-200"
                 >
                   {item.label}
                 </a>
@@ -42,26 +47,6 @@ export function Navigation() {
             </div>
           </div>
 
-          {/* CTA Button */}
-          <div className="hidden md:block">
-            <Button
-              onClick={() => {
-                const element = document.getElementById("contact-form");
-                if (element) {
-                  const topOffset =
-                    element.getBoundingClientRect().top + window.scrollY - 100;
-                  window.scrollTo({
-                    top: topOffset,
-                    behavior: "smooth",
-                  });
-                }
-              }}
-              size="lg"
-              className="px-8 cursor-pointer py-3 text-base"
-            >
-              Get Quote
-            </Button>
-          </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden">
@@ -87,17 +72,12 @@ export function Navigation() {
                 <a
                   key={item.label}
                   href={item.href}
-                  className="text-gray-600 hover:text-primary block px-4 py-3 text-base font-medium"
+                  className="bg-[#2b648a] text-white px-4 py-2.5 rounded-full font-bold shadow-xl hover:shadow-2xl hover:-translate-y-0.5 hover:scale-105 transition-all duration-200 block"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.label}
                 </a>
               ))}
-              <div className="px-4 py-3">
-                <Button size="lg" className="w-full px-8 py-3 text-base">
-                  Get Quote
-                </Button>
-              </div>
             </div>
           </div>
         )}
