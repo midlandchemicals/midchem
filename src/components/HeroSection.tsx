@@ -26,6 +26,47 @@ export function HeroSection() {
           opacity: 1;
           transform: none;
         }
+        @media (max-width: 768px) {
+          .title {
+            font-size: clamp(24px, 4vw, 42px) !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+            hyphens: auto !important;
+            line-height: 1.1 !important;
+          }
+          .chip {
+            padding: 8px 12px !important;
+            font-size: 12px !important;
+          }
+          .chip svg {
+            width: 16px !important;
+            height: 16px !important;
+          }
+        }
+        @media (max-width: 480px) {
+          .title {
+            font-size: clamp(20px, 3.5vw, 32px) !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+            hyphens: auto !important;
+            line-height: 1.15 !important;
+          }
+          .chip {
+            padding: 4px 8px !important;
+            font-size: 10px !important;
+            white-space: normal !important;
+            text-align: center !important;
+            min-height: 32px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+          }
+          .chip svg {
+            width: 12px !important;
+            height: 12px !important;
+            flex-shrink: 0 !important;
+          }
+        }
       `}</style>
       <header id="top" className="hero container" style={{ position: 'relative', padding: '64px 0 56px', overflow: 'hidden', width: 'min(1200px, 92vw)', margin: '0 auto' }}>
         <div className="glow" aria-hidden="true" style={{ position: 'absolute', inset: '-10%', background: 'radial-gradient(800px 500px at 20% 10%, rgba(102,246,193,.12), transparent 60%), radial-gradient(900px 600px at 85% 20%, rgba(109,225,255,.12), transparent 55%)', filter: 'blur(20px)', pointerEvents: 'none' }}></div>
