@@ -114,7 +114,17 @@ export function ProductsSection() {
   ];
 
   return (
-    <section id="products" className="py-20 bg-white">
+    <>
+      <style>{`
+        .custom-card {
+          background: #17263A !important;
+          transition: background 0.3s;
+        }
+        .custom-card:hover {
+          background: #2B648A !important;
+        }
+      `}</style>
+    <section id="products" className="py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center space-y-4 mb-16">
@@ -131,7 +141,7 @@ export function ProductsSection() {
             return (
               <Card
                 key={category.id}
-                className="group hover:shadow-lg flex flex-col justify-between transition-shadow duration-300"
+                className="custom-card group hover:shadow-lg flex flex-col justify-between transition-shadow duration-300"
               >
                 <CardHeader className="flex flex-col gap-y-4">
                   <div className="aspect-[4/3] rounded-lg overflow-hidden">
@@ -146,17 +156,17 @@ export function ProductsSection() {
                     <div className="p-3 bg-primary/10 rounded-lg">
                       <IconComponent className="h-7 w-7 text-primary" />
                     </div>
-                    <CardTitle className="text-xl">{category.title}</CardTitle>
+                    <CardTitle className="text-xl text-white">{category.title}</CardTitle>
                   </div>
                 </CardHeader>
 
                 <CardContent className="flex flex-col  gap-y-5 flex-1">
-                  <p className="text-gray-600 min-h-16">
+                  <p className="text-gray-200 min-h-16">
                     {category.description}
                   </p>
 
                   <div className="flex flex-col gap-2">
-                    <h4 className="text-sm font-medium text-gray-900">
+                    <h4 className="text-sm font-medium text-white">
                       Product Examples:
                     </h4>
                     <div className="flex flex-wrap gap-1">
@@ -178,10 +188,10 @@ export function ProductsSection() {
                   </div>
 
                   <div className="flex flex-col gap-2">
-                    <h4 className="text-sm font-medium text-gray-900">
+                    <h4 className="text-sm font-medium text-white">
                       Applications:
                     </h4>
-                    <div className="text-sm text-gray-600">
+                    <div className="text-sm text-gray-200">
                       {category.applications.join(" • ")}
                     </div>
                   </div>
@@ -248,12 +258,13 @@ export function ProductsSection() {
               }
             }}
             size="lg"
-            className="px-8 py-4 cursor-pointer text-lg h-auto"
+            className="px-8 bg-[#008060] hover:bg-[#00694e] transition-colors py-4 cursor-pointer text-lg h-auto"
           >
             Contact Our R&D Team
           </Button>
         </div>
       </div>
     </section>
+    </>
   );
 }
