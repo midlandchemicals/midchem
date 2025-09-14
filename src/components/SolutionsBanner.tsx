@@ -144,7 +144,7 @@ export function SolutionsBanner() {
           <strong>aerospace, automotive, construction,</strong> and <strong>healthcare</strong>.
         </p>
         <div className="solutions-actions">
-          <a href="#benefits" className="btn outline">All Industries We Serve</a>
+          <a href="#products" className="btn outline">All Industries We Serve</a>
           <a href="https://ilex-envirosciences.com/" target="_blank" rel="noopener noreferrer" className="btn primary">Discover Ilex®</a>
         </div>
       </div>
