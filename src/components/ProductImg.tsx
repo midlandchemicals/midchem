@@ -28,25 +28,31 @@ const ProductImg: React.FC<{ product: productDetails }> = ({ product }) => {
       />
       {/* Label Overlay */}
       <div
-        className={`w-[85%] shadow-2xl py-2 rounded-xl flex flex-col gap-y-2 absolute ${
+        className={`w-[85%] py-2 rounded-xl flex flex-col gap-y-2 absolute ${
           topLen[selectedChemical as keyof typeof topLen] || "top-62"
-        } left-1/2 -translate-x-1/2 z-10 px-4 border bg-[#f3f3f3] h-auto`}
+        } left-1/2 -translate-x-1/2 z-10 px-4 h-auto`}
+        style={{
+          boxShadow: 'var(--shadow)',
+          border: '1px solid rgba(255,255,255,.08)',
+          backgroundColor: 'var(--panel)',
+          borderRadius: 'var(--radius)'
+        }}
       >
         <div className="flex justify-between">
-          <span className="text-nowrap   text-sm font-medium p-1 bg-[#d5e5ff] rounded">
+          <span className="text-nowrap text-sm font-medium p-1 rounded theme-text" style={{ backgroundColor: 'var(--brand-2)' }}>
             {product.code}
           </span>
-          <span className="text-nowrap max-w-40 overflow-hidden text-ellipsis text-sm">
+          <span className="text-nowrap max-w-40 overflow-hidden text-ellipsis text-sm theme-text-dim">
             {selectedChemical}
           </span>
         </div>
         <div className="flex items-start flex-col">
           {product.highlights.map((val: string) => {
-            return <li className="text-xs text-nowrap">{val}</li>;
+            return <li className="text-xs theme-text-dim text-nowrap">{val}</li>;
           })}
         </div>
 
-        <div className="border bg-blue-500 flex gap-1 rounded-full px-2 py-1 w-fit">
+        <div className="border flex gap-1 rounded-full px-2 py-1 w-fit" style={{ backgroundColor: 'var(--brand)' }}>
           <span className="text-[8px] font-medium text-white">5L</span>
           <span className="text-[8px] font-medium text-white">10L</span>
           <span className="text-[8px] font-medium text-white">25L</span>

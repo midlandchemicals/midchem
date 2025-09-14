@@ -187,10 +187,37 @@ const ProductDetail = () => {
 
   if (product === null) return "Loading...";
   return (
-    <div className="min-h-[100dvh] flex flex-col bg-gradient-to-br from-slate-50 to-blue-50">
+    <>
+      <style>{`
+:root {
+  --bg: #f5f7fa;
+  --panel: #ffffff;
+  --panel-2: #e3ebf5;
+  --brand: #1f4e79;
+  --brand-2: #3a7ca5;
+  --text: #0d1b2a;
+  --text-dim: #556b7a;
+  --ring: rgba(102,246,193,.35);
+  --radius: 20px;
+  --shadow: 0 10px 40px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.04);
+}
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+.theme-panel { background-color: var(--panel); border: 1px solid rgba(255,255,255,.08); border-radius: var(--radius); box-shadow: var(--shadow); }
+.theme-card { background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)); border: 1px solid rgba(255,255,255,.08); border-radius: var(--radius); box-shadow: var(--shadow); }
+.theme-button { background: linear-gradient(135deg, var(--brand-2), var(--brand)); color: white; border: none; padding: 12px 24px; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; }
+.theme-button:hover { background: linear-gradient(135deg, #25a25a, #177b55); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,.2); }
+.theme-text { color: var(--text); }
+.theme-text-dim { color: var(--text-dim); }
+.theme-brand { color: var(--brand); }
+.theme-container { width: min(1200px, 92vw); margin: 0 auto; }
+.theme-section { padding: 84px 0; }
+      `}</style>
+      <div className="min-h-[100dvh] flex flex-col" style={{ background: 'radial-gradient(1200px 800px at 80% -10%, rgba(102,246,193,.08), transparent 60%), radial-gradient(1200px 800px at -10% 10%, rgba(109,225,255,.08), transparent 50%), #f5f7fa' }}>
       {/* Header */}
-      <header className="bg-white shadow-lg border-b-4 border-blue-600">
-        <div className="max-w-7xl mx-auto  px-6 py-6">
+      <header className="theme-panel theme-shadow" style={{ borderBottom: '4px solid var(--brand)' }}>
+        <div className="theme-container px-6 py-6">
           <div className="flex md:flex-row flex-col space-y-2 md:space-y-0 items-start md:items-center justify-start md:justify-between">
             <div
               onClick={() => navigate("/")}
@@ -200,16 +227,16 @@ const ProductDetail = () => {
                 <img src={logo} className="lg:h-18 h-12 w-20 lg:w-40" alt="" />
               </div>
               <div>
-                <h1 className="lg:text-2xl text-nowrap text-xl font-bold text-gray-800">
+                <h1 className="lg:text-2xl text-nowrap text-xl font-bold theme-text">
                   Midland Chemicals
                 </h1>
-                <p className="md:text-sm text-xs text-blue-600 font-medium">
+                <p className="md:text-sm text-xs theme-brand font-medium">
                   Professional Cleaning Solutions
                 </p>
               </div>
             </div>
             <div className="md:text-right">
-              <span className="bg-blue-100 text-nowrap text-blue-800 px-3 py-1 rounded-full text-xs md:text-sm font-semibold">
+              <span style={{ backgroundColor: 'var(--brand-2)', color: 'var(--panel)' }} className="text-nowrap px-3 py-1 rounded-full text-xs md:text-sm font-semibold">
                 Product Code: {product?.code}
               </span>
             </div>
@@ -217,9 +244,9 @@ const ProductDetail = () => {
         </div>
       </header>
 
-      <div className="max-w-[1300px] mx-auto px-6 py-12 flex-grow">
+      <div className="theme-container px-6 py-12 flex-grow">
         {/* Product Hero Section */}
-        <div className="bg-white rounded-2xl shadow-2xl overflow-hidden mb-12">
+        <div className="theme-card overflow-hidden mb-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
             {/* Product Image */}
             <div className="bg-gradient-to-br from-blue-50 to-indigo-100 p-8 flex items-center justify-center">
@@ -262,17 +289,17 @@ const ProductDetail = () => {
                     Professional Grade
                   </span>
                 </div>
-                <h2 className="text-4xl font-bold text-gray-800 mb-4">
+                <h2 className="text-4xl font-bold theme-text mb-4">
                   {product?.name}
                 </h2>
-                <p className="text-lg text-gray-600 leading-relaxed mb-6">
+                <p className="text-lg theme-text-dim leading-relaxed mb-6">
                   {product?.description}
                 </p>
               </div>
 
               {/* Key Highlights */}
               <div className="mb-6">
-                <h3 className="text-xl font-bold text-gray-800 mb-4">
+                <h3 className="text-xl font-bold theme-text mb-4">
                   Key Benefits
                 </h3>
                 <div className="grid grid-cols-1 gap-3">
@@ -282,7 +309,7 @@ const ProductDetail = () => {
                       className="flex items-center space-x-3 bg-blue-50 p-3 rounded-lg"
                     >
                       <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0" />
-                      <span className="text-gray-700 font-medium">
+                      <span className="theme-text-dim font-medium">
                         {highlight}
                       </span>
                     </div>
@@ -292,7 +319,7 @@ const ProductDetail = () => {
 
               {/* Size Selection */}
               <div className="mb-8">
-                <h3 className="text-xl font-bold text-gray-800 mb-4">
+                <h3 className="text-xl font-bold theme-text mb-4">
                   Available Sizes
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
@@ -387,8 +414,8 @@ const ProductDetail = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
           {/* Features */}
           <div className="bg-white rounded-xl shadow-lg p-8">
-            <h3 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-              <Sparkles className="w-6 h-6 text-blue-600 mr-2" />
+            <h3 className="text-2xl font-bold theme-text mb-6 flex items-center">
+              <Sparkles className="w-6 h-6 theme-brand mr-2" />
               Product Features
             </h3>
             <div className="space-y-4">
@@ -403,8 +430,8 @@ const ProductDetail = () => {
 
           {/* Applications */}
           <div className="bg-white rounded-xl shadow-lg p-8">
-            <h3 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-              <Building2 className="w-6 h-6 text-green-600 mr-2" />
+            <h3 className="text-2xl font-bold theme-text mb-6 flex items-center">
+              <Building2 className="w-6 h-6 mr-2" style={{ color: '#25a25a' }} />
               Ideal Applications
             </h3>
             <div className="space-y-4 mb-6">
@@ -426,7 +453,7 @@ const ProductDetail = () => {
               {product?.surfaces.map((surface, index) => (
                 <div key={index} className="flex items-center space-x-2">
                   <CheckCircle className="w-4 h-4 text-green-500" />
-                  <span className="text-sm text-gray-600">{surface}</span>
+                  <span className="text-sm theme-text-dim">{surface}</span>
                 </div>
               ))}
             </div>
@@ -434,13 +461,13 @@ const ProductDetail = () => {
         </div>
 
         {/* Inquiry Form */}
-        <div className="bg-white rounded-2xl shadow-2xl border border-gray-200">
+        <div className="theme-card">
           <div className="p-8">
             <div className="text-center mb-8">
-              <h2 className="text-3xl font-bold text-gray-800 mb-4">
+              <h2 className="text-3xl font-bold theme-text mb-4">
                 Request Product Information
               </h2>
-              <p className="text-lg text-gray-600">
+              <p className="text-lg theme-text-dim">
                 {`  Interested in ${product?.name}? Get detailed pricing
                 and availability information.`}
               </p>
@@ -598,7 +625,7 @@ const ProductDetail = () => {
 
                   <button
                     type="submit"
-                    className="w-full bg-[#2563eb] text-white font-bold py-4 px-8 rounded-lg cursor-pointer transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                    className="w-full theme-button py-4 px-8 cursor-pointer transform hover:scale-105 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                   >
                     Request Product Information
                   </button>
@@ -610,20 +637,21 @@ const ProductDetail = () => {
       </div>
 
       {/* Footer */}
-      <footer className="bg-gray-800 text-white py-8 mt-16 pt-8">
-        <div className="max-w-7xl mx-auto px-6 text-center">
+      <footer style={{ backgroundColor: 'var(--brand)' }} className="text-white py-8 mt-16 pt-8">
+        <div className="theme-container px-6 text-center">
           <div className="flex items-center justify-center space-x-4 mb-4">
             <div>
               <img src={logo} className="lg:h-18 h-12 w-20 lg:w-40" alt="" />
             </div>
             <span className="text-xl font-bold">Midland Chemicals</span>
           </div>
-          <p className="text-gray-400">
+          <p className="text-white">
             Professional Glass Cleaning Solutions - Crystal Clear Results
           </p>
         </div>
       </footer>
     </div>
+    </>
   );
 };
 

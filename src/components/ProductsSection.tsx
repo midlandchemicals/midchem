@@ -201,27 +201,29 @@ export function ProductsSection() {
                       variant="outline"
                       className="w-full cursor-pointer py-3 text-base"
                       onClick={() => {
-                        navigate("/products");
-                        if (
-                          category.title === "Automotive" ||
-                          category.title === "Power Generation"
-                        ) {
-                          setSelectedChemical("Automotive Chemicals");
-                        } else if (category.title === "Industrial Cleaning") {
-                          setSelectedChemical("Paint Strippers");
-                        } else if (category.title === "Construction") {
-                          setSelectedChemical("Building Chemicals");
-                        } else if (category.title === "Agricultural") {
-                          setSelectedChemical("Food Processing");
-                        } else if (
-                          category.title === "Aerospace" ||
-                          category.title === "Education"
-                        ) {
-                          setSelectedChemical("Speciality Chemicals");
-                        } else if (category.title === "Retail") {
-                          setSelectedChemical("Paint Strippers");
-                        } else if (category.title === "Healthcare") {
-                          setSelectedChemical("Hand Cleaners");
+                        if (category.title === "Agricultural") {
+                          window.open("https://ilex-envirosciences.com/", "_blank");
+                        } else {
+                          navigate("/products");
+                          if (
+                            category.title === "Automotive" ||
+                            category.title === "Power Generation"
+                          ) {
+                            setSelectedChemical("Automotive Chemicals");
+                          } else if (category.title === "Industrial Cleaning") {
+                            setSelectedChemical("Paint Strippers");
+                          } else if (category.title === "Construction") {
+                            setSelectedChemical("Building Chemicals");
+                          } else if (
+                            category.title === "Aerospace" ||
+                            category.title === "Education"
+                          ) {
+                            setSelectedChemical("Speciality Chemicals");
+                          } else if (category.title === "Retail") {
+                            setSelectedChemical("Paint Strippers");
+                          } else if (category.title === "Healthcare") {
+                            setSelectedChemical("Hand Cleaners");
+                          }
                         }
                       }}
                     >
