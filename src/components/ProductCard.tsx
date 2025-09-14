@@ -1,4 +1,3 @@
-import { useState } from "react";
 import ProductImg from "./ProductImg";
 import useProductStore from "../store";
 import { useNavigate } from "react-router-dom";
@@ -39,7 +38,6 @@ const getBgClass = (code: string) => {
 };
 
 const ProductCard: React.FC<{ product: productDetails }> = ({ product }) => {
-  const [isHovered, setIsHovered] = useState(false);
   const { selectedChemical } = useProductStore();
   const navigate = useNavigate();
 
@@ -270,8 +268,6 @@ const ProductCard: React.FC<{ product: productDetails }> = ({ product }) => {
       <div
         className="product-card"
         onClick={() => handleClick(product.id)}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
       >
         {/* Featured badge for popular products */}
         {product.highlights.length > 3 && (
