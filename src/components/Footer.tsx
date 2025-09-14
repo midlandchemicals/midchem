@@ -1,5 +1,5 @@
 import { Separator } from "./ui/separator";
-import { Mail, Phone, MapPin, Linkedin, Twitter, Facebook } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
 import logo from "../assets/logo.png";
 import { PrivacyPolicyModal } from "./PrivacyPolicyModal";
 import { ReachStatementModal } from "./ReachStatementModal";
@@ -18,7 +18,6 @@ export function Footer() {
     { label: "Toll Manufacturing", href: "#toll" },
     { label: "Private Label Service", href: "#private" },
     { label: "Custom Formulations", href: "#custom" },
-    { label: "Hand Sanitizer", href: "#sanitizer" },
     { label: "Bulk Supply", href: "#bulk" },
     { label: "Technical Support", href: "#support" },
   ];
@@ -34,7 +33,6 @@ export function Footer() {
 
   const complianceLinks = [
     { label: "CLP/GHS Compliance", href: "#clp" },
-    { label: "ISO Certifications", href: "#iso" },
   ];
 
   return (
@@ -180,26 +178,6 @@ export function Footer() {
             </span>
           </div>
 
-          <div className="flex space-x-4">
-            <a
-              href="#linkedin"
-              className="text-gray-300 hover:text-white transition-colors"
-            >
-              <Linkedin className="h-6 w-6" />
-            </a>
-            <a
-              href="#twitter"
-              className="text-gray-300 hover:text-white transition-colors"
-            >
-              <Twitter className="h-6 w-6" />
-            </a>
-            <a
-              href="#facebook"
-              className="text-gray-300 hover:text-white transition-colors"
-            >
-              <Facebook className="h-6 w-6" />
-            </a>
-          </div>
         </div>
       </div>
     </footer>
