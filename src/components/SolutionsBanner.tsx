@@ -134,7 +134,7 @@ export function SolutionsBanner() {
       </div>
 
       {/* Solutions content */}
-      <div style={{ width: 'min(1000px, 85vw)', margin: '0 auto' }}>
+      <div style={{ width: 'min(1000px, 85vw)', margin: '0 auto' } as React.CSSProperties}>
         <h2 className="solutions-title">
           Powering Agriculture & Industry
         </h2>
