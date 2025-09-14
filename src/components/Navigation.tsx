@@ -43,11 +43,11 @@ export function Navigation() {
           </div>
 
 
-          {/* Mobile menu button */}
           <div className="md:hidden">
             <Button
               variant="ghost"
               size="lg"
+              style={{ opacity: 1, backgroundColor: 'rgba(0,0,0,0.3)', color: 'white', border: '1px solid rgba(255,255,255,0.3)', borderRadius: '0.5rem' }}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? (

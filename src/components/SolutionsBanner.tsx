@@ -107,8 +107,8 @@ export function SolutionsBanner() {
             flex-direction: column;
           }
           .btn {
-            width: 100%;
             max-width: 260px;
+            margin: 0 auto;
           }
           .banner-container {
             flex-direction: column;
@@ -116,7 +116,7 @@ export function SolutionsBanner() {
             text-align: center;
           }
           .banner-logo {
-            height: 48px;
+            height: auto;
           }
           .banner-text {
             font-size: 0.9rem;
