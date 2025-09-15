@@ -14,6 +14,15 @@ export function HeroSection() {
           --radius: 20px;
           --shadow: 0 10px 40px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.04);
         }
+        .subtitle {
+          display: block;
+          white-space: normal;
+          word-break: break-word;
+          overflow-wrap: anywhere;
+          text-wrap: wrap;
+          max-width: 100%;
+          hyphens: auto;
+        }
         @keyframes scroll {
           to { transform: translateX(-50%); }
         }
@@ -28,11 +37,19 @@ export function HeroSection() {
         }
         @media (max-width: 768px) {
           .title {
-            font-size: clamp(24px, 4vw, 42px) !important;
+            font-size: clamp(24px, 8vw, 42px) !important;
             word-wrap: break-word !important;
             overflow-wrap: break-word !important;
             hyphens: auto !important;
             line-height: 1.1 !important;
+          }
+          .subtitle {
+            font-size: clamp(14px, 2vw, 17px) !important;
+            line-height: 1.4 !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+            hyphens: auto !important;
+            max-width: 100% !important;
           }
           .chip {
             padding: 8px 12px !important;
@@ -45,11 +62,19 @@ export function HeroSection() {
         }
         @media (max-width: 480px) {
           .title {
-            font-size: clamp(20px, 3.5vw, 32px) !important;
+            font-size: clamp(20px, 7vw, 28px) !important;
             word-wrap: break-word !important;
             overflow-wrap: break-word !important;
             hyphens: auto !important;
             line-height: 1.15 !important;
+          }
+          .subtitle {
+            font-size: clamp(13px, 1.8vw, 15px) !important;
+            line-height: 1.35 !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+            hyphens: auto !important;
+            max-width: 100% !important;
           }
           .chip {
             padding: 4px 8px !important;
@@ -76,9 +101,6 @@ export function HeroSection() {
           .chip-groups {
             flex-direction: column;
             align-items: flex-start;
-          }
-          .subtitle {
-            max-width: 44ch !important;
           }
         }
         .chip-groups {
@@ -120,19 +142,19 @@ export function HeroSection() {
           style={
             {
               display: "grid",
-              gridTemplateColumns: "1.1fr .9fr",
+              gridTemplateColumns: "1fr",
               gap: "42px",
               alignItems: "center",
             } as React.CSSProperties
           }
         >
-          <div>
+          <div style={{ maxWidth: "100%", overflow: "hidden" } as React.CSSProperties}>
             <h1
               className="title reveal in"
               style={
                 {
                   fontFamily: "'Plus Jakarta Sans', sans-serif",
-                  fontSize: "clamp(36px, 5.6vw, 64px)",
+                  fontSize: "clamp(48px, 6.8vw, 64px)",
                   lineHeight: "1.03",
                   fontWeight: "900",
                   margin: "0 0 16px",
@@ -162,8 +184,13 @@ export function HeroSection() {
                 {
                   fontSize: "clamp(16px,2.2vw,19px)",
                   color: "var(--text-dim)",
-                  maxWidth: "52ch",
+                  width: "100%",
+                  maxWidth: "100%",
+                  padding: "0 21px 0 0",
                   transitionDelay: ".1s",
+                  wordWrap: "break-word",
+                  overflowWrap: "break-word",
+                  whiteSpace: "normal",
                 } as React.CSSProperties
               }
             >
@@ -352,22 +379,7 @@ export function HeroSection() {
               </span>
             </div>
           </div>
-          <div
-            className="hero-card reveal in"
-            style={
-              {
-                background:
-                  "linear-gradient(180deg,rgba(255,255,255,.06),rgba(45, 103, 105,.02))",
-                border: "1px solid rgba(255,255,255,.08)",
-                borderRadius: "var(--radius)",
-                boxShadow: "var(--shadow)",
-                padding: "22px",
-                position: "relative",
-                overflow: "hidden",
-                transitionDelay: ".35s",
-              } as React.CSSProperties
-            }
-          ></div>
+         
         </div>
       </header>
     </>

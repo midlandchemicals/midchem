@@ -144,19 +144,20 @@ export function ProductsSection() {
                 className="custom-card group hover:shadow-lg flex flex-col justify-between transition-shadow duration-300"
               >
                 <CardHeader className="flex flex-col gap-y-4">
+                  <div className="flex justify-center">
+                    <div className="inline-flex items-center space-x-3">
+                      <div className="p-3 bg-primary/10 rounded-lg">
+                        <IconComponent className="h-7 w-7 text-white" />
+                      </div>
+                      <CardTitle className="text-xl text-white">{category.title}</CardTitle>
+                    </div>
+                  </div>
                   <div className="aspect-[4/3] rounded-lg overflow-hidden">
                     <ImageWithFallback
                       src={category.image}
                       alt={category.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
-                  </div>
-
-                  <div className="flex items-center space-x-3">
-                    <div className="p-3 bg-primary/10 rounded-lg">
-                      <IconComponent className="h-7 w-7 text-primary" />
-                    </div>
-                    <CardTitle className="text-xl text-white">{category.title}</CardTitle>
                   </div>
                 </CardHeader>
 
