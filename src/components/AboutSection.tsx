@@ -152,9 +152,9 @@ export function AboutSection() {
             <div className="team-member">
               <div className="avatar">BA</div>
               <div className="info">
-                <h3>Brian Acconley</h3>
+                <h3>Brian Aconley</h3>
                 <p className="muted">Agricultural Consultant</p>
-                <p className="bio">Brian Acconley is an expert agricultural chemical specialist, dedicated to helping farmers and businesses achieve optimal results. At Midland Chemicals, he collaborates closely with clients to design and develop products precisely tailored to their specific requirements.</p>
+                <p className="bio">Brian Aconley is an expert agricultural chemical specialist, dedicated to helping farmers and businesses achieve optimal results. At Midland Chemicals, he collaborates closely with clients to design and develop products precisely tailored to their specific requirements.</p>
                 <a href="mailto:brian@ilex-envirosciences.com">brian@ilex-envirosciences.com</a>
               </div>
             </div>
