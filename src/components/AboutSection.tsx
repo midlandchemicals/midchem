@@ -144,9 +144,9 @@ export function AboutSection() {
               <div className="avatar">RC</div>
               <div className="info">
                 <h3>Robert Cameron</h3>
-                <p className="muted">Technical Manager</p>
+                <p className="muted">Technical Director</p>
                 <p className="bio">Robert brings years of technical chemistry expertise and a practical understanding of product innovation. He works alongside customers to solve complex challenges and develops bespoke formulations that give them a competitive edge.</p>
-                <a href="mailto:robert@midlandchem.com">robert@midlandchem.com</a>
+                <a href="mailto:rob@midlandchem.com">rob@midlandchem.com</a>
               </div>
             </div>
             <div className="team-member">
