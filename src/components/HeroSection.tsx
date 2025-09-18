@@ -355,7 +355,7 @@ export function HeroSection() {
                     opacity: ".8",
                     animation: "scroll 15s linear infinite",
                     color: "#3a7ca5",
-                    font-size: "20px" ,
+                    font-size: "20px",
                   } as React.CSSProperties
                 }
               >
@@ -371,7 +371,7 @@ export function HeroSection() {
                     opacity: ".8",
                     animation: "scroll 15s linear infinite",
                     color: "#3a7ca5",
-                    font-size: "20px" ,
+                    font-size: "20px",
                   } as React.CSSProperties
                 }
               >
