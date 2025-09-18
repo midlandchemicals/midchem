@@ -28,7 +28,7 @@ export function ProductsSection() {
         "Agricultural chemicals and formulations for crop protection and enhancement.",
       icon: Tractor,
       image:
-        "https://images.unsplash.com/photo-1743362814840-bc41dd1b3a2d?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1498408040764-ab6eb772a145?q=80&w=2344&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       products: [
         "Concentrated Foliar Nutrients",
         "Biostimulants",
