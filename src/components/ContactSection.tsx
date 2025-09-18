@@ -1,4 +1,3 @@
-
 import { MapPin, Phone, Mail, Clock, CheckCircle } from "lucide-react";
 import { useState } from "react";
 
@@ -72,7 +71,7 @@ export function ContactSection() {
     const formDataObj = new FormData(form);
 
     try {
-      const response = await fetch("https://formspree.io/f/xrblpgvd", {
+      const response = await fetch("https://formspree.io/f/myznqarl", {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -469,14 +468,12 @@ export function ContactSection() {
           }
         }
       `}</style>
-      
+
       <section id="contact" className="contact-section">
         <div className="contact-container">
           {/* Header */}
           <div className="contact-header">
-            <h2 className="contact-title">
-              Contact Midland Chemicals
-            </h2>
+            <h2 className="contact-title">Contact Midland Chemicals</h2>
             <p className="contact-subtitle">
               Ready to discuss your chemical manufacturing requirements? Our
               experienced team based in Atherstone, Warwickshire is here to help
@@ -513,21 +510,15 @@ export function ContactSection() {
                 <div className="quick-contact-card">
                   <Mail size={40} className="quick-contact-icon" />
                   <h3 className="quick-contact-title">Email Us Now</h3>
-                  <p className="quick-contact-text">
-                    sales@midlandchem.com
-                  </p>
-                  <button className="quick-contact-btn">
-                    Send Email
-                  </button>
+                  <p className="quick-contact-text">sales@midlandchem.com</p>
+                  <button className="quick-contact-btn">Send Email</button>
                 </div>
 
                 <div className="quick-contact-card green">
                   <Phone size={40} className="quick-contact-icon" />
                   <h3 className="quick-contact-title">Call Us Now</h3>
                   <p className="quick-contact-text">01827 722911</p>
-                  <button className="quick-contact-btn">
-                    Call Now
-                  </button>
+                  <button className="quick-contact-btn">Call Now</button>
                 </div>
               </div>
             </div>
@@ -555,7 +546,9 @@ export function ContactSection() {
                   </div>
                   <form id="inquiry-form" onSubmit={handleSubmit}>
                     <div className="form-group">
-                      <label htmlFor="name" className="form-label">Name *</label>
+                      <label htmlFor="name" className="form-label">
+                        Name *
+                      </label>
                       <input
                         id="name"
                         name="name"
@@ -571,7 +564,9 @@ export function ContactSection() {
 
                     <div className="form-grid">
                       <div className="form-group">
-                        <label htmlFor="email" className="form-label">Email *</label>
+                        <label htmlFor="email" className="form-label">
+                          Email *
+                        </label>
                         <input
                           id="email"
                           type="email"
@@ -579,14 +574,18 @@ export function ContactSection() {
                           value={formData.email}
                           onChange={handleInputChange}
                           placeholder="john@company.com"
-                          className={`form-input ${errors.email ? "error" : ""}`}
+                          className={`form-input ${
+                            errors.email ? "error" : ""
+                          }`}
                         />
                         {errors.email && (
                           <p className="error-message">{errors.email}</p>
                         )}
                       </div>
                       <div className="form-group">
-                        <label htmlFor="phone" className="form-label">Phone *</label>
+                        <label htmlFor="phone" className="form-label">
+                          Phone *
+                        </label>
                         <input
                           id="phone"
                           name="phone"
@@ -594,7 +593,9 @@ export function ContactSection() {
                           onChange={handleInputChange}
                           type="tel"
                           placeholder="+44 1234 567890"
-                          className={`form-input ${errors.phone ? "error" : ""}`}
+                          className={`form-input ${
+                            errors.phone ? "error" : ""
+                          }`}
                         />
                         {errors.phone && (
                           <p className="error-message">{errors.phone}</p>
@@ -603,14 +604,18 @@ export function ContactSection() {
                     </div>
 
                     <div className="form-group">
-                      <label htmlFor="company" className="form-label">Company *</label>
+                      <label htmlFor="company" className="form-label">
+                        Company *
+                      </label>
                       <input
                         id="company"
                         name="company"
                         value={formData.company}
                         onChange={handleInputChange}
                         placeholder="Your Company Name"
-                        className={`form-input ${errors.company ? "error" : ""}`}
+                        className={`form-input ${
+                          errors.company ? "error" : ""
+                        }`}
                       />
                       {errors.company && (
                         <p className="error-message">{errors.company}</p>
@@ -618,14 +623,18 @@ export function ContactSection() {
                     </div>
 
                     <div className="form-group">
-                      <label htmlFor="message" className="form-label">Requirements *</label>
+                      <label htmlFor="message" className="form-label">
+                        Requirements *
+                      </label>
                       <textarea
                         id="message"
                         name="text"
                         value={formData.text}
                         onChange={handleInputChange}
                         placeholder="Please describe your chemical requirements, quantities needed, specifications, target markets, or any specific questions about our toll manufacturing or private label services..."
-                        className={`form-textarea ${errors.text ? "error" : ""}`}
+                        className={`form-textarea ${
+                          errors.text ? "error" : ""
+                        }`}
                       />
                       {errors.text && (
                         <p className="error-message">{errors.text}</p>
