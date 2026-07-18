@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "./lumen.css";
 
 :root {
   --font-size: 14px;

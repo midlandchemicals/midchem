@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import ProductOptions from "./ProductOptions";
 import Products from "./Products";
+import { Caustics } from "./Caustics";
 
 const ProductCatalouge = () => {
   useEffect(() => {
@@ -11,11 +12,11 @@ const ProductCatalouge = () => {
     <>
       <style>{`
         :root {
-          --bg: #f5f7fa;        
-          --panel: #ffffff;     
-          --panel-2: #e3ebf5;  
-          --brand: #1f4e79;    
-          --brand-2: #3a7ca5;   
+          --bg: #f4f8f8;
+          --panel: #ffffff;
+          --panel-2: #eaf1f1;
+          --brand: #05262c;
+          --brand-2: #1e9d8f;
           --text: #0d1b2a;    
           --text-dim: #556b7a; 
           --ring: rgba(102,246,193,.35);
@@ -32,33 +33,9 @@ const ProductCatalouge = () => {
         
         .catalog-hero {
           position: relative;
-          padding: 120px 0 80px;
-          background: linear-gradient(135deg, var(--brand), var(--brand-2));
+          padding: 110px 0 70px;
+          background: var(--abyss);
           overflow: hidden;
-        }
-        
-        .catalog-hero::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background: radial-gradient(600px 400px at 20% 10%, rgba(102,246,193,.15), transparent 60%), 
-                      radial-gradient(800px 500px at 80% 20%, rgba(109,225,255,.12), transparent 55%);
-          pointer-events: none;
-        }
-        
-        .catalog-hero::after {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background: radial-gradient(1200px 800px at -10% 10%, rgba(109,225,255,.08), transparent 50%);
-          filter: blur(20px);
-          pointer-events: none;
         }
         
         .catalog-container {
@@ -76,22 +53,25 @@ const ProductCatalouge = () => {
         }
         
         .catalog-title {
-          font-family: 'Plus Jakarta Sans', sans-serif;
-          font-size: clamp(32px, 6vw, 72px);
-          font-weight: 900;
-          margin: 0 0 24px;
-          letter-spacing: -0.02em;
-          line-height: 1.1;
-          text-shadow: 0 4px 20px rgba(0,0,0,0.2);
+          font-family: var(--lm-serif);
+          font-size: clamp(38px, 6vw, 76px);
+          font-weight: 400;
+          margin: 14px 0 18px;
+          line-height: 1.05;
+          text-wrap: balance;
         }
-        
+
+        .catalog-title em {
+          color: var(--aqua);
+        }
+
         .catalog-subtitle {
-          font-size: clamp(16px, 2.5vw, 24px);
-          line-height: 1.6;
-          max-width: 800px;
-          margin: 0 auto 40px;
-          opacity: 0.95;
-          text-shadow: 0 2px 10px rgba(0,0,0,0.1);
+          font-size: clamp(14px, 1.6vw, 17px);
+          line-height: 1.65;
+          max-width: 56ch;
+          margin: 0 auto;
+          color: var(--white-soft);
+          font-weight: 330;
         }
         
         .catalog-badges {
@@ -106,20 +86,25 @@ const ProductCatalouge = () => {
           display: inline-flex;
           align-items: center;
           gap: 8px;
-          padding: 12px 20px;
+          padding: 10px 20px;
           border-radius: 999px;
-          background: rgba(255,255,255,0.15);
+          background: rgba(79,214,197,0.08);
           backdrop-filter: blur(10px);
-          border: 1px solid rgba(255,255,255,0.2);
-          color: white;
-          font-weight: 600;
-          font-size: 0.9rem;
+          border: 1px solid rgba(79,214,197,0.35);
+          color: var(--porcelain);
+          font-weight: 460;
+          font-size: 12.5px;
+          letter-spacing: 0.04em;
           transition: all 0.3s ease;
         }
-        
+
         .catalog-badge:hover {
-          background: rgba(255,255,255,0.25);
+          background: rgba(79,214,197,0.16);
           transform: translateY(-2px);
+        }
+
+        .catalog-badge svg {
+          color: var(--aqua);
         }
         
         .catalog-badge svg {
@@ -152,11 +137,13 @@ const ProductCatalouge = () => {
       `}</style>
       
       <div className="catalog-wrapper">
-        <header className="catalog-hero">
+        <header className="catalog-hero lm-veil lm-grain on-dark">
+          <Caustics blobs={6} alpha={0.15} top="#0a3a42" bottom="#05262c" />
           <div className="catalog-container">
             <div className="catalog-header">
+              <p className="eyebrow">Midland Chemicals Ltd</p>
               <h1 className="catalog-title">
-                Product Catalog
+                The product <em>catalogue.</em>
               </h1>
               <p className="catalog-subtitle">
                 Discover our comprehensive range of professional chemical solutions
