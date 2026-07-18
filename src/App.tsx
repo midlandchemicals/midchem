@@ -16,7 +16,7 @@ function App() {
       <Route
         path="/"
         element={
-          <div className="min-h-screen" style={{ background: 'radial-gradient(1200px 800px at 80% -10%, rgba(102,246,193,.08), transparent 60%), radial-gradient(1200px 800px at -10% 10%, rgba(109,225,255,.08), transparent 50%), #f5f7fa' }}>
+          <div className="min-h-screen" style={{ background: "var(--porcelain)" }}>
             <Navigation></Navigation>
             <main>
               <HeroSection />
