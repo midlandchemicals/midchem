@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aria Children's Complex Care — Tracheostomy &amp; Ventilation Care at Home</title>
+<meta name="description" content="CQC-registered specialist domiciliary care for children with tracheostomies and long-term ventilation. Built for NHS commissioners: named teams, NTSP-certified staff, a published no-hand-back protocol and quarterly outcome reporting.">
+</head>
+<body>
+<style>
+  :root{
+    --ink:#10262B;
+    --ink-soft:#3E5A58;
+    --muted:#5E7573;
+    --ground:#F3F7F6;
+    --paper:#FFFFFF;
+    --teal:#12756B;
+    --teal-deep:#0A3F3C;
+    --teal-wash:#E3EEEC;
+    --line:#D5E2DF;
+    --night:#061014;
+    --night-panel:#0A1A20;
+    --ecg:#2EE6A0;
+    --pleth:#3FC9E0;
+    --resp:#E8C84D;
+    --serif:"Charter","Bitstream Charter","Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--ground);color:var(--ink);
+    font-family:var(--sans);font-size:17px;line-height:1.65;
+    -webkit-font-smoothing:antialiased;overflow-x:hidden;
+  }
+  h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.12;margin:0;text-wrap:balance;letter-spacing:-.01em}
+  p{margin:0}
+  a{color:inherit}
+  img,canvas,svg{max-width:100%}
+  section{scroll-margin-top:84px}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 clamp(20px,4vw,48px)}
+  .eyebrow{
+    font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--teal);display:flex;align-items:flex-start;gap:10px;
+  }
+  .eyebrow::before{content:"";width:26px;height:1px;background:var(--teal);flex:none;margin-top:.75em}
+  .eyebrow .pulse-dot{margin-top:5px}
+  .lede{font-size:clamp(17px,1.4vw,19px);color:var(--ink-soft);max-width:62ch}
+  .num{font-variant-numeric:tabular-nums}
+  :focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:2px}
+
+  /* ---------- nav ---------- */
+  .nav{
+    position:fixed;inset:0 0 auto 0;z-index:60;
+    background:color-mix(in srgb,var(--ground) 82%,transparent);
+    -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+    border-bottom:1px solid color-mix(in srgb,var(--line) 60%,transparent);
+    transition:transform .35s ease;
+  }
+  .nav.hide{transform:translateY(-100%)}
+  .nav-in{max-width:1180px;margin:0 auto;padding:14px clamp(20px,4vw,48px);display:flex;align-items:center;gap:28px}
+  .brand{display:flex;align-items:center;gap:11px;text-decoration:none;font-family:var(--serif);font-size:20px;font-weight:700;letter-spacing:-.01em}
+  .brand-mark{width:30px;height:30px;flex:none}
+  .brand-mark path{stroke:var(--teal);stroke-width:7;fill:none;stroke-linecap:round}
+  .brand em{font-style:normal;color:var(--teal)}
+  .nav-links{display:flex;gap:24px;margin-left:auto;align-items:center}
+  .nav-links a{font-size:14px;font-weight:500;color:var(--ink-soft);text-decoration:none;transition:color .2s}
+  .nav-links a:hover{color:var(--teal-deep)}
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;border:none;cursor:pointer;text-decoration:none;
+    font-family:var(--sans);font-size:15px;font-weight:600;letter-spacing:.01em;
+    padding:13px 24px;border-radius:999px;transition:transform .2s ease,box-shadow .2s ease,background .2s;
+  }
+  .btn-solid{background:var(--teal-deep);color:#F2FAF8;box-shadow:0 10px 28px -12px rgba(10,63,60,.55)}
+  .btn-solid:hover{transform:translateY(-2px);background:var(--teal);box-shadow:0 16px 34px -12px rgba(10,63,60,.55)}
+  .btn-ghost{background:transparent;color:var(--teal-deep);box-shadow:inset 0 0 0 1.5px color-mix(in srgb,var(--teal) 45%,transparent)}
+  .btn-ghost:hover{background:var(--teal-wash);transform:translateY(-2px)}
+  .btn-sm{padding:9px 18px;font-size:13.5px}
+  .play-ic{width:22px;height:22px;flex:none;border-radius:50%;background:currentColor;display:inline-grid;place-items:center}
+  .play-ic::after{content:"";border-style:solid;border-width:4.5px 0 4.5px 7.5px;border-color:transparent transparent transparent var(--ground);margin-left:1.5px}
+  .btn-ghost .play-ic::after{border-left-color:var(--ground)}
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;
+    background:linear-gradient(175deg,#FBFDFD 0%,var(--ground) 46%,#E8F1EF 100%)}
+  #breathCanvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+  .hero-in{position:relative;z-index:2;width:100%;padding-top:110px;padding-bottom:130px}
+  .hero h1{font-size:clamp(42px,6.4vw,86px);max-width:14ch;font-weight:600}
+  .hero h1 em{font-style:italic;color:var(--teal)}
+  .hero .lede{margin-top:26px;font-size:clamp(17px,1.55vw,21px);max-width:56ch}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px}
+  .hero .eyebrow{margin-bottom:26px}
+  .pulse-dot{width:9px;height:9px;border-radius:50%;background:var(--teal);animation:breatheDot 4.6s ease-in-out infinite}
+  @keyframes breatheDot{0%,100%{transform:scale(1);opacity:.55}50%{transform:scale(1.7);opacity:1}}
+  .hero-foot{position:absolute;left:0;right:0;bottom:0;z-index:2;border-top:1px solid color-mix(in srgb,var(--line) 70%,transparent);
+    background:color-mix(in srgb,#FFFFFF 45%,transparent);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+  .hero-foot .wrap{display:flex;gap:clamp(18px,4vw,64px);padding-top:18px;padding-bottom:18px;flex-wrap:wrap;align-items:center}
+  .hf-item{font-size:13px;color:var(--muted);display:flex;gap:10px;align-items:center;letter-spacing:.02em}
+  .hf-item b{color:var(--ink);font-weight:600}
+  .hf-item svg{width:17px;height:17px;flex:none;stroke:var(--teal);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .scroll-hint{position:absolute;right:clamp(20px,4vw,48px);bottom:92px;z-index:2;writing-mode:vertical-rl;
+    font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:12px}
+  .scroll-hint::after{content:"";width:1px;height:52px;background:linear-gradient(var(--teal),transparent);animation:drip 2.4s ease-in-out infinite}
+  @keyframes drip{0%{transform:scaleY(0);transform-origin:top}55%{transform:scaleY(1);transform-origin:top}56%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+  /* ---------- reveal ---------- */
+  .rv{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.6,.2,1),transform .8s cubic-bezier(.2,.6,.2,1)}
+  .rv.on{opacity:1;transform:none}
+  .rv-d1{transition-delay:.08s}.rv-d2{transition-delay:.16s}.rv-d3{transition-delay:.24s}.rv-d4{transition-delay:.32s}
+
+  /* ---------- stats ---------- */
+  .stats{background:var(--teal-deep);color:#EAF5F2;position:relative;overflow:hidden}
+  .stats::before{content:"";position:absolute;inset:0;
+    background:radial-gradient(700px 300px at 12% 0%,rgba(46,230,160,.10),transparent 60%),
+               radial-gradient(700px 300px at 88% 100%,rgba(63,201,224,.10),transparent 60%)}
+  .stats .wrap{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(24px,3vw,48px);padding-top:64px;padding-bottom:64px}
+  .stat b{display:block;font-family:var(--serif);font-size:clamp(34px,3.4vw,50px);font-weight:600;letter-spacing:-.02em}
+  .stat b .u{font-size:.52em;font-weight:500;opacity:.75;margin-left:2px}
+  .stat span{display:block;margin-top:8px;font-size:13.5px;line-height:1.5;color:#A9C6C0;max-width:24ch}
+  .stat i{display:block;width:34px;height:2px;background:var(--ecg);margin-bottom:16px;border-radius:2px;opacity:.8;font-style:normal}
+
+  /* ---------- section scaffolding ---------- */
+  .sect{padding:clamp(84px,10vw,140px) 0}
+  .sect-head{max-width:760px;margin-bottom:clamp(40px,5vw,64px)}
+  .sect-head h2{font-size:clamp(32px,3.8vw,52px);margin-top:18px}
+  .sect-head .lede{margin-top:20px}
+
+  /* ---------- commissioner's chair ---------- */
+  .fail-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .fail{
+    background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:30px 28px 28px;
+    display:flex;flex-direction:column;gap:0;position:relative;overflow:hidden;
+    transition:transform .3s ease,box-shadow .3s ease;
+  }
+  .fail:hover{transform:translateY(-5px);box-shadow:0 24px 48px -24px rgba(16,38,43,.22)}
+  .fail h3{font-size:23px}
+  .fail .tag{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#A4552F;margin-bottom:14px}
+  .fail p{color:var(--ink-soft);font-size:15px;margin-top:12px}
+  .fail .ans{margin-top:22px;padding-top:20px;border-top:1px dashed var(--line)}
+  .fail .ans .tag{color:var(--teal)}
+  .fail .ans p{color:var(--ink);font-size:15px;margin-top:0}
+
+  /* ---------- model ---------- */
+  .model{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .model-grid{display:grid;grid-template-columns:minmax(300px,420px) 1fr;gap:clamp(40px,6vw,96px);align-items:start}
+  .model-side{position:sticky;top:110px}
+  .model-side blockquote{
+    margin:34px 0 0;padding:26px 28px;background:var(--teal-wash);border-radius:16px;
+    font-family:var(--serif);font-style:italic;font-size:19px;line-height:1.5;color:var(--teal-deep);position:relative;
+  }
+  .model-side blockquote footer{font-family:var(--sans);font-style:normal;font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-top:14px}
+  .pillar{display:grid;grid-template-columns:56px 1fr;gap:22px;padding:30px 0;border-bottom:1px solid var(--line)}
+  .pillar:first-child{padding-top:6px}
+  .pillar:last-child{border-bottom:none}
+  .pillar-ic{width:52px;height:52px;border-radius:14px;background:var(--teal-wash);display:grid;place-items:center}
+  .pillar-ic svg{width:25px;height:25px;stroke:var(--teal-deep);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+  .pillar h3{font-size:21px}
+  .pillar p{color:var(--ink-soft);font-size:15.5px;margin-top:9px;max-width:58ch}
+
+  /* ---------- pathway ---------- */
+  .path-grid{position:relative;display:grid;gap:0;margin-top:8px}
+  .path-line{position:absolute;left:25px;top:14px;bottom:14px;width:2px;background:var(--line);border-radius:2px;overflow:hidden}
+  .path-line i{position:absolute;left:0;top:0;width:100%;height:0;background:linear-gradient(var(--teal),var(--ecg));transition:height .2s linear}
+  .step{display:grid;grid-template-columns:52px 1fr;gap:26px;padding:26px 0}
+  .step-n{
+    width:52px;height:52px;border-radius:50%;background:var(--paper);border:2px solid var(--line);z-index:1;
+    display:grid;place-items:center;font-family:var(--serif);font-size:19px;font-weight:700;color:var(--muted);
+    transition:border-color .4s,color .4s,box-shadow .4s;
+  }
+  .step.on .step-n{border-color:var(--teal);color:var(--teal-deep);box-shadow:0 0 0 6px color-mix(in srgb,var(--teal) 12%,transparent)}
+  .step h3{font-size:22px;padding-top:8px}
+  .step h3 small{font-family:var(--sans);font-weight:600;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--teal);display:block;margin-bottom:8px}
+  .step p{color:var(--ink-soft);font-size:15.5px;margin-top:10px;max-width:62ch}
+
+  /* ---------- night ---------- */
+  .night{background:var(--night);color:#D7E6E4;position:relative;overflow:hidden}
+  .night::before{content:"";position:absolute;inset:0;background:
+    radial-gradient(900px 480px at 78% 18%,rgba(63,201,224,.07),transparent 65%),
+    radial-gradient(700px 420px at 8% 85%,rgba(46,230,160,.05),transparent 60%)}
+  .night .wrap{position:relative}
+  .night .eyebrow{color:var(--pleth)}
+  .night .eyebrow::before{background:var(--pleth)}
+  .night h2{color:#F0F7F6;font-size:clamp(32px,3.8vw,52px);margin-top:18px}
+  .night .lede{color:#8FA9A9}
+  .night-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(36px,5vw,72px);align-items:center;margin-top:clamp(40px,5vw,60px)}
+  .monitor{
+    background:var(--night-panel);border:1px solid #12333B;border-radius:18px;overflow:hidden;
+    box-shadow:0 40px 90px -30px rgba(0,0,0,.8),0 0 0 1px rgba(63,201,224,.05),0 0 80px -20px rgba(63,201,224,.14);
+  }
+  .monitor-top{display:flex;justify-content:space-between;align-items:center;padding:12px 18px;border-bottom:1px solid #12333B;
+    font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#5E8890}
+  .monitor-top .live{display:flex;align-items:center;gap:7px;color:var(--ecg)}
+  .monitor-top .live::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--ecg);animation:breatheDot 1.6s ease-in-out infinite}
+  #monCanvas{display:block;width:100%;height:auto}
+  .mon-caption{padding:13px 18px;border-top:1px solid #12333B;font-size:13px;color:#6E949B;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .mon-caption b{color:#B9D6D3;font-weight:600}
+  .night-copy h3{color:#EAF4F2;font-size:22px;margin-top:0}
+  .night-q{
+    font-family:var(--serif);font-style:italic;font-size:clamp(20px,2vw,25px);line-height:1.45;color:#BCD3D1;
+    border-left:2px solid var(--pleth);padding-left:22px;margin:0 0 26px;
+  }
+  .night-q footer{font-family:var(--sans);font-style:normal;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#5E8890;margin-top:12px}
+  .night-list{list-style:none;margin:26px 0 0;padding:0;display:grid;gap:16px}
+  .night-list li{display:grid;grid-template-columns:26px 1fr;gap:14px;font-size:15.5px;color:#A9C2C0}
+  .night-list li b{color:#E6F2F0;font-weight:600}
+  .night-list svg{width:22px;height:22px;stroke:var(--ecg);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;margin-top:2px}
+  .night-cta{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap}
+  .btn-night{background:linear-gradient(120deg,var(--pleth),var(--ecg));color:#04252A;box-shadow:0 14px 34px -12px rgba(63,201,224,.4)}
+  .btn-night:hover{transform:translateY(-2px);box-shadow:0 18px 40px -12px rgba(63,201,224,.5)}
+  .btn-night .play-ic{background:#04252A}
+  .btn-night .play-ic::after{border-left-color:var(--pleth)}
+  .nhb{margin-top:clamp(48px,6vw,72px);border:1px solid #143A42;border-radius:18px;padding:clamp(26px,3.5vw,42px);
+    background:linear-gradient(160deg,rgba(63,201,224,.06),rgba(46,230,160,.04));display:grid;grid-template-columns:auto 1fr;gap:clamp(20px,3vw,40px);align-items:center}
+  .nhb-seal{width:86px;height:86px;border-radius:50%;border:1.5px dashed var(--ecg);display:grid;place-items:center;flex:none;
+    font-family:var(--serif);font-size:30px;color:var(--ecg);animation:spinSlow 26s linear infinite}
+  @keyframes spinSlow{to{transform:rotate(360deg)}}
+  .nhb h3{color:#EAF4F2;font-size:24px;margin:0}
+  .nhb p{color:#8FA9A9;font-size:15.5px;margin-top:10px;max-width:75ch}
+  .nhb b{color:#D7E6E4}
+
+  /* ---------- workforce ---------- */
+  .acad-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;counter-reset:acad}
+  .acad{
+    background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px 18px 20px;position:relative;
+    transition:transform .3s,box-shadow .3s;
+  }
+  .acad:hover{transform:translateY(-4px);box-shadow:0 18px 40px -22px rgba(16,38,43,.25)}
+  .acad::before{counter-increment:acad;content:counter(acad,decimal-leading-zero);
+    font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--teal)}
+  .acad h3{font-size:16.5px;font-family:var(--sans);font-weight:650;margin-top:10px;line-height:1.3}
+  .acad p{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.5}
+  .acad-note{margin-top:34px;display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .an{border-left:2px solid var(--teal);padding-left:20px}
+  .an b{display:block;font-family:var(--serif);font-size:19px;font-weight:600}
+  .an p{color:var(--ink-soft);font-size:14.5px;margin-top:7px}
+
+  /* ---------- governance ---------- */
+  .gov{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .gov-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .gv{
+    border:1px solid var(--line);border-radius:14px;padding:24px 22px;background:var(--ground);
+    display:flex;flex-direction:column;gap:10px;transition:border-color .25s,transform .25s;
+  }
+  .gv:hover{border-color:var(--teal);transform:translateY(-3px)}
+  .gv svg{width:26px;height:26px;stroke:var(--teal-deep);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+  .gv b{font-size:15.5px;font-weight:650}
+  .gv span{font-size:13px;color:var(--muted);line-height:1.5}
+
+  /* ---------- evidence ---------- */
+  .kpi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .kpi{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:24px 24px 20px;transition:transform .3s,box-shadow .3s}
+  .kpi:hover{transform:translateY(-4px);box-shadow:0 20px 44px -24px rgba(16,38,43,.22)}
+  .kpi .k-label{font-size:12px;font-weight:650;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  .kpi .k-val{font-family:var(--serif);font-size:34px;font-weight:600;margin-top:6px;display:flex;align-items:baseline;gap:6px}
+  .kpi .k-val small{font-family:var(--sans);font-size:12.5px;color:var(--teal);font-weight:600}
+  .kpi svg{display:block;width:100%;height:44px;margin-top:12px}
+  .kpi polyline{fill:none;stroke:var(--teal);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .kpi .spark-fill{fill:url(#sparkGrad);stroke:none}
+  .kpi circle{fill:var(--teal-deep)}
+  .kpi .k-note{font-size:12.5px;color:var(--muted);margin-top:10px}
+  .openbook{margin-top:34px;background:var(--teal-wash);border-radius:16px;padding:clamp(24px,3vw,36px);display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center}
+  .openbook h3{font-size:21px;color:var(--teal-deep)}
+  .openbook p{color:var(--ink-soft);font-size:15px;margin-top:8px;max-width:70ch}
+
+  /* ---------- families ---------- */
+  .fam{position:relative;overflow:hidden}
+  .fam-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,90px);align-items:center}
+  .fam-quote{
+    font-family:var(--serif);font-style:italic;font-size:clamp(24px,2.6vw,34px);line-height:1.4;color:var(--teal-deep);
+  }
+  .fam-quote footer{font-family:var(--sans);font-style:normal;font-size:12.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--teal);margin-top:22px}
+  .fam-list{list-style:none;margin:0;padding:0;display:grid;gap:20px}
+  .fam-list li{display:grid;grid-template-columns:30px 1fr;gap:16px;font-size:15.5px;color:var(--ink-soft)}
+  .fam-list b{color:var(--ink);font-weight:650;display:block}
+  .fam-list svg{width:24px;height:24px;stroke:var(--teal);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;margin-top:3px}
+
+  /* ---------- CTA ---------- */
+  .cta{background:var(--teal-deep);color:#ECF6F3;position:relative;overflow:hidden}
+  #ctaCanvas{position:absolute;inset:0;width:100%;height:100%}
+  .cta .wrap{position:relative;text-align:center;padding-top:clamp(90px,11vw,150px);padding-bottom:clamp(90px,11vw,150px)}
+  .cta .eyebrow{justify-content:center;color:var(--ecg)}
+  .cta .eyebrow::before{background:var(--ecg)}
+  .cta h2{font-size:clamp(34px,4.4vw,60px);margin-top:20px;color:#F4FBF8}
+  .cta p{margin:24px auto 0;max-width:62ch;color:#AECBC5;font-size:17px}
+  .cta-btns{margin-top:40px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .cta .btn-solid{background:#F2FAF8;color:var(--teal-deep);box-shadow:0 14px 34px -14px rgba(0,0,0,.5)}
+  .cta .btn-solid:hover{background:#fff}
+  .cta .btn-ghost{color:#D9EDE8;box-shadow:inset 0 0 0 1.5px rgba(217,237,232,.4)}
+  .cta .btn-ghost:hover{background:rgba(255,255,255,.07)}
+
+  /* ---------- footer ---------- */
+  footer.site{background:var(--night);color:#7E9A98;font-size:13.5px}
+  footer.site .wrap{padding-top:56px;padding-bottom:44px}
+  .foot-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:clamp(30px,5vw,80px)}
+  footer.site .brand{color:#DCEBE8;font-size:18px}
+  footer.site .brand-mark path{stroke:var(--ecg)}
+  .integrity{margin-top:18px;line-height:1.7;max-width:64ch}
+  .foot-meta{display:flex;flex-direction:column;gap:10px}
+  .foot-meta b{color:#C4DAD6;font-weight:600}
+  .foot-base{margin-top:44px;padding-top:22px;border-top:1px solid #12333B;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12.5px;color:#54706E}
+
+  /* ---------- video modal ---------- */
+  .vmodal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:22px}
+  .vmodal.open{display:flex}
+  .vmodal-bg{position:absolute;inset:0;background:rgba(3,9,11,.9);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+  .vmodal-box{position:relative;width:min(960px,100%);border-radius:18px;overflow:hidden;background:#02080A;
+    border:1px solid #12333B;box-shadow:0 60px 140px -40px rgba(0,0,0,.9)}
+  #filmCanvas{display:block;width:100%;height:auto}
+  .film-cap{
+    position:absolute;left:0;right:0;bottom:64px;text-align:center;padding:0 24px;pointer-events:none;
+    font-family:var(--serif);font-size:clamp(17px,2.2vw,24px);font-style:italic;color:#E8F3F1;
+    text-shadow:0 2px 22px rgba(0,0,0,.8);opacity:0;transition:opacity .7s ease;
+  }
+  .film-cap.show{opacity:1}
+  .film-bar{position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(255,255,255,.12)}
+  .film-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--pleth),var(--ecg))}
+  .film-hud{position:absolute;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 18px;
+    font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:#7FA5AB}
+  .film-hud .rec{display:flex;gap:8px;align-items:center;color:#E8C84D}
+  .film-hud .rec::before{content:"";width:8px;height:8px;border-radius:50%;background:#E86A5A;animation:breatheDot 1.4s infinite}
+  .vclose{position:absolute;top:12px;right:14px;z-index:5;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);
+    color:#D7E6E4;width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:17px;line-height:1;display:grid;place-items:center;transition:background .2s}
+  .vclose:hover{background:rgba(255,255,255,.18)}
+  .film-replay{position:absolute;inset:0;display:none;align-items:center;justify-content:center;z-index:4;background:rgba(2,8,10,.55)}
+  .film-replay.show{display:flex}
+
+  /* ---------- responsive ---------- */
+  @media (max-width:1000px){
+    .fail-grid,.kpi-grid,.acad-note{grid-template-columns:1fr 1fr}
+    .acad-grid{grid-template-columns:repeat(3,1fr)}
+    .gov-grid{grid-template-columns:1fr 1fr}
+    .stats .wrap{grid-template-columns:1fr 1fr;gap:34px}
+    .model-grid,.night-grid,.fam-grid,.foot-grid{grid-template-columns:1fr}
+    .model-side{position:static}
+    .openbook{grid-template-columns:1fr}
+    .nav-links a:not(.btn){display:none}
+    .scroll-hint{display:none}
+  }
+  @media (max-width:600px){
+    .fail-grid,.kpi-grid,.acad-grid,.gov-grid,.acad-note{grid-template-columns:1fr}
+    .stats .wrap{grid-template-columns:1fr 1fr;gap:26px}
+    .nhb{grid-template-columns:1fr}
+    .hero-in{padding-bottom:240px}
+    .hero-foot .wrap{gap:12px}
+    .hf-item{font-size:12px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *,*::before,*::after{animation-duration:.001s!important;transition-duration:.001s!important}
+    .rv{opacity:1;transform:none}
+  }
+</style>
+
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a class="brand" href="#top" aria-label="Aria Children's Complex Care — home">
+      <svg class="brand-mark" viewBox="0 0 100 100" aria-hidden="true"><path d="M8 62 Q22 30 36 62 T64 62 T92 62"/></svg>
+      Aria<em>.</em>
+    </a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="#need">The need</a>
+      <a href="#model">Our model</a>
+      <a href="#night">Safety at 3am</a>
+      <a href="#workforce">Workforce</a>
+      <a href="#evidence">Evidence</a>
+      <a class="btn btn-solid btn-sm" href="#commission">Commissioner pack</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" aria-label="Introduction">
+    <canvas id="breathCanvas" aria-hidden="true"></canvas>
+    <div class="wrap hero-in">
+      <p class="eyebrow rv"><span class="pulse-dot" aria-hidden="true"></span>Specialist children's complex care · Tracheostomy &amp; long-term ventilation at home</p>
+      <h1 class="rv rv-d1">Every breath watched.<br>Every child <em>home.</em></h1>
+      <p class="lede rv rv-d2">Aria is a CQC-registered specialist domiciliary care agency for children with tracheostomies and long-term ventilation — built to take the children the system finds hardest to discharge, and keep them safely, permanently, out of hospital.</p>
+      <div class="hero-cta rv rv-d3">
+        <a class="btn btn-solid" href="#commission">For NHS commissioners</a>
+        <button class="btn btn-ghost" data-open-film type="button"><span class="play-ic" aria-hidden="true"></span>Watch — 03:00, a child's bedroom</button>
+      </div>
+    </div>
+    <div class="scroll-hint" aria-hidden="true">Scroll</div>
+    <div class="hero-foot">
+      <div class="wrap">
+        <span class="hf-item"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6z"/></svg><b>CQC-registered</b>&nbsp;children's complex care only</span>
+        <span class="hf-item"><svg viewBox="0 0 24 24"><path d="M4 14c2-6 5-6 7 0s5 6 7 0"/></svg><b>NTSP-trained</b>&nbsp;airway competencies, simulation-gated</span>
+        <span class="hf-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><b>24/7</b>&nbsp;registered nurse on call</span>
+        <span class="hf-item"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg><b>No hand-backs</b>&nbsp;— our published protocol</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STATS ============ -->
+  <section class="stats" aria-label="Key numbers">
+    <div class="wrap">
+      <div class="stat rv"><i></i><b class="num">£<span data-count="2000" data-suffix="–3,000">0</span></b><span>the cost to the NHS of every acute bed-day a medically fit child cannot leave</span></div>
+      <div class="stat rv rv-d1"><i></i><b class="num"><span data-count="168">0</span><span class="u">hrs/wk</span></b><span>of commissioned care per child, delivered by one named, consistent team</span></div>
+      <div class="stat rv rv-d2"><i></i><b class="num"><span data-count="6" data-decimals="1">0</span><span class="u">WTE</span></b><span>recruited, trained and signed off before we accept a single package</span></div>
+      <div class="stat rv rv-d3"><i></i><b class="num"><span data-count="0">0</span></b><span>solo shifts before sign-off in NTSP emergency airway algorithms — ever</span></div>
+    </div>
+  </section>
+
+  <!-- ============ THE NEED ============ -->
+  <section class="sect" id="need" aria-label="The need">
+    <div class="wrap">
+      <div class="sect-head">
+        <p class="eyebrow rv">Seen from the commissioner's chair</p>
+        <h2 class="rv rv-d1">The constraint isn't money.<br>It's credible provision.</h2>
+        <p class="lede rv rv-d2">Children with tracheostomies routinely wait weeks or months in intensive care after they are medically fit for discharge — not because funding is refused, but because the community market fails in three chronic ways. We designed Aria against each one.</p>
+      </div>
+      <div class="fail-grid">
+        <article class="fail rv">
+          <p class="tag">Market failure 01</p>
+          <h3>Capacity</h3>
+          <p>The few specialist children's agencies are oversubscribed and decline packages at the acuity ceiling — precisely the children stuck longest.</p>
+          <div class="ans"><p class="tag">Built-in answer</p><p>Children's tracheostomy and ventilation only — no dilution into generic homecare. Growth rate-limited by our own training throughput, so every package we accept is one we can staff.</p></div>
+        </article>
+        <article class="fail rv rv-d1">
+          <p class="tag">Market failure 02</p>
+          <h3>Fragility</h3>
+          <p>Packages collapse when a provider loses two or three trained staff — bouncing the child back to hospital by emergency ambulance and destroying family confidence.</p>
+          <div class="ans"><p class="tag">Built-in answer</p><p>5.5–6.0 WTE per 24/7 package plus a trained float pool at 15% of established hours — and a published no-hand-back protocol with joint escalation before any service change.</p></div>
+        </article>
+        <article class="fail rv rv-d2">
+          <p class="tag">Market failure 03</p>
+          <h3>Escalation behaviour</h3>
+          <p>Under-trained community staff answer minor clinical change with 999 — converting a manageable event into an admission, and teaching clinicians to distrust discharge.</p>
+          <div class="ans"><p class="tag">Built-in answer</p><p>Per-child emergency plans co-signed by the referring team, a 24/7 on-call registered nurse, and explicit criteria separating manage-at-home, contact-team and call-999 events.</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MODEL ============ -->
+  <section class="sect model" id="model" aria-label="Our model">
+    <div class="wrap model-grid">
+      <div class="model-side">
+        <p class="eyebrow rv">Phase one — the home package</p>
+        <h2 class="rv rv-d1" style="font-size:clamp(30px,3.4vw,46px);margin-top:18px">One child.<br>One named team.<br>One accountable provider.</h2>
+        <blockquote class="rv rv-d2">
+          What a commissioner needs from a new entrant is not enthusiasm but evidence: staffing depth, package resilience, and clinical confidence at the bedside at 3am.
+          <footer>The specification this model is built against</footer>
+        </blockquote>
+      </div>
+      <div>
+        <div class="pillar rv">
+          <div class="pillar-ic"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19c.6-3.4 2.8-5 5.5-5s4.9 1.6 5.5 5"/><circle cx="17.5" cy="9.5" r="2.4"/><path d="M15.6 14.6c2.9-.4 4.6 1 5 4.4"/></svg></div>
+          <div><h3>A named team, not a rota of strangers</h3><p>Each package is staffed by a consistent team of complex care assistants trained to National Tracheostomy Safety Project competencies — every member signed off in emergency airway management through mandatory simulation before their first solo shift, and reassessed continuously.</p></div>
+        </div>
+        <div class="pillar rv">
+          <div class="pillar-ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.6-9.2-9A5.2 5.2 0 0 1 12 6.4 5.2 5.2 0 0 1 21.2 12C19 16.4 12 21 12 21z"/><path d="M7 12h3l1.5-3 2 5L15 12h2"/></svg></div>
+          <div><h3>Registered children's nurse case management</h3><p>Every team is supervised by a registered children's nurse case manager holding a small, defined caseload — the clinical thread between the family, the team and the referring hospital.</p></div>
+        </div>
+        <div class="pillar rv">
+          <div class="pillar-ic"><svg viewBox="0 0 24 24"><path d="M12 3v4M10 5h4"/><circle cx="12" cy="13" r="6"/><path d="M12 10.5v2.5l1.8 1.8"/></svg></div>
+          <div><h3>Consultant-level clinical oversight</h3><p>Formally contracted sessional medical leadership in paediatric respiratory medicine or intensive care — a governed appointment with declared interests, accountable for clinical policy, acuity ceilings and the interface with referring teams.</p></div>
+        </div>
+        <div class="pillar rv">
+          <div class="pillar-ic"><svg viewBox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v9.5h13V10"/><path d="M9.5 19.5v-5h5v5"/></svg></div>
+          <div><h3>Static 12-hour shifts in one child's home</h3><p>Zero travel downtime, deep familiarity with one child's baseline, and the roster efficiency that makes safe economics possible. Carers know the child — and the child knows their carers.</p></div>
+        </div>
+        <div class="pillar rv">
+          <div class="pillar-ic"><svg viewBox="0 0 24 24"><path d="M4 15c1.5-4 3-6 5-6s2.5 3 4 3 2.5-5 5-5"/><path d="M4 20h16"/><circle cx="18" cy="7" r="1.4"/></svg></div>
+          <div><h3>An escalation architecture that avoids ambulances</h3><p>Per-child emergency plans agreed with the referring team, rehearsed monthly in the child's own home — including night-condition drills — with a registered nurse on call around the clock.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PATHWAY ============ -->
+  <section class="sect" id="pathway" aria-label="The pathway home">
+    <div class="wrap">
+      <div class="sect-head">
+        <p class="eyebrow rv">Hospital → home</p>
+        <h2 class="rv rv-d1">The pathway home, step by step</h2>
+        <p class="lede rv rv-d2">No package is accepted until the full team exists. That discipline is why our packages hold — and why referring clinicians can trust the discharge.</p>
+      </div>
+      <div class="path-grid" id="pathGrid">
+        <div class="path-line" aria-hidden="true"><i id="pathFill"></i></div>
+        <div class="step"><div class="step-n num">1</div><div><h3><small>Referral</small>Assessment against published criteria</h3><p>Dependency-scored assessment with the referring team, using recognised paediatric dependency tools — acuity ceiling honestly applied. Entry begins with lower-acuity tracheostomy packages, building to full long-term ventilation as evidence accumulates.</p></div></div>
+        <div class="step"><div class="step-n num">2</div><div><h3><small>Team build</small>Six people, recruited and signed off first</h3><p>A full 5.5–6.0 WTE named team is recruited, trained and simulation-certified before acceptance. Families interview and approve the team who will live alongside them.</p></div></div>
+        <div class="step"><div class="step-n num">3</div><div><h3><small>Rehearsal</small>Simulation in the child's actual home</h3><p>Emergency airway drills run in the real bedroom, at night, before discharge — and monthly ever after. The family's own competencies are maintained as the second layer of resilience.</p></div></div>
+        <div class="step"><div class="step-n num">4</div><div><h3><small>Discharge day</small>Home, with the hospital still in the loop</h3><p>The first packages run with weekly joint review with the referring team. Escalation criteria are co-signed, not improvised.</p></div></div>
+        <div class="step"><div class="step-n num">5</div><div><h3><small>Sustained</small>Nights watched, data reported</h3><p>Package continuity, unplanned admissions, 999 activations, staffing consistency and family experience — reported quarterly, in the commissioner's own currency.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ NIGHT / 3AM ============ -->
+  <section class="sect night" id="night" aria-label="Safety at 3am">
+    <div class="wrap">
+      <p class="eyebrow rv">The question every panel asks</p>
+      <h2 class="rv rv-d1">“What happens at 3am,<br>when the tube blocks?”</h2>
+      <div class="night-grid">
+        <figure class="monitor rv" aria-label="Simulated bedside patient monitor">
+          <div class="monitor-top"><span>Aria bedside telemetry — simulation</span><span class="live">Live</span></div>
+          <canvas id="monCanvas" width="1120" height="640"></canvas>
+          <figcaption class="mon-caption"><span><b>03:04</b> · night shift · carer J.O. — NTSP certified</span><span>Emergency plan v3.2 · co-signed with referring PICU</span></figcaption>
+        </figure>
+        <div class="night-copy">
+          <blockquote class="night-q rv">
+            “What happens at 3am when the tube blocks and your junior HCA is alone?”
+            <footer>— every referring intensivist, rightly</footer>
+          </blockquote>
+          <ul class="night-list">
+            <li class="rv"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><b>No one is ever “junior” at the bedside.</b> No staff member works a solo shift on an airway package until signed off in NTSP emergency algorithms through repeated simulation — including night-condition drills in the child's actual home.</span></li>
+            <li class="rv rv-d1"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><b>A registered nurse answers at 3am.</b> 24/7 on-call nursing cover, with a rehearsed per-child emergency plan distinguishing manage-at-home, contact-team and call-999 events.</span></li>
+            <li class="rv rv-d2"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><b>The drill happened last month, in this room.</b> Monthly in-situ emergency simulation keeps the whole team — and the family — current on the one scenario that matters.</span></li>
+            <li class="rv rv-d3"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><b>Honesty is pre-agreed.</b> A serious-incident framework with immediate duty of candour, commissioner notification within contractual timescales and external investigation — built before it is ever needed.</span></li>
+          </ul>
+          <div class="night-cta rv">
+            <button class="btn btn-night" data-open-film type="button"><span class="play-ic" aria-hidden="true"></span>Watch the 03:00 scenario</button>
+          </div>
+        </div>
+      </div>
+      <div class="nhb rv">
+        <div class="nhb-seal num" aria-hidden="true">0</div>
+        <div>
+          <h3>The no-hand-back protocol</h3>
+          <p>Agencies hand back difficult packages; commissioners remember every one. Ours is published: <b>service change only through joint escalation with the commissioner and referring team, with Aria bearing the cost of interim intensification.</b> Package-continuity statistics are reported quarterly — and offered as a contractual KPI.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WORKFORCE ============ -->
+  <section class="sect" id="workforce" aria-label="Workforce">
+    <div class="wrap">
+      <div class="sect-head">
+        <p class="eyebrow rv">The workforce engine</p>
+        <h2 class="rv rv-d1">We don't poach carers.<br>We grow them.</h2>
+        <p class="lede rv rv-d2">Workforce is this sector's binding constraint — and our core product. The Aria Academy converts experienced healthcare assistants into complex care specialists through a salaried, structured pathway, instead of recruiting from the local NHS children's wards commissioners are trying to protect.</p>
+      </div>
+      <div class="acad-grid">
+        <div class="acad rv"><h3>Classroom physiology</h3><p>Paediatric airway, respiratory and ventilation science — taught, tested, retained.</p></div>
+        <div class="acad rv rv-d1"><h3>Equipment competency</h3><p>Ventilators, humidification, suction, emergency kit — hands on, device by device.</p></div>
+        <div class="acad rv rv-d2"><h3>NTSP airway management</h3><p>National Tracheostomy Safety Project algorithms to certified competency.</p></div>
+        <div class="acad rv rv-d3"><h3>Repeated simulation</h3><p>Emergency scenarios rehearsed until fluent — including blocked tube at night.</p></div>
+        <div class="acad rv rv-d4"><h3>Supervised placement</h3><p>Alongside an experienced team, with a nurse case manager watching closely.</p></div>
+        <div class="acad rv rv-d4"><h3>First solo shift — then forever</h3><p>Annual reassessment and monthly in-home drills. Competency is never “done”.</p></div>
+      </div>
+      <div class="acad-note">
+        <div class="an rv"><b>NHS-equivalent pay or better</b><p>With pension, guaranteed hours and visible progression — care assistant to senior to educator.</p></div>
+        <div class="an rv rv-d1"><b>Static rosters, small teams</b><p>One child, one team, real relationships — the retention design that keeps packages stable.</p></div>
+        <div class="an rv rv-d2"><b>Growth capped by training</b><p>Roughly one new 24/7 team certified per quarter at launch. Our trajectory is set by workforce capacity, not by demand.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GOVERNANCE ============ -->
+  <section class="sect gov" id="governance" aria-label="Governance and safeguarding">
+    <div class="wrap">
+      <div class="sect-head">
+        <p class="eyebrow rv">Governance &amp; safeguarding</p>
+        <h2 class="rv rv-d1">Built to be inspected</h2>
+        <p class="lede rv rv-d2">Every assurance a panel, an inspector or a safeguarding partnership will look for — designed in from the outset, not retrofitted.</p>
+      </div>
+      <div class="gov-grid">
+        <div class="gv rv"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg><b>CQC-registered</b><span>Personal care and treatment of disease, disorder or injury — with a bespoke paediatric airway policy suite.</span></div>
+        <div class="gv rv rv-d1"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c.8-4 3.4-6 7-6s6.2 2 7 6"/><path d="M16 4l2 2 3.5-3.5"/></svg><b>Safer recruitment &amp; enhanced DBS</b><span>Throughout the organisation, with mandatory reporting training for every role.</span></div>
+        <div class="gv rv rv-d2"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.6-9.2-9A5.2 5.2 0 0 1 12 6.4 5.2 5.2 0 0 1 21.2 12C19 16.4 12 21 12 21z"/></svg><b>Designated safeguarding lead</b><span>At senior level, with standing links to local authority partnerships and the LADO.</span></div>
+        <div class="gv rv rv-d3"><svg viewBox="0 0 24 24"><path d="M4 14c2-6 5-6 7 0s5 6 7 0"/><path d="M4 19h16"/></svg><b>NTSP competency framework</b><span>Simulation-gated solo working and continuous reassessment on every airway package.</span></div>
+        <div class="gv rv"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8M8 13h8M8 17h5"/></svg><b>PSR-compliant procurement</b><span>Contracting under the Provider Selection Regime — published criteria, no informal referral channels.</span></div>
+        <div class="gv rv rv-d1"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 5-5.5"/></svg><b>Duty of candour, pre-agreed</b><span>A standing serious-incident framework: immediate honesty with families, external investigation, coroner-readiness.</span></div>
+        <div class="gv rv rv-d2"><svg viewBox="0 0 24 24"><path d="M12 3v18M3 12h18"/><circle cx="12" cy="12" r="9"/></svg><b>Public register of interests</b><span>No director or employee holds any NHS role with influence over referrals. All clinical advisers formally contracted and declared.</span></div>
+        <div class="gv rv rv-d3"><svg viewBox="0 0 24 24"><path d="M4 20V9l8-5 8 5v11"/><path d="M4 20h16"/><path d="M10 20v-6h4v6"/></svg><b>Financially safe to depend on</b><span>Funded working capital for slow payment cycles and delayed discharges; audited accounts shared with lead commissioners.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EVIDENCE ============ -->
+  <section class="sect" id="evidence" aria-label="Evidence and reporting">
+    <div class="wrap">
+      <div class="sect-head">
+        <p class="eyebrow rv">The evidence engine</p>
+        <h2 class="rv rv-d1">Reported quarterly,<br>in your currency</h2>
+        <p class="lede rv rv-d2">Illustrative of the commissioner reporting pack every contract receives. Outcomes, incidents, staffing continuity and independently gathered family experience — beside the one comparison that matters: the acute bed each package releases.</p>
+      </div>
+      <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="sparkGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#12756B" stop-opacity=".18"/><stop offset="1" stop-color="#12756B" stop-opacity="0"/></linearGradient></defs></svg>
+      <div class="kpi-grid">
+        <div class="kpi rv"><p class="k-label">Package continuity</p><p class="k-val num">100<small>% shifts covered by named team + float</small></p>
+          <svg viewBox="0 0 200 44" preserveAspectRatio="none"><polygon class="spark-fill" points="0,30 40,26 80,24 120,18 160,12 200,8 200,44 0,44"/><polyline points="0,30 40,26 80,24 120,18 160,12 200,8"/><circle cx="200" cy="8" r="3.4"/></svg>
+          <p class="k-note">Offered as a contractual KPI on every package.</p></div>
+        <div class="kpi rv rv-d1"><p class="k-label">999 activations</p><p class="k-val num">↓<small>tracked against per-child escalation plans</small></p>
+          <svg viewBox="0 0 200 44" preserveAspectRatio="none"><polygon class="spark-fill" points="0,10 40,14 80,20 120,26 160,30 200,34 200,44 0,44"/><polyline points="0,10 40,14 80,20 120,26 160,30 200,34"/><circle cx="200" cy="34" r="3.4"/></svg>
+          <p class="k-note">Manage-at-home events resolved at home — by design.</p></div>
+        <div class="kpi rv rv-d2"><p class="k-label">Acute bed-days released</p><p class="k-val num">£<span data-count="2000" data-suffix="–3,000">0</span><small>/day returned to the system</small></p>
+          <svg viewBox="0 0 200 44" preserveAspectRatio="none"><polygon class="spark-fill" points="0,34 40,30 80,24 120,20 160,14 200,9 200,44 0,44"/><polyline points="0,34 40,30 80,24 120,20 160,14 200,9"/><circle cx="200" cy="9" r="3.4"/></svg>
+          <p class="k-note">Every package is cheaper than the acute bed it releases.</p></div>
+        <div class="kpi rv"><p class="k-label">Staffing consistency</p><p class="k-val num">6.0<small>WTE named team per 24/7 package</small></p>
+          <svg viewBox="0 0 200 44" preserveAspectRatio="none"><polygon class="spark-fill" points="0,26 40,22 80,22 120,18 160,16 200,14 200,44 0,44"/><polyline points="0,26 40,22 80,22 120,18 160,16 200,14"/><circle cx="200" cy="14" r="3.4"/></svg>
+          <p class="k-note">Agency usage reported to commissioners as a fragility indicator.</p></div>
+        <div class="kpi rv rv-d1"><p class="k-label">Family experience</p><p class="k-val num">★<small>independently gathered, reported beside clinical outcomes</small></p>
+          <svg viewBox="0 0 200 44" preserveAspectRatio="none"><polygon class="spark-fill" points="0,28 40,24 80,20 120,16 160,12 200,10 200,44 0,44"/><polyline points="0,28 40,24 80,20 120,16 160,12 200,10"/><circle cx="200" cy="10" r="3.4"/></svg>
+          <p class="k-note">Families interview and approve their care team before day one.</p></div>
+        <div class="kpi rv rv-d2"><p class="k-label">Unplanned readmissions</p><p class="k-val num">↓<small>with root-cause review on every event</small></p>
+          <svg viewBox="0 0 200 44" preserveAspectRatio="none"><polygon class="spark-fill" points="0,12 40,16 80,22 120,26 160,32 200,35 200,44 0,44"/><polyline points="0,12 40,16 80,22 120,26 160,32 200,35"/><circle cx="200" cy="35" r="3.4"/></svg>
+          <p class="k-note">Incidents reported through national learning systems.</p></div>
+      </div>
+      <div class="openbook rv">
+        <div>
+          <h3>Defensible pricing, open book</h3>
+          <p>Every fee is decomposed into assessed dependency, commissioned hours and published per-grade rates — benchmarked against your existing package spend, and offered open-book on block arrangements with 30-day terms. Not round numbers. Not opportunism. Arithmetic you can defend to your own governance.</p>
+        </div>
+        <a class="btn btn-solid" href="#commission">Request the costing workbook</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAMILIES ============ -->
+  <section class="sect fam" id="families" aria-label="For families">
+    <div class="wrap fam-grid">
+      <div>
+        <p class="eyebrow rv">For families</p>
+        <blockquote class="fam-quote rv rv-d1">
+          A hospital can keep a child alive. Only home can give them a childhood. Our job is to make both true at once.
+          <footer>The promise behind every package</footer>
+        </blockquote>
+      </div>
+      <ul class="fam-list">
+        <li class="rv"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19c.6-3.4 2.8-5 5.5-5s4.9 1.6 5.5 5"/><path d="M16 8h5M18.5 5.5v5"/></svg><span><b>You choose your team.</b> Families interview and approve every carer before they set foot in the house — with continuity commitments written into the care plan.</span></li>
+        <li class="rv rv-d1"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.6-9.2-9A5.2 5.2 0 0 1 12 6.4 5.2 5.2 0 0 1 21.2 12C19 16.4 12 21 12 21z"/></svg><span><b>You stay the expert.</b> Family competencies are maintained as a genuine second layer of resilience — never sidelined by the professionals in the room.</span></li>
+        <li class="rv rv-d2"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.6 8.6 0 0 1-3.5-.8L3 20l1-5A8.4 8.4 0 1 1 21 11.5z"/></svg><span><b>You are heard, independently.</b> Family experience is gathered by an independent party and reported to commissioners beside the clinical outcomes — with equal weight.</span></li>
+        <li class="rv rv-d3"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span><b>You sleep.</b> Static 12-hour night shifts by carers who know your child's baseline — and a registered nurse on the end of the phone, every hour of every night.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section class="cta" id="commission" aria-label="Commission with confidence">
+    <canvas id="ctaCanvas" aria-hidden="true"></canvas>
+    <div class="wrap">
+      <p class="eyebrow rv">For ICBs, CCNTs &amp; referring teams</p>
+      <h2 class="rv rv-d1">Commission with confidence.</h2>
+      <p class="rv rv-d2">Request the full commissioner pack: dependency-scored costing workbook, draft policy framework index, training academy curriculum, escalation architecture and the quarterly reporting template. Every hard question your panel will ask — answered before it's asked.</p>
+      <div class="cta-btns rv rv-d3">
+        <a class="btn btn-solid" href="mailto:commissioning@aria-care.example?subject=Commissioner%20pack%20request">Request the commissioner pack</a>
+        <a class="btn btn-ghost" href="mailto:referrals@aria-care.example?subject=Referral%20enquiry">Discuss a referral</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="#top"><svg class="brand-mark" viewBox="0 0 100 100" aria-hidden="true"><path d="M8 62 Q22 30 36 62 T64 62 T92 62"/></svg>Aria<em style="color:var(--ecg)">.</em></a>
+        <p class="integrity">Integrity statement — Aria names no NHS clinicians, managers or officials, and assumes no preferential access of any kind. Referrals are won through published criteria, transparent pricing, compliant procurement and demonstrated outcomes. In children's healthcare, the appearance of integrity and its substance are the same requirement — and a provider unable to win this work on merit should not hold it.</p>
+      </div>
+      <div class="foot-meta">
+        <b>Aria Children's Complex Care</b>
+        <span>Specialist domiciliary care — children's tracheostomy &amp; long-term ventilation</span>
+        <span>Phase 1 of a two-phase pathway: home packages first; residential step-down hubs, dual-registered with Ofsted and CQC, to follow.</span>
+        <span>commissioning@aria-care.example</span>
+      </div>
+    </div>
+    <div class="foot-base">
+      <span>© 2026 Aria Children's Complex Care. Illustrative site — service data shown is simulated.</span>
+      <span>Safeguarding · Register of interests · Serious-incident framework — available on request</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ FILM MODAL ============ -->
+<div class="vmodal" id="vmodal" role="dialog" aria-modal="true" aria-label="03:00 — a child's bedroom (animated scenario)">
+  <div class="vmodal-bg" data-close-film></div>
+  <div class="vmodal-box">
+    <div class="film-hud"><span class="rec">Simulation</span><span id="filmClock" class="num">03:00:00</span></div>
+    <canvas id="filmCanvas" width="1280" height="720"></canvas>
+    <p class="film-cap" id="filmCap"></p>
+    <div class="film-bar"><i id="filmBar"></i></div>
+    <div class="film-replay" id="filmReplay"><button class="btn btn-night" id="filmAgain" type="button"><span class="play-ic" aria-hidden="true"></span>Watch again</button></div>
+    <button class="vclose" data-close-film aria-label="Close video">✕</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- reveal on scroll ---------- */
+  var rvEls = document.querySelectorAll(".rv");
+  if("IntersectionObserver" in window && !reduced){
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("on"); io.unobserve(e.target); } });
+    },{threshold:.15,rootMargin:"0px 0px -40px 0px"});
+    rvEls.forEach(function(el){ io.observe(el); });
+  } else { rvEls.forEach(function(el){ el.classList.add("on"); }); }
+
+  /* ---------- animated counters ---------- */
+  function fmt(n,dec){ return dec ? n.toFixed(dec) : Math.round(n).toLocaleString("en-GB"); }
+  var counters = document.querySelectorAll("[data-count]");
+  var cio = new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(!e.isIntersecting) return;
+      cio.unobserve(e.target);
+      var el = e.target, target = parseFloat(el.getAttribute("data-count"));
+      var dec = parseInt(el.getAttribute("data-decimals")||"0",10);
+      var suffix = el.getAttribute("data-suffix")||"";
+      if(reduced){ el.textContent = fmt(target,dec)+suffix; return; }
+      var t0 = null, dur = 1600;
+      function tick(ts){
+        if(!t0) t0 = ts;
+        var p = Math.min((ts-t0)/dur,1), ease = 1-Math.pow(1-p,3);
+        el.textContent = fmt(target*ease,dec)+(p===1?suffix:"");
+        if(p<1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    });
+  },{threshold:.6});
+  counters.forEach(function(el){ cio.observe(el); });
+
+  /* ---------- nav hide on scroll down ---------- */
+  var nav = document.getElementById("nav"), lastY = 0;
+  addEventListener("scroll",function(){
+    var y = scrollY;
+    nav.classList.toggle("hide", y>560 && y>lastY);
+    lastY = y;
+  },{passive:true});
+
+  /* ---------- hero breathing canvas ---------- */
+  var bc = document.getElementById("breathCanvas"), bctx = bc.getContext("2d");
+  function sizeCanvas(c){
+    var d = Math.min(devicePixelRatio||1,2), r = c.getBoundingClientRect();
+    c.width = r.width*d; c.height = r.height*d;
+    return d;
+  }
+  var bd = sizeCanvas(bc);
+  addEventListener("resize",function(){ bd = sizeCanvas(bc); if(reduced) drawBreath(4000); });
+  function drawBreath(t){
+    var w = bc.width, h = bc.height;
+    bctx.clearRect(0,0,w,h);
+    /* soft drifting orbs */
+    var orbs = [[.78,.28,.34,"18,117,107"],[.16,.72,.28,"63,201,224"],[.62,.85,.22,"46,230,160"]];
+    orbs.forEach(function(o,i){
+      var ox = o[0]*w + Math.sin(t/9000+i*2.1)*w*.03;
+      var oy = o[1]*h + Math.cos(t/11000+i*1.7)*h*.04;
+      var r = o[2]*Math.min(w,h)*(1+.06*Math.sin(t/4600+i));
+      var g = bctx.createRadialGradient(ox,oy,0,ox,oy,r);
+      g.addColorStop(0,"rgba("+o[3]+",.10)");
+      g.addColorStop(1,"rgba("+o[3]+",0)");
+      bctx.fillStyle = g;
+      bctx.beginPath(); bctx.arc(ox,oy,r,0,7); bctx.fill();
+    });
+    /* layered breathing waves */
+    var breath = Math.sin(t/4600*Math.PI*2*.5); /* one breath ≈ 4.6s */
+    for(var L=0; L<3; L++){
+      var base = h*(.62+L*.09), amp = h*(.055-L*.012)*(1+.35*breath);
+      bctx.beginPath();
+      for(var x=0; x<=w; x+=6*bd){
+        var ph = x/w*Math.PI*2*1.6 + t/5200 + L*1.1;
+        var y = base + Math.sin(ph)*amp + Math.sin(ph*2.7+L)*amp*.25;
+        x===0 ? bctx.moveTo(x,y) : bctx.lineTo(x,y);
+      }
+      bctx.strokeStyle = "rgba(18,117,107,"+(0.16-L*0.045)+")";
+      bctx.lineWidth = (2.2-L*.5)*bd;
+      bctx.stroke();
+    }
+  }
+  if(reduced){ drawBreath(4000); }
+  else {
+    (function loopB(t){ drawBreath(t||0); requestAnimationFrame(loopB); })();
+  }
+
+  /* ---------- CTA canvas (faint waves on deep teal) ---------- */
+  var cc = document.getElementById("ctaCanvas"), cctx = cc.getContext("2d");
+  var cd = sizeCanvas(cc);
+  addEventListener("resize",function(){ cd = sizeCanvas(cc); });
+  function drawCta(t){
+    var w = cc.width, h = cc.height;
+    cctx.clearRect(0,0,w,h);
+    for(var L=0; L<2; L++){
+      var base = h*(.3+L*.45), amp = h*.06*(1+.3*Math.sin(t/4600));
+      cctx.beginPath();
+      for(var x=0; x<=w; x+=8*cd){
+        var y = base + Math.sin(x/w*7+t/6000+L*2)*amp;
+        x===0 ? cctx.moveTo(x,y) : cctx.lineTo(x,y);
+      }
+      cctx.strokeStyle = L ? "rgba(46,230,160,.07)" : "rgba(63,201,224,.08)";
+      cctx.lineWidth = 1.6*cd;
+      cctx.stroke();
+    }
+  }
+  if(reduced){ drawCta(0); } else { (function loopC(t){ drawCta(t||0); requestAnimationFrame(loopC); })(); }
+
+  /* ---------- pathway progress ---------- */
+  var pathGrid = document.getElementById("pathGrid"), pathFill = document.getElementById("pathFill");
+  var steps = pathGrid.querySelectorAll(".step");
+  function pathTick(){
+    var r = pathGrid.getBoundingClientRect();
+    var vh = innerHeight;
+    var p = Math.min(Math.max((vh*.75 - r.top)/r.height,0),1);
+    pathFill.style.height = (p*100)+"%";
+    steps.forEach(function(s){
+      var sr = s.getBoundingClientRect();
+      s.classList.toggle("on", sr.top + 40 < vh*.78);
+    });
+  }
+  addEventListener("scroll",pathTick,{passive:true});
+  addEventListener("resize",pathTick);
+  pathTick();
+
+  /* ================= patient monitor ================= */
+  var mon = document.getElementById("monCanvas"), mx = mon.getContext("2d");
+  var MW = mon.width, MH = mon.height;
+  var lanes = [
+    {name:"ECG II", color:"#2EE6A0", y0:.16, h:.14, fn:ecgWave},
+    {name:"Pleth · SpO₂", color:"#3FC9E0", y0:.44, h:.13, fn:plethWave},
+    {name:"Resp", color:"#E8C84D", y0:.71, h:.12, fn:respWave}
+  ];
+  var HR = 112, RR = 24, SPO2 = 97;
+  function ecgWave(ph){ /* ph 0..1 within one beat */
+    if(ph<.08) return .08*Math.sin(ph/.08*Math.PI);            /* P */
+    if(ph<.14) return 0;
+    if(ph<.17) return -.16*((ph-.14)/.03);                     /* Q */
+    if(ph<.21) return -.16+1.16*((ph-.17)/.04);                /* R */
+    if(ph<.25) return 1-1.28*((ph-.21)/.04);                   /* S */
+    if(ph<.32) return -.28+.28*((ph-.25)/.07);
+    if(ph<.5)  return .16*Math.sin((ph-.32)/.18*Math.PI);      /* T */
+    return 0;
+  }
+  function plethWave(ph){
+    var a = Math.pow(Math.sin(Math.PI*Math.min(ph/.55,1)),2);
+    var dic = ph>.55&&ph<.8 ? .18*Math.sin((ph-.55)/.25*Math.PI) : 0;
+    return a*.9+dic;
+  }
+  function respWave(ph){ return Math.sin(ph*Math.PI*2-Math.PI/2)*.5+.5; }
+
+  var monoStack = "SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace";
+  function drawMonFrame(t, spo2Override, ampScale){
+    var sweep = (t/ (60000/HR) ); /* beats elapsed */
+    mx.fillStyle = "#0A1A20"; mx.fillRect(0,0,MW,MH);
+    /* faint grid */
+    mx.strokeStyle = "rgba(63,201,224,.05)"; mx.lineWidth = 1;
+    for(var gx=0; gx<MW; gx+=40){ mx.beginPath(); mx.moveTo(gx,0); mx.lineTo(gx,MH); mx.stroke(); }
+    for(var gy=0; gy<MH; gy+=40){ mx.beginPath(); mx.moveTo(0,gy); mx.lineTo(MW,gy); mx.stroke(); }
+    var traceW = MW-230;
+    lanes.forEach(function(ln,li){
+      var y0 = ln.y0*MH, hh = ln.h*MH;
+      mx.font = "600 15px "+monoStack;
+      mx.fillStyle = ln.color; mx.globalAlpha = .75;
+      mx.fillText(ln.name, 18, y0-hh*.75);
+      mx.globalAlpha = 1;
+      /* sweep-drawn trace */
+      var sweepX = (t*.14)%traceW;
+      mx.beginPath();
+      var amp = (li===1?(ampScale||1):1);
+      for(var x=0; x<traceW; x+=2){
+        var dt = (x - sweepX);
+        if(dt>0) dt -= traceW;               /* older to the right of sweep */
+        var tt = t + dt/.14;                  /* time at that x */
+        var period = li===2 ? 60000/RR : 60000/HR;
+        var ph = (tt%period)/period;
+        var v = ln.fn(ph)*amp;
+        var y = y0 - v*hh;
+        x===0 ? mx.moveTo(x+18,y) : mx.lineTo(x+18,y);
+      }
+      mx.strokeStyle = ln.color; mx.lineWidth = 2.4;
+      mx.shadowColor = ln.color; mx.shadowBlur = 8;
+      mx.stroke(); mx.shadowBlur = 0;
+      /* erase bar ahead of sweep */
+      mx.fillStyle = "#0A1A20";
+      mx.fillRect(sweepX+18, y0-hh-14, 46, hh*2+20);
+    });
+    /* numerics */
+    var nx = MW-195;
+    mx.textAlign = "left";
+    function numeric(label,val,unit,color,ny,big){
+      mx.font = "500 13px "+monoStack; mx.fillStyle = color; mx.globalAlpha=.7;
+      mx.fillText(label,nx,ny); mx.globalAlpha=1;
+      mx.font = "700 "+(big?54:40)+"px "+monoStack;
+      mx.fillText(val,nx,ny+(big?56:44));
+      mx.font = "500 13px "+monoStack; mx.globalAlpha=.6;
+      mx.fillText(unit,nx+ (String(val).length*(big?32:24)) +8, ny+(big?56:44)); mx.globalAlpha=1;
+    }
+    var s = spo2Override!=null ? spo2Override : SPO2;
+    numeric("HR", HR, "bpm", "#2EE6A0", 64, false);
+    numeric("SpO₂", s, "%", s<93 ? "#E8C84D" : "#3FC9E0", 200, true);
+    numeric("RR", RR, "/min", "#E8C84D", 380, false);
+    mx.font = "500 12px "+monoStack; mx.fillStyle = "#5E8890";
+    mx.fillText("Vent: PSV · PEEP 5 · FiO₂ 0.25", nx-4, MH-28);
+  }
+  var monVisible = false;
+  new IntersectionObserver(function(es){ es.forEach(function(e){ monVisible = e.isIntersecting; }); },{threshold:.1}).observe(mon);
+  var jitterT = 0;
+  function monLoop(t){
+    if(monVisible){
+      if(t-jitterT>2400){ jitterT = t; HR = 110+Math.round(Math.random()*5); RR = 23+Math.round(Math.random()*3); SPO2 = 96+Math.round(Math.random()*2); }
+      drawMonFrame(t);
+    }
+    requestAnimationFrame(monLoop);
+  }
+  if(reduced){ drawMonFrame(8000); } else { requestAnimationFrame(monLoop); }
+
+  /* ================= film modal ================= */
+  var vmodal = document.getElementById("vmodal"),
+      film = document.getElementById("filmCanvas"), fx = film.getContext("2d"),
+      cap = document.getElementById("filmCap"), bar = document.getElementById("filmBar"),
+      clockEl = document.getElementById("filmClock"), replay = document.getElementById("filmReplay");
+  var FW = film.width, FH = film.height;
+  /* scene timeline: [start(s), end(s), caption, spo2Target, ampScale] */
+  var scenes = [
+    [0,   5,  "03:04. A house asleep. A night carer who has done this drill, in this room, every month.", 97, 1],
+    [5,  10,  "Secretions build. The saturations begin to fall — 94… 92…", 92, .8],
+    [10, 15,  "89. No panic. Suction, reposition, recheck — exactly as the NTSP algorithm was rehearsed.", 89, .55],
+    [15, 20,  "The on-call registered nurse is already on the phone. This is a manage-at-home event — the plan says so.", 93, .8],
+    [20, 26,  "03:09. Saturations 97. No ambulance. No emergency department. No lost bed.", 97, 1],
+    [26, 32,  "The family slept through it. That is the service the NHS is buying.", 97, 1]
+  ];
+  var FILM_LEN = 32, filmStart = null, filmRAF = null, lastCap = "";
+  function lerp(a,b,p){ return a+(b-a)*p; }
+  function filmState(ts){
+    for(var i=0;i<scenes.length;i++){
+      var s = scenes[i];
+      if(ts>=s[0]&&ts<s[1]){
+        var prev = i>0?scenes[i-1]:s;
+        var p = Math.min((ts-s[0])/2.2,1); /* ease into scene values */
+        return {cap:s[2], spo2:Math.round(lerp(prev[3],s[3],p)), amp:lerp(prev[4],s[4],p)};
+      }
+    }
+    var last = scenes[scenes.length-1];
+    return {cap:last[2], spo2:last[3], amp:last[4]};
+  }
+  function drawFilm(tms, st){
+    fx.fillStyle = "#02080A"; fx.fillRect(0,0,FW,FH);
+    /* moonlit window */
+    var wx = FW*.66, wy = FH*.08, ww = FW*.22, wh = FH*.42;
+    var wg = fx.createLinearGradient(wx,wy,wx,wy+wh);
+    wg.addColorStop(0,"rgba(16,38,64,.85)"); wg.addColorStop(1,"rgba(10,22,38,.55)");
+    fx.fillStyle = wg; fx.fillRect(wx,wy,ww,wh);
+    /* stars */
+    var stars = [[.12,.12],[.34,.3],[.6,.14],[.86,.4],[.22,.62],[.72,.72],[.5,.5],[.9,.85]];
+    stars.forEach(function(s,si){
+      var tw = .35+.3*Math.sin(tms/900+si*2);
+      fx.fillStyle = "rgba(220,235,245,"+tw+")";
+      fx.beginPath(); fx.arc(wx+s[0]*ww, wy+s[1]*wh, 1.6, 0, 7); fx.fill();
+    });
+    /* moon */
+    fx.beginPath(); fx.arc(FW*.815,FH*.16,FH*.035,0,7);
+    fx.fillStyle = "rgba(226,238,242,.85)"; fx.shadowColor="rgba(215,230,235,.9)"; fx.shadowBlur=36; fx.fill(); fx.shadowBlur=0;
+    /* moonlight spill onto floor */
+    var spill = fx.createLinearGradient(wx,wy+wh,wx,FH*.9);
+    spill.addColorStop(0,"rgba(150,185,205,.05)"); spill.addColorStop(1,"rgba(150,185,205,0)");
+    fx.fillStyle = spill;
+    fx.beginPath(); fx.moveTo(wx-ww*.15,FH*.9); fx.lineTo(wx,wy+wh); fx.lineTo(wx+ww,wy+wh); fx.lineTo(wx+ww*1.15+ww*.15,FH*.9); fx.closePath(); fx.fill();
+    /* frame */
+    fx.strokeStyle = "rgba(140,175,190,.35)"; fx.lineWidth = 5;
+    fx.strokeRect(wx,wy,ww,wh);
+    fx.lineWidth = 3;
+    fx.beginPath(); fx.moveTo(FW*.77,wy); fx.lineTo(FW*.77,wy+wh); fx.stroke();
+    fx.beginPath(); fx.moveTo(wx,FH*.29); fx.lineTo(wx+ww,FH*.29); fx.stroke();
+    /* bed silhouette */
+    fx.fillStyle = "rgba(10,26,32,.9)";
+    fx.beginPath();
+    fx.moveTo(FW*.06,FH*.86); fx.quadraticCurveTo(FW*.07,FH*.66,FW*.13,FH*.66);
+    fx.lineTo(FW*.5,FH*.66); fx.quadraticCurveTo(FW*.56,FH*.66,FW*.56,FH*.86); fx.closePath(); fx.fill();
+    /* child under blanket — breathing */
+    var br = Math.sin(tms/2600*Math.PI*2)*.5+.5;
+    fx.beginPath();
+    fx.moveTo(FW*.12,FH*.66);
+    fx.quadraticCurveTo(FW*.2,FH*(.60-.012*br),FW*.3,FH*.63);
+    fx.quadraticCurveTo(FW*.42,FH*.655,FW*.5,FH*.66);
+    fx.lineTo(FW*.12,FH*.66); fx.closePath();
+    fx.fillStyle = "rgba(46,94,104,.55)"; fx.fill();
+    /* monitor glow panel */
+    var mgx = FW*.585, mgy = FH*.30, mgw = FW*.30, mgh = FH*.30;
+    /* small bedside monitor to the right */
+    mgx = FW*.10; mgy = FH*.18; mgw = FW*.34; mgh = FH*.30;
+    fx.fillStyle = "rgba(6,16,20,.96)";
+    fx.strokeStyle = "rgba(63,201,224,.25)"; fx.lineWidth = 2;
+    roundRect(fx,mgx,mgy,mgw,mgh,12); fx.fill(); fx.stroke();
+    /* glow */
+    var gg = fx.createRadialGradient(mgx+mgw/2,mgy+mgh/2,10,mgx+mgw/2,mgy+mgh/2,mgw);
+    gg.addColorStop(0,"rgba(63,201,224,.10)"); gg.addColorStop(1,"rgba(63,201,224,0)");
+    fx.fillStyle = gg; fx.fillRect(mgx-80,mgy-80,mgw+160,mgh+160);
+    /* pleth trace inside */
+    fx.save(); fx.beginPath(); roundRect(fx,mgx,mgy,mgw,mgh,12); fx.clip();
+    fx.beginPath();
+    for(var x=0;x<mgw-10;x+=3){
+      var tt = tms - (mgw-10-x)/.09;
+      var period = 60000/118;
+      var ph = (tt%period)/period;
+      var v = plethWave(ph)*st.amp;
+      var irregular = st.amp<.7 ? Math.sin(tt/90)* .06 : 0;
+      var y = mgy+mgh*.88 - (v+irregular)*mgh*.36;
+      x===0 ? fx.moveTo(mgx+6+x,y) : fx.lineTo(mgx+6+x,y);
+    }
+    fx.strokeStyle = "#3FC9E0"; fx.lineWidth = 2.6; fx.shadowColor="#3FC9E0"; fx.shadowBlur=10;
+    fx.stroke(); fx.shadowBlur=0;
+    /* spo2 numeric */
+    fx.font = "700 58px SFMono-Regular,Menlo,Consolas,monospace";
+    fx.fillStyle = st.spo2<93 ? "#E8C84D" : "#3FC9E0";
+    fx.fillText(st.spo2, mgx+mgw-118, mgy+72);
+    fx.font = "500 15px SFMono-Regular,Menlo,Consolas,monospace";
+    fx.globalAlpha=.7; fx.fillText("SpO₂ %", mgx+mgw-118, mgy+94); fx.globalAlpha=1;
+    fx.restore();
+    /* soft vignette */
+    var vg = fx.createRadialGradient(FW/2,FH/2,FH*.3,FW/2,FH/2,FH*.85);
+    vg.addColorStop(0,"rgba(0,0,0,0)"); vg.addColorStop(1,"rgba(0,0,0,.55)");
+    fx.fillStyle = vg; fx.fillRect(0,0,FW,FH);
+  }
+  function roundRect(c,x,y,w,h,r){
+    c.beginPath();
+    c.moveTo(x+r,y); c.arcTo(x+w,y,x+w,y+h,r); c.arcTo(x+w,y+h,x,y+h,r);
+    c.arcTo(x,y+h,x,y,r); c.arcTo(x,y,x+w,y,r); c.closePath();
+  }
+  function filmLoop(now){
+    if(filmStart===null) filmStart = now;
+    var ts = (now-filmStart)/1000;
+    if(ts>=FILM_LEN){
+      replay.classList.add("show");
+      cap.classList.remove("show");
+      bar.style.width = "100%";
+      return;
+    }
+    var st = filmState(ts);
+    drawFilm(now, st);
+    if(st.cap!==lastCap){ lastCap = st.cap; cap.textContent = st.cap; cap.classList.add("show");
+      setTimeout(function(){ /* keep visible; fade handled on change */ },0); }
+    bar.style.width = (ts/FILM_LEN*100)+"%";
+    var secs = 184+Math.floor(ts*1.4);
+    clockEl.textContent = "03:0"+Math.floor(secs/60)+":"+String(secs%60).padStart(2,"0");
+    filmRAF = requestAnimationFrame(filmLoop);
+  }
+  function openFilm(){
+    vmodal.classList.add("open");
+    document.body.style.overflow = "hidden";
+    replay.classList.remove("show");
+    filmStart = null; lastCap = "";
+    if(reduced){
+      drawFilm(0, filmState(0));
+      cap.textContent = scenes[0][2]; cap.classList.add("show");
+    } else {
+      cancelAnimationFrame(filmRAF);
+      filmRAF = requestAnimationFrame(filmLoop);
+    }
+  }
+  function closeFilm(){
+    vmodal.classList.remove("open");
+    document.body.style.overflow = "";
+    cancelAnimationFrame(filmRAF);
+  }
+  document.querySelectorAll("[data-open-film]").forEach(function(b){ b.addEventListener("click",openFilm); });
+  document.querySelectorAll("[data-close-film]").forEach(function(b){ b.addEventListener("click",closeFilm); });
+  document.getElementById("filmAgain").addEventListener("click",function(){
+    replay.classList.remove("show"); filmStart = null; lastCap = "";
+    cancelAnimationFrame(filmRAF); filmRAF = requestAnimationFrame(filmLoop);
+  });
+  addEventListener("keydown",function(e){ if(e.key==="Escape") closeFilm(); });
+
+  /* ---------- no-hand-back seal counter stays 0 ---------- */
+})();
+</script>
+</body>
+</html>
