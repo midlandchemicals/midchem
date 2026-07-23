@@ -9,6 +9,7 @@ import { ServicesSection } from "./components/ServicesSection";
 import { SolutionsBanner } from "./components/SolutionsBanner";
 import { Routes, Route, Navigate } from "react-router-dom";
 import ProductDetail from "./components/ProductDetail";
+import { FaqSection } from "./components/FaqSection";
 
 function App() {
   return (
@@ -16,14 +17,15 @@ function App() {
       <Route
         path="/"
         element={
-          <div className="min-h-screen" style={{ background: "var(--porcelain)" }}>
+          <div className="min-h-screen" style={{ background: "var(--paper)" }}>
             <Navigation></Navigation>
             <main>
               <HeroSection />
               <SolutionsBanner />
-              <AboutSection />
-              <ProductsSection />
               <ServicesSection />
+              <ProductsSection />
+              <AboutSection />
+              <FaqSection />
               <ContactSection />
             </main>
             <Footer />

@@ -29,32 +29,9 @@ export function AboutSection() {
 
   return (
     <section id="about" ref={ref} className="shell">
-      <div className="proof-grid" style={{ marginBottom: "clamp(48px, 8vh, 80px)" }}>
-        <div className="proof-cell rv">
-          <div className="proof-num">1991</div>
-          <div className="proof-label">Independent since</div>
-        </div>
-        <div className="proof-cell rv rv-d1">
-          <div className="proof-num">70+ yrs</div>
-          <div className="proof-label">Combined R&amp;D experience</div>
-        </div>
-        <div className="proof-cell rv rv-d2">
-          <div className="proof-num">Worldwide</div>
-          <div className="proof-label">UK, Europe &amp; export supply</div>
-        </div>
-        <div className="proof-cell rv rv-d3">
-          <div className="proof-num">100%</div>
-          <div className="proof-label">Formulation confidentiality</div>
-        </div>
-      </div>
-
       <div className="sec-head">
-        <div>
-          <p className="eyebrow rv">About us</p>
-          <h2 className="lm-display rv rv-d1">
-            A UK manufacturer that <em style={{ color: "var(--aqua-deep)" }}>formulates around you.</em>
-          </h2>
-        </div>
+        <p className="eyebrow rv">Why Midland Chemicals</p>
+        <h2 className="lm-display rv rv-d1">A UK manufacturer that formulates around you</h2>
         <p className="sec-lead rv rv-d2">
           Midland Chemicals Ltd is a privately owned, independent UK manufacturer of chemicals
           established in 1991, based in Atherstone, Warwickshire. Our reputation for high-quality

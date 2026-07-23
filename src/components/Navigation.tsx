@@ -1,4 +1,4 @@
-import { Menu, X } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
 import { useEffect, useState } from "react";
 import logo from "../assets/logo.png";
 
@@ -17,6 +17,7 @@ export function Navigation() {
     { label: "About us", href: "#about" },
     { label: "Industries", href: "#products" },
     { label: "Services", href: "#services" },
+    { label: "FAQ", href: "#faq" },
     { label: "Contact", href: "#contact" },
   ];
 
@@ -35,7 +36,11 @@ export function Navigation() {
           ))}
         </div>
 
-        <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "18px" }}>
+          <a className="lm-nav-phone" href="tel:+441827722911">
+            <Phone size={15} />
+            <span>01827 722911</span>
+          </a>
           <a className="lm-nav-book" href="#contact">
             Get a quote
           </a>

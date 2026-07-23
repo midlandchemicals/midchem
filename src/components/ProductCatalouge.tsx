@@ -15,8 +15,8 @@ const ProductCatalouge = () => {
           --bg: #f4f8f8;
           --panel: #ffffff;
           --panel-2: #eaf1f1;
-          --brand: #05262c;
-          --brand-2: #1e9d8f;
+          --brand: #0e3a40;
+          --brand-2: #16a34a;
           --text: #0d1b2a;    
           --text-dim: #556b7a; 
           --ring: rgba(102,246,193,.35);
@@ -53,16 +53,18 @@ const ProductCatalouge = () => {
         }
         
         .catalog-title {
-          font-family: var(--lm-serif);
-          font-size: clamp(38px, 6vw, 76px);
-          font-weight: 400;
+          font-family: var(--lm-display);
+          font-size: clamp(34px, 5.4vw, 66px);
+          font-weight: 800;
+          letter-spacing: -0.025em;
           margin: 14px 0 18px;
           line-height: 1.05;
           text-wrap: balance;
         }
 
         .catalog-title em {
-          color: var(--aqua);
+          color: var(--green);
+          font-style: normal;
         }
 
         .catalog-subtitle {
@@ -88,10 +90,10 @@ const ProductCatalouge = () => {
           gap: 8px;
           padding: 10px 20px;
           border-radius: 999px;
-          background: rgba(79,214,197,0.08);
+          background: rgba(34,197,94,0.1);
           backdrop-filter: blur(10px);
-          border: 1px solid rgba(79,214,197,0.35);
-          color: var(--porcelain);
+          border: 1px solid rgba(34,197,94,0.4);
+          color: #fff;
           font-weight: 460;
           font-size: 12.5px;
           letter-spacing: 0.04em;
@@ -99,12 +101,12 @@ const ProductCatalouge = () => {
         }
 
         .catalog-badge:hover {
-          background: rgba(79,214,197,0.16);
+          background: rgba(34,197,94,0.2);
           transform: translateY(-2px);
         }
 
         .catalog-badge svg {
-          color: var(--aqua);
+          color: var(--green);
         }
         
         .catalog-badge svg {
