@@ -52,8 +52,8 @@ const ProductCard: React.FC<{ product: productDetails }> = ({ product }) => {
           --bg: #f5f7fa;        
           --panel: #ffffff;     
           --panel-2: #e3ebf5;  
-          --brand: #05262c;    
-          --brand-2: #1e9d8f;   
+          --brand: #0e3a40;    
+          --brand-2: #16a34a;   
           --text: #0d1b2a;    
           --text-dim: #556b7a; 
           --ring: rgba(102,246,193,.35);
@@ -231,7 +231,7 @@ const ProductCard: React.FC<{ product: productDetails }> = ({ product }) => {
           position: absolute;
           top: -8px;
           left: 16px;
-          background: linear-gradient(135deg, #1e9d8f, #147c70);
+          background: linear-gradient(135deg, #16a34a, #15803d);
           color: white;
           padding: 4px 12px;
           border-radius: 999px;

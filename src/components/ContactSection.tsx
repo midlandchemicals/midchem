@@ -1,6 +1,5 @@
 import { MapPin, Phone, Mail, Clock, CheckCircle } from "lucide-react";
 import { useState } from "react";
-import { Caustics } from "./Caustics";
 import { useReveal } from "./useReveal";
 
 export function ContactSection() {
@@ -73,15 +72,12 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" ref={ref} className="lm-dark lm-grain on-dark">
-      <Caustics blobs={7} alpha={0.14} top="#093740" bottom="#04222a" />
-      <div className="shell" style={{ position: "relative", zIndex: 4 }}>
+    <section id="contact" ref={ref} className="contact-wrap">
+      <div className="shell">
         <div className="contact-grid-lm">
           <div className="contact-copy">
-            <p className="eyebrow rv">Contact Midland Chemicals</p>
-            <h2 className="lm-display rv rv-d1">
-              Your product, <em>in production</em> sooner than you think.
-            </h2>
+            <p className="eyebrow rv">Contact us</p>
+            <h2 className="lm-display rv rv-d1">Let's get your product into production</h2>
             <p className="rv rv-d2">
               Ready to discuss your chemical manufacturing requirements? Our experienced team in
               Atherstone, Warwickshire is here to help with custom solutions for UK and worldwide
@@ -90,14 +86,14 @@ export function ContactSection() {
 
             <div className="contact-details rv rv-d3">
               <div className="contact-line">
-                <MapPin size={18} />
+                <MapPin size={17} />
                 <span>
                   <strong>UK Headquarters</strong>
                   Midland Chemicals Ltd, Atherstone, Warwickshire, United Kingdom
                 </span>
               </div>
               <div className="contact-line">
-                <Phone size={18} />
+                <Phone size={17} />
                 <span>
                   <strong>Phone</strong>
                   <a href="tel:+441827722911">01827 722911</a> — UK &amp; international calls
@@ -105,7 +101,7 @@ export function ContactSection() {
                 </span>
               </div>
               <div className="contact-line">
-                <Mail size={18} />
+                <Mail size={17} />
                 <span>
                   <strong>Email</strong>
                   <a href="mailto:sales@midlandchem.com">sales@midlandchem.com</a> — technical
@@ -113,7 +109,7 @@ export function ContactSection() {
                 </span>
               </div>
               <div className="contact-line">
-                <Clock size={18} />
+                <Clock size={17} />
                 <span>
                   <strong>Business hours</strong>
                   Monday – Friday, 9:00 AM – 5:00 PM UK time (GMT/BST)
@@ -122,7 +118,7 @@ export function ContactSection() {
             </div>
           </div>
 
-          <div className="glass-card rv rv-d2">
+          <div className="form-card-lm rv rv-d2">
             {isSubmitted ? (
               <div className="lm-success" role="status">
                 <div className="tick">
@@ -211,7 +207,7 @@ export function ContactSection() {
                   </div>
 
                   <button type="submit" className="btn-lm" style={{ width: "100%" }}>
-                    Send enquiry
+                    Send enquiry →
                   </button>
 
                   <p className="lm-form-note">

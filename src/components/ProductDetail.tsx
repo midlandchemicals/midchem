@@ -193,8 +193,8 @@ const ProductDetail = () => {
   --bg: #f5f7fa;
   --panel: #ffffff;
   --panel-2: #e3ebf5;
-  --brand: #05262c;
-  --brand-2: #1e9d8f;
+  --brand: #0e3a40;
+  --brand-2: #16a34a;
   --text: #0d1b2a;
   --text-dim: #556b7a;
   --ring: rgba(102,246,193,.35);
@@ -207,7 +207,7 @@ body {
 .theme-panel { background-color: var(--panel); border: 1px solid rgba(255,255,255,.08); border-radius: var(--radius); box-shadow: var(--shadow); }
 .theme-card { background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)); border: 1px solid rgba(255,255,255,.08); border-radius: var(--radius); box-shadow: var(--shadow); }
 .theme-button { background: linear-gradient(135deg, var(--brand-2), var(--brand)); color: white; border: none; padding: 12px 24px; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; }
-.theme-button:hover { background: linear-gradient(135deg, #1e9d8f, #147c70); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,.2); }
+.theme-button:hover { background: linear-gradient(135deg, #16a34a, #15803d); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,.2); }
 .theme-text { color: var(--text); }
 .theme-text-dim { color: var(--text-dim); }
 .theme-brand { color: var(--brand); }
@@ -455,7 +455,7 @@ body {
               <h3 className="text-2xl font-bold theme-text mb-6 flex items-center">
                 <Building2
                   className="w-6 h-6 mr-2"
-                  style={{ color: "#1e9d8f" }}
+                  style={{ color: "#16a34a" }}
                 />
                 Ideal Applications
               </h3>

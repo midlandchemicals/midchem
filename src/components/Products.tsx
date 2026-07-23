@@ -12,8 +12,8 @@ const Products = () => {
           --bg: #f5f7fa;        
           --panel: #ffffff;     
           --panel-2: #e3ebf5;  
-          --brand: #05262c;    
-          --brand-2: #1e9d8f;   
+          --brand: #0e3a40;    
+          --brand-2: #16a34a;   
           --text: #0d1b2a;    
           --text-dim: #556b7a; 
           --ring: rgba(102,246,193,.35);
@@ -55,7 +55,7 @@ const Products = () => {
           transform: translateX(-50%);
           width: 60px;
           height: 3px;
-          background: linear-gradient(90deg, var(--brand-2), #4fd6c5);
+          background: linear-gradient(90deg, var(--brand-2), #22c55e);
           border-radius: 2px;
         }
         
