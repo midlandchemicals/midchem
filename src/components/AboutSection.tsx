@@ -41,7 +41,7 @@ export function AboutSection() {
         </p>
       </div>
 
-      <div className="team-grid">
+      <div className="team-grid rv-stagger">
         {team.map((member) => (
           <div key={member.initials} className="team-card rv">
             <div className="team-avatar">{member.initials}</div>

@@ -123,7 +123,7 @@ export function ServicesSection() {
         </p>
       </div>
 
-      <div className="proc-grid" style={{ marginBottom: "clamp(44px, 8vh, 72px)" }}>
+      <div className="proc-grid rv-stagger" style={{ marginBottom: "clamp(44px, 8vh, 72px)" }}>
         {processSteps.map((step) => {
           const IconComponent = step.icon;
           return (
@@ -149,7 +149,7 @@ export function ServicesSection() {
         </p>
       </div>
 
-      <div className="svc-grid">
+      <div className="svc-grid rv-stagger">
         {services.map((service) => {
           const IconComponent = service.icon;
           return (

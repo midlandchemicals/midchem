@@ -94,7 +94,7 @@ export function ProductsSection() {
           </p>
         </div>
 
-        <div className="ind-grid">
+        <div className="ind-grid rv-stagger">
           {industryCategories.map((category) => (
             <article key={category.id} className="ind-card rv">
               <div className="ind-media">

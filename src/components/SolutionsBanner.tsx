@@ -1,6 +1,7 @@
 import { CheckCircle2 } from "lucide-react";
 import ilexLogo from "../assets/ilex-logo.png";
 import midlandLogo from "../assets/midlandLogo-Nobg.png";
+import { CountUp } from "./CountUp";
 import { useReveal } from "./useReveal";
 
 const trustItems = [
@@ -33,21 +34,27 @@ export function SolutionsBanner() {
             Trusted by customers <strong>throughout the UK, Europe and worldwide</strong> — from
             startups to established brands
           </p>
-          <div className="stats-row">
+          <div className="stats-row rv-stagger">
             <div className="cell rv">
               <div className="num">1991</div>
               <div className="lbl">Independent since</div>
             </div>
-            <div className="cell rv rv-d1">
-              <div className="num">70+</div>
+            <div className="cell rv">
+              <div className="num">
+                <CountUp to={70} suffix="+" />
+              </div>
               <div className="lbl">Combined R&amp;D years</div>
             </div>
-            <div className="cell rv rv-d2">
-              <div className="num">7</div>
+            <div className="cell rv">
+              <div className="num">
+                <CountUp to={7} />
+              </div>
               <div className="lbl">Industry sectors</div>
             </div>
-            <div className="cell rv rv-d3">
-              <div className="num">100%</div>
+            <div className="cell rv">
+              <div className="num">
+                <CountUp to={100} suffix="%" />
+              </div>
               <div className="lbl">Formulation confidentiality</div>
             </div>
           </div>

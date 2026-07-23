@@ -22,6 +22,26 @@ const faqs = [
     q: "Do you supply outside the UK?",
     a: "Yes. From our facility in Atherstone, Warwickshire, we supply customers throughout the UK, Europe and worldwide, with flexible delivery options including bulk supply and just-in-time delivery.",
   },
+  {
+    q: "Do you offer white label and private label manufacturing?",
+    a: "Yes — it's one of our core services. We provide complete private labelling with your corporate identity maintained throughout: bespoke packaging options, a wide range of pack sizes, and our in-house label printing service, so your brand is on every product.",
+  },
+  {
+    q: "Can we supply our own raw materials?",
+    a: "Yes. Free-issue raw materials are accepted, and we can equally work with our existing raw materials or specially source materials for your formulation.",
+  },
+  {
+    q: "Is my formulation kept confidential?",
+    a: "Always. We blend to your formulation(s) with full confidentiality guaranteed at all times — your intellectual property stays yours.",
+  },
+  {
+    q: "Which industries do you manufacture for?",
+    a: "We serve a wide range of sectors including agriculture, automotive, construction, industrial cleaning, retail cleaning, healthcare and aerospace — with dedicated formulation expertise for each.",
+  },
+  {
+    q: "Do you offer bulk supply and contract filling?",
+    a: "Yes. We offer bulk product supply and contract filling services with flexible delivery options, UK and worldwide shipping, and just-in-time delivery where needed.",
+  },
 ];
 
 export function FaqSection() {
@@ -38,7 +58,7 @@ export function FaqSection() {
           </p>
         </div>
 
-        <div className="faq-list">
+        <div className="faq-list rv-stagger">
           {faqs.map((faq) => (
             <details key={faq.q} className="faq-item rv">
               <summary>
