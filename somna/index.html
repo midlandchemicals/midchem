@@ -131,7 +131,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .zero{position:absolute;inset:0;display:grid;place-items:center;text-align:center;opacity:0;visibility:hidden;z-index:5;padding:0 max(var(--gut),env(safe-area-inset-right,0px)) 0 max(var(--gut),env(safe-area-inset-left,0px));color:var(--on-ink)}
 .zero-in{display:flex;flex-direction:column;align-items:center;gap:22px}
 .zero .mono{color:var(--y)}
-.zero-word{margin-bottom:.06em;font-family:var(--display);font-style:italic;font-weight:400;font-variation-settings:"opsz" 96;font-size:clamp(88px,16vw,250px);line-height:.95;letter-spacing:-.025em;will-change:filter}
+.zero-word{margin-bottom:.06em;font-family:var(--display);font-style:italic;font-weight:400;font-variation-settings:"opsz" 96;font-size:clamp(60px,10vw,170px);line-height:1;letter-spacing:-.025em;will-change:filter}
 .zero-sub{max-width:44ch;color:var(--on-ink-2);font-size:clamp(17px,1.4vw,20px)}
 .zero-t{color:var(--on-ink-2);font-variant-numeric:tabular-nums}
 
@@ -357,7 +357,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
     <div class="copy" id="copy">
       <p class="chip mono"><b></b>Now booking from January 2027</p>
-      <h1 class="split" id="h1">Count back <em>from ten.</em></h1>
+      <h1 class="split" id="h1">Let's count down <em>together.</em></h1>
       <p class="lede">Consultant-led sedation and anaesthesia for dental clinics, fertility clinics and independent hospitals in Birmingham and the West Midlands.</p>
       <div class="copy-cta">
         <a class="btn btn-y" href="#book">Make an enquiry <span class="arr">→</span></a>
@@ -365,16 +365,16 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
       </div>
     </div>
 
-    <div class="cap" data-a=".17" data-b=".35"><p class="mono">Nine</p><p>A consultant anaesthetist leads every list, with an ODP at their side.</p></div>
-    <div class="cap" data-a=".35" data-b=".53"><p class="mono">Eight</p><p>Every patient's health questionnaire is reviewed a week before the day.</p></div>
-    <div class="cap" data-a=".53" data-b=".69"><p class="mono">Seven</p><p>ECG, blood pressure, oxygen and capnography on every patient, every minute.</p></div>
+    <div class="cap" data-a=".15" data-b=".29"><p class="mono">Nine</p><p>A consultant anaesthetist leads every list, with an ODP at their side.</p></div>
+    <div class="cap" data-a=".29" data-b=".43"><p class="mono">Eight</p><p>Every patient's health questionnaire is reviewed a week before the day.</p></div>
+    <div class="cap" data-a=".43" data-b=".57"><p class="mono">Seven</p><p>ECG, blood pressure, oxygen and capnography on every patient, every minute.</p></div>
+    <div class="cap" data-a=".57" data-b=".69"><p class="mono">Six</p><p>Every patient is checked and signed off as safe to go home.</p></div>
 
     <div class="zero" id="zero">
       <div class="zero-in">
-        <p class="mono">Most patients are asleep before six</p>
-        <p class="zero-word" id="zeroWord">Asleep.</p>
-        <p class="zero-sub">Every patient is monitored continuously and signed off as safe to go home.</p>
-        <p class="mono zero-t">Induction complete · 34 s</p>
+        <p class="mono">Sedation in progress</p>
+        <p class="zero-word" id="zeroWord">Safely asleep.</p>
+        <p class="zero-sub">From this point the anaesthetist and ODP monitor the patient continuously until they are ready to go home.</p>
       </div>
     </div>
 
@@ -950,8 +950,8 @@ var pS=0, lastN=10, glTime=0, last=performance.now();
 var toneEls=$$("[data-tone]").filter(function(el){return el!==nav});
 var emerge=$("#emerge"), awake=$("#awake");
 function heroP(){var r=ind.getBoundingClientRect();return clamp(-r.top/(r.height-innerHeight),0,1)}
-function countFor(p){return p<.17?10:p<.35?9:p<.53?8:7}
-var blurBase={10:0,9:.4,8:1.6,7:3.2};
+function countFor(p){return p<.15?10:p<.29?9:p<.43?8:p<.57?7:6}
+var blurBase={10:0,9:.3,8:1,7:2,6:3.2};
 
 function frame(now){
   var dt=Math.min(64,now-last);last=now;
@@ -972,12 +972,12 @@ function frame(now){
       if(!reduce)numTxt.classList.add(n<lastN?"in-up":"in-down");
       lastN=n;
     }
-    var blur=blurBase[n]+(n===7?ss(.56,.8,pS)*42:0);
-    var op=n===7?1-ss(.66,.8,pS):1;
+    var blur=blurBase[n]+(n===6?ss(.6,.8,pS)*42:0);
+    var op=n===6?1-ss(.66,.8,pS):1;
     numWrap.style.filter=blur>.05?"blur("+blur.toFixed(1)+"px)":"none";
     numWrap.style.opacity=op.toFixed(3);
     numWrap.style.transform="translateY(-50%) scale("+(1+pS*.12).toFixed(4)+")";
-    var cOp=1-ss(.1,.165,pS);
+    var cOp=1-ss(.09,.15,pS);
     copy.style.opacity=cOp.toFixed(3);copy.style.transform="translateY("+((1-cOp)*-24).toFixed(1)+"px)";
     copy.style.visibility=cOp<.01?"hidden":"visible";
     caps.forEach(function(el){
