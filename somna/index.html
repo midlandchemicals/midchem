@@ -10,7 +10,7 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Hanken+Grotesk:wght@300..800&family=Martian+Mono:wght@300..600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..800;1,6..72,300..800&family=Hanken+Grotesk:wght@300..800&family=Martian+Mono:wght@300..600&display=swap">
 <style>
 /* Layout: the page is one anaesthetic. Induction (propofol milk → theatre ink), maintenance (ink), emergence (ink → milk). */
 :root{
@@ -32,7 +32,7 @@
   --ecg:#4BEA9C;
   --spo2:#5CD3FF;
   --co2:#FFD100;
-  --display:"Bodoni Moda","Bodoni 72","Didot","Bodoni MT",Georgia,serif;
+  --display:"Newsreader","Iowan Old Style",Georgia,serif;
   --sans:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
   --mono:"Martian Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
   --gut:clamp(16px,4vw,56px);
@@ -42,8 +42,8 @@
 html{background:var(--ink)}
 body{margin:0;background:var(--ink);color:var(--on-ink);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 h1,h2,h3,p{margin:0}
-h1,h2{font-family:var(--display);font-weight:500;font-variation-settings:"opsz" 96;letter-spacing:-.02em;line-height:.95;text-wrap:balance}
-h1 em,h2 em{font-style:italic;font-weight:400}
+h1,h2{font-family:var(--display);font-weight:450;font-variation-settings:"opsz" 72;letter-spacing:-.012em;line-height:1.05;text-wrap:balance}
+h1 em,h2 em{font-style:italic;font-weight:400;color:inherit}
 a{color:inherit}
 :focus-visible{outline:2px solid var(--y);outline-offset:3px;border-radius:3px}
 .wrap{max-width:1320px;margin:0 auto;padding-left:max(var(--gut),env(safe-area-inset-left,0px));padding-right:max(var(--gut),env(safe-area-inset-right,0px))}
@@ -73,7 +73,7 @@ a{color:inherit}
 .nav[data-tone="dark"]{--nav-fg:var(--on-ink)}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:61;background:var(--ink)}
 .logo{display:flex;align-items:baseline;gap:12px;text-decoration:none}
-.logo-word{font-family:var(--display);font-style:italic;font-weight:500;font-size:30px;letter-spacing:-.02em;line-height:1}
+.logo-word{font-family:var(--display);font-style:italic;font-weight:450;font-size:30px;letter-spacing:-.02em;line-height:1}
 .logo-tag{font-family:var(--mono);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;opacity:.7}
 .nav-links{display:flex;gap:28px;margin-left:auto}
 .nav-links a{font-size:14px;font-weight:500;text-decoration:none;opacity:.78;transition:opacity .2s}
@@ -88,7 +88,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .grain{position:absolute;inset:-60px;pointer-events:none;opacity:.07;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .6 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");animation:grain 1.2s steps(5) infinite}
 @keyframes grain{0%{transform:translate(0,0)}20%{transform:translate(-22px,14px)}40%{transform:translate(18px,-26px)}60%{transform:translate(-12px,-8px)}80%{transform:translate(26px,20px)}100%{transform:translate(0,0)}}
 
-.num{position:absolute;right:-1.5vw;top:50%;transform:translateY(-54%);font-family:var(--display);font-weight:400;font-variation-settings:"opsz" 96;font-size:min(84vh,62vw);line-height:.8;letter-spacing:-.05em;color:var(--fg);pointer-events:none;user-select:none;will-change:filter,opacity,transform;transition:color .6s}
+.num{position:absolute;right:-1vw;top:52%;transform:translateY(-50%);font-family:var(--display);font-weight:400;font-variation-settings:"opsz" 96;font-size:min(68vh,50vw);line-height:.8;letter-spacing:-.04em;color:var(--fg);pointer-events:none;user-select:none;will-change:filter,opacity,transform;transition:color .6s}
 .num-intro{display:block;transition:opacity 2s var(--ease),filter 2.2s var(--ease),transform 2.6s var(--ease)}
 .js:not(.ready) .num-intro{opacity:0;filter:blur(40px);transform:scale(1.08)}
 .num-breath{display:block;animation:breathe 5.2s ease-in-out infinite;transform-origin:60% 50%}
@@ -111,14 +111,14 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .copy{position:absolute;left:max(var(--gut),env(safe-area-inset-left,0px));bottom:clamp(150px,21vh,230px);max-width:min(680px,88vw);z-index:4}
 .chip{display:inline-flex;align-items:center;gap:10px;padding:8px 14px;border-radius:999px;background:rgba(10,12,26,.06);margin-bottom:28px;color:var(--on-milk)}
 .chip b{width:6px;height:6px;border-radius:50%;background:#1DB66E;display:block}
-.copy h1{font-size:clamp(54px,8.2vw,136px)}
+.copy h1{font-size:clamp(50px,7.4vw,120px)}
 .copy .lede{color:var(--on-milk-2);margin-top:26px;max-width:46ch}
 .copy-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
 
 .cap{position:absolute;left:max(var(--gut),env(safe-area-inset-left,0px));bottom:clamp(150px,21vh,230px);max-width:min(600px,84vw);opacity:0;z-index:4;pointer-events:none}
 .cap .mono{color:var(--fg-2);display:flex;align-items:center;gap:12px;margin-bottom:20px}
 .cap .mono::before{content:"";width:28px;height:1px;background:currentColor}
-.cap p:not(.mono){font-family:var(--display);font-variation-settings:"opsz" 72;font-weight:400;font-size:clamp(30px,3.7vw,56px);line-height:1.04;letter-spacing:-.015em;text-wrap:balance}
+.cap p:not(.mono){font-family:var(--display);font-variation-settings:"opsz" 72;font-weight:400;font-size:clamp(28px,3.2vw,48px);line-height:1.15;letter-spacing:-.015em;text-wrap:balance}
 
 .capno{position:absolute;left:0;right:0;bottom:0;height:120px;z-index:3;border-top:1px solid color-mix(in srgb,var(--fg) 14%,transparent)}
 #capnoCv{position:absolute;inset:0;width:100%;height:100%}
@@ -131,44 +131,33 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .zero{position:absolute;inset:0;display:grid;place-items:center;text-align:center;opacity:0;visibility:hidden;z-index:5;padding:0 max(var(--gut),env(safe-area-inset-right,0px)) 0 max(var(--gut),env(safe-area-inset-left,0px));color:var(--on-ink)}
 .zero-in{display:flex;flex-direction:column;align-items:center;gap:22px}
 .zero .mono{color:var(--y)}
-.zero-word{margin-bottom:.12em;font-family:var(--display);font-style:italic;font-weight:400;font-variation-settings:"opsz" 96;font-size:clamp(96px,19vw,300px);line-height:.8;letter-spacing:-.04em;will-change:filter}
+.zero-word{margin-bottom:.06em;font-family:var(--display);font-style:italic;font-weight:400;font-variation-settings:"opsz" 96;font-size:clamp(88px,16vw,250px);line-height:.95;letter-spacing:-.025em;will-change:filter}
 .zero-sub{max-width:44ch;color:var(--on-ink-2);font-size:clamp(17px,1.4vw,20px)}
 .zero-t{color:var(--on-ink-2);font-variant-numeric:tabular-nums}
 
-/* ---------- marquee ---------- */
-.marq{background:var(--ink);overflow:hidden;border-block:1px solid var(--hair-ink);padding-block:26px}
-.marq-track{display:flex;width:max-content;animation:marq 46s linear infinite}
-.marq span{display:flex;align-items:center;gap:.55em;padding-right:.55em;font-family:var(--display);font-style:italic;font-variation-settings:"opsz" 72;font-size:clamp(34px,4.4vw,64px);white-space:nowrap;color:var(--on-ink)}
-.marq i{width:.2em;height:.2em;background:var(--y);display:block;flex:none}
-@keyframes marq{to{transform:translateX(-50%)}}
 
 /* ---------- sections ---------- */
 .sec{position:relative;padding-block:clamp(100px,13vw,190px)}
 .sec-head{display:grid;gap:28px;max-width:980px;margin-bottom:clamp(56px,7vw,96px)}
-.sec-head h2{font-size:clamp(46px,6.6vw,108px)}
+.sec-head h2{font-size:clamp(40px,5vw,80px)}
 
 /* team / comparison */
 .team{background:var(--ink)}
 .team-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(48px,6vw,110px);align-items:start}
 .team-grid > *{min-width:0}
-.team h2{font-size:clamp(46px,5.6vw,92px)}
+.team h2{font-size:clamp(40px,4.6vw,72px)}
 .team .lede{margin-top:30px}
 .founders{margin-top:40px;padding-top:28px;border-top:1px solid var(--hair-ink);display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:start;color:var(--on-ink-2);font-size:15.5px;max-width:52ch}
 .founders .dots{display:flex;gap:6px;margin-top:6px}
 .founders .dots i{width:10px;height:10px;border-radius:50%;border:1.5px solid var(--y)}
 .founders .dots i:first-child{background:var(--y)}
-.cmp{border:1px solid var(--hair-ink);border-radius:22px;overflow:hidden;background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.01))}
-.cmp-row{display:grid;grid-template-columns:1fr 1fr 1.25fr;border-top:1px solid var(--hair-ink)}
-.cmp-row:first-child{border-top:0}
-.cmp-row > div{padding:20px 22px;font-size:15px;line-height:1.45;min-width:0}
-.cmp-row > div:nth-child(1){color:var(--on-ink-2);font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;line-height:1.6}
-.cmp-row > div:nth-child(2){color:#71769A}
-.cmp-row > div:nth-child(3){background:rgba(255,209,0,.055);color:var(--on-ink);display:flex;gap:12px}
-.cmp-row > div:nth-child(3)::before{content:"";flex:none;width:16px;height:16px;margin-top:2px;background:var(--y);-webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path d='M3 8.5l3.2 3L13 4.5' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/></svg>") center/contain no-repeat;mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path d='M3 8.5l3.2 3L13 4.5' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/></svg>") center/contain no-repeat}
-.cmp-head > div{padding-block:18px;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase}
-.cmp-head > div:nth-child(3){color:var(--y)}
-.cmp-head > div:nth-child(3)::before{display:none}
 
+.incl{margin:0;border:1px solid var(--hair-ink);border-radius:22px;padding:8px 26px 10px;background:rgba(255,255,255,.025)}
+.incl-h{color:var(--on-ink-2);padding:18px 0 14px}
+.incl > div{display:grid;grid-template-columns:120px 1fr;gap:20px;padding:18px 0;border-top:1px solid var(--hair-ink)}
+.incl dt{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--on-ink-2);padding-top:4px}
+.incl dd{margin:0;font-size:16px;line-height:1.5;color:var(--on-ink)}
+@media (max-width:560px){.incl > div{grid-template-columns:1fr;gap:4px}}
 /* services: syringe labels */
 .services{background:var(--ink-2)}
 .services::before{content:"";position:absolute;inset:0;background:radial-gradient(900px 500px at 85% 10%,rgba(134,204,235,.07),transparent 60%),radial-gradient(800px 500px at 10% 90%,rgba(255,138,30,.06),transparent 60%);pointer-events:none}
@@ -195,13 +184,13 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .svc-foot{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,2vw,28px);margin-top:clamp(18px,2vw,28px)}
 .svc-foot > *{min-width:0}
 .contra{border:1.5px dashed rgba(233,235,244,.25);border-radius:16px;padding:28px}
-.contra h3{font-family:var(--display);font-style:italic;font-weight:400;font-size:34px;letter-spacing:-.01em;margin:10px 0 18px}
+.contra h3{font-family:var(--display);font-weight:450;font-size:30px;letter-spacing:-.01em;margin:10px 0 18px}
 .contra ul{list-style:none;margin:0;padding:0;display:grid;gap:14px}
 .contra li{display:grid;grid-template-columns:22px 1fr;gap:12px;font-size:15px;color:var(--on-ink-2)}
 .contra li b{color:var(--on-ink);font-weight:600}
 .contra li::before{content:"×";color:var(--o);font-family:var(--mono);font-size:16px;line-height:1.4}
 .extras{border-radius:16px;padding:28px;background:rgba(255,255,255,.03);border:1px solid var(--hair-ink)}
-.extras h3{font-family:var(--display);font-style:italic;font-weight:400;font-size:34px;letter-spacing:-.01em;margin:10px 0 18px}
+.extras h3{font-family:var(--display);font-weight:450;font-size:30px;letter-spacing:-.01em;margin:10px 0 18px}
 .chips{display:flex;flex-wrap:wrap;gap:10px}
 .chips span{padding:10px 16px;border-radius:999px;border:1px solid var(--hair-ink);font-size:14.5px;color:var(--on-ink)}
 
@@ -240,7 +229,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .step{min-height:62vh;display:flex;flex-direction:column;justify-content:center;gap:18px;padding-block:24px;opacity:.28;transition:opacity .6s var(--ease)}
 .step.on{opacity:1}
 .step .mono{color:var(--on-ink-2)}
-.step h3{font-family:var(--display);font-style:italic;font-weight:400;font-variation-settings:"opsz" 96;font-size:clamp(46px,5.4vw,88px);line-height:.95;letter-spacing:-.025em}
+.step h3{font-family:var(--display);font-weight:450;font-variation-settings:"opsz" 72;font-size:clamp(38px,4.2vw,64px);line-height:1.05;letter-spacing:-.012em}
 .step p{font-size:clamp(17px,1.3vw,19px);color:var(--on-ink-2);max-width:48ch;line-height:1.6}
 .step p b{color:var(--on-ink);font-weight:600}
 
@@ -254,18 +243,18 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .std span{font-size:14.5px;color:var(--on-ink-2);line-height:1.55}
 .terms{margin-top:clamp(80px,9vw,130px);display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(40px,6vw,100px);align-items:start}
 .terms > *{min-width:0}
-.terms h3{font-family:var(--display);font-weight:500;font-variation-settings:"opsz" 96;font-size:clamp(40px,4.4vw,70px);line-height:.98;letter-spacing:-.02em;text-wrap:balance}
+.terms h3{font-family:var(--display);font-weight:450;font-variation-settings:"opsz" 72;font-size:clamp(36px,3.8vw,58px);line-height:1.05;letter-spacing:-.012em;text-wrap:balance}
 .terms h3 em{font-style:italic;font-weight:400}
 .terms dl{margin:0;display:grid}
 .terms dl > div{display:grid;grid-template-columns:minmax(120px,190px) 1fr;gap:24px;padding:22px 0;border-top:1px solid var(--hair-ink)}
 .terms dl > div:last-child{border-bottom:1px solid var(--hair-ink)}
-.terms dt{font-family:var(--display);font-style:italic;font-size:26px;line-height:1.1;font-variation-settings:"opsz" 48}
+.terms dt{font-family:var(--display);font-size:22px;line-height:1.2;font-variation-settings:"opsz" 36}
 .terms dd{margin:0;color:var(--on-ink-2);font-size:16px}
 
 /* emergence */
 .emerge{background:linear-gradient(180deg,var(--ink) 0%,#141832 22%,#4A4F6C 45%,#B9BDC9 66%,var(--milk) 82%);padding-top:clamp(120px,16vw,220px);padding-bottom:clamp(40px,6vw,80px);overflow:hidden}
 .emerge .eyebrow{color:var(--on-ink-2)}
-.awake{font-family:var(--display);font-style:italic;font-weight:400;font-variation-settings:"opsz" 96;font-size:clamp(96px,20vw,330px);line-height:.82;letter-spacing:-.045em;color:var(--on-milk);margin-top:clamp(260px,34vw,520px);will-change:filter,letter-spacing}
+.awake{font-family:var(--display);font-style:italic;font-weight:400;font-variation-settings:"opsz" 96;font-size:clamp(84px,16vw,260px);line-height:.95;letter-spacing:-.025em;color:var(--on-milk);margin-top:clamp(260px,34vw,520px);will-change:filter,letter-spacing}
 .awake-sub{margin-top:26px;font-size:clamp(17px,1.5vw,21px);color:var(--on-milk-2);max-width:46ch}
 
 /* book */
@@ -273,7 +262,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .book .eyebrow{color:var(--on-milk-2)}
 .book-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,110px);align-items:start}
 .book-grid > *{min-width:0}
-.book h2{font-size:clamp(48px,6vw,100px);margin-top:26px}
+.book h2{font-size:clamp(42px,5vw,80px);margin-top:26px}
 .book .lede{color:var(--on-milk-2);margin-top:28px}
 .contact{margin-top:44px;display:grid;gap:0;max-width:460px}
 .contact > div{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;border-top:1px solid var(--hair-milk)}
@@ -303,7 +292,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .foot-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;font-size:14.5px;color:var(--on-milk-2)}
 .foot-grid > *{min-width:0}
 .foot-grid b{display:block;color:var(--on-milk);font-weight:600;margin-bottom:6px}
-.foot-word{font-family:var(--display);font-style:italic;font-weight:400;font-variation-settings:"opsz" 96;font-size:31vw;line-height:.74;letter-spacing:-.05em;margin-top:60px;margin-bottom:-4.5vw;white-space:nowrap;text-align:center;color:var(--on-milk)}
+.foot-word{font-family:var(--display);font-style:italic;font-weight:400;font-variation-settings:"opsz" 72;font-size:29vw;line-height:.8;letter-spacing:-.03em;margin-top:60px;margin-bottom:-4.5vw;white-space:nowrap;text-align:center;color:var(--on-milk)}
 .foot-base{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-block:22px;border-top:1px solid var(--hair-milk);font-size:12.5px;color:var(--on-milk-2);position:relative;background:var(--milk-2)}
 
 /* responsive */
@@ -320,14 +309,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   .syr-col{display:none}
   .step{min-height:auto;opacity:1;padding-block:30px;border-top:1px solid var(--hair-ink)}
   .labels{grid-template-columns:1fr}
-  .cmp-head{display:none}
-  .cmp-row{grid-template-columns:1fr}
-  .cmp-row > div{padding:10px 20px}
-  .cmp-row > div:nth-child(1){padding-top:20px}
-  .cmp-row > div:nth-child(2)::before{content:"Single sedationist: ";font-weight:600}
-  .cmp-row > div:nth-child(3){margin:0 12px 14px;border-radius:10px;padding:14px}
   .foot-grid{grid-template-columns:1fr}
-  .num{font-size:min(60vh,96vw);top:44%;right:-6vw;color:transparent;-webkit-text-stroke:1.2px color-mix(in srgb,var(--fg) 55%,transparent)}
+  .num{font-size:min(50vh,84vw);top:46%;right:-6vw;color:transparent;-webkit-text-stroke:1.2px color-mix(in srgb,var(--fg) 55%,transparent)}
   .capno-l{display:none}
   .hud-r .ticks{display:none}
 }
@@ -348,12 +331,13 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 <header class="nav" id="nav" data-tone="light">
   <a class="logo" href="#top" aria-label="Somna, back to top"><span class="logo-word">Somna</span><span class="logo-tag">Sedation &amp; Anaesthesia</span></a>
   <nav class="nav-links" aria-label="Sections">
+    <a href="#team">About</a>
     <a href="#services">Services</a>
     <a href="#monitoring">Monitoring</a>
-    <a href="#day">A day with us</a>
+    <a href="#day">How it works</a>
     <a href="#standards">Standards</a>
   </nav>
-  <a class="btn btn-y nav-cta" href="#book">Book a list</a>
+  <a class="btn btn-y nav-cta" href="#book">Enquire</a>
 </header>
 
 <main id="top">
@@ -374,10 +358,10 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
     <div class="copy" id="copy">
       <p class="chip mono"><b></b>Now booking from January 2027</p>
       <h1 class="split" id="h1">Count back <em>from ten.</em></h1>
-      <p class="lede">A consultant anaesthetist and an operating department practitioner, brought to your clinic or hospital list with our own monitoring, our own safety procedures and colleagues ready to cover. You fill the list. We look after the anaesthesia.</p>
+      <p class="lede">Consultant-led sedation and anaesthesia for dental clinics, fertility clinics and independent hospitals in Birmingham and the West Midlands.</p>
       <div class="copy-cta">
-        <a class="btn btn-y" href="#book">Book a list for 2027 <span class="arr">→</span></a>
-        <a class="btn btn-line" href="#team" data-skip>How we work</a>
+        <a class="btn btn-y" href="#book">Make an enquiry <span class="arr">→</span></a>
+        <a class="btn btn-line" href="#services" data-skip>Our services</a>
       </div>
     </div>
 
@@ -387,14 +371,14 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
     <div class="zero" id="zero">
       <div class="zero-in">
-        <p class="mono">Most people never reach six</p>
+        <p class="mono">Most patients are asleep before six</p>
         <p class="zero-word" id="zeroWord">Asleep.</p>
-        <p class="zero-sub">From here it's our job: every patient monitored, recorded, and handed back to you wide awake.</p>
+        <p class="zero-sub">Every patient is monitored continuously and signed off as safe to go home.</p>
         <p class="mono zero-t">Induction complete · 34 s</p>
       </div>
     </div>
 
-    <a class="skip mono" href="#team" data-skip>Skip the count ↓</a>
+    <a class="skip mono" href="#team" data-skip>Skip ↓</a>
 
     <div class="capno" aria-hidden="true">
       <canvas id="capnoCv"></canvas>
@@ -404,43 +388,36 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   </div>
 </section>
 
-<div class="marq" aria-hidden="true">
-  <div class="marq-track">
-    <span>Paediatric dental sedation <i></i></span><span>Advanced sedation <i></i></span><span>Fertility sedation <i></i></span><span>Private GA lists <i></i></span><span>Consultant-led <i></i></span><span>ODP-assisted <i></i></span><span>IACSD standards <i></i></span>
-    <span>Paediatric dental sedation <i></i></span><span>Advanced sedation <i></i></span><span>Fertility sedation <i></i></span><span>Private GA lists <i></i></span><span>Consultant-led <i></i></span><span>ODP-assisted <i></i></span><span>IACSD standards <i></i></span>
-  </div>
-</div>
-
 <!-- ===================== PHASE II · MAINTENANCE ===================== -->
 <section class="sec team" id="team" data-tone="dark" aria-label="Who we are">
   <div class="wrap team-grid">
     <div>
-      <p class="eyebrow mono rv">Phase II · Maintenance</p>
-      <h2 class="split" style="margin-top:28px">A freelancer is one person. <em>We're a service.</em></h2>
-      <p class="lede rv">Book a day and you get a consultant anaesthetist and an ODP working under our own procedures, with our own monitoring and emergency kit, our own audit, and a bank of colleagues who step in if anyone is ill. You set the list. We run the anaesthesia.</p>
+      <p class="eyebrow mono rv">About us</p>
+      <h2 class="split" style="margin-top:28px">A sedation and anaesthesia team for each list</h2>
+      <p class="lede rv">We provide a consultant anaesthetist and an operating department practitioner for a day or half-day session. We work under our own procedures, with our own monitoring and emergency equipment, and keep a bank of clinicians to cover absence.</p>
       <div class="founders rv">
         <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
-        <span>Founded by a consultant paediatric anaesthetist, a hospital dentist and a high-street dentist: people who have worked on both sides of the booking.</span>
+        <span>Founded by a consultant paediatric anaesthetist, a hospital dentist and a general dental practitioner.</span>
       </div>
     </div>
-    <div class="cmp rv" role="table" aria-label="Booking a single sedationist compared with booking Somna">
-      <div class="cmp-row cmp-head" role="row"><div role="columnheader"></div><div role="columnheader">Single sedationist</div><div role="columnheader">Somna</div></div>
-      <div class="cmp-row" role="row"><div role="rowheader">Who arrives</div><div role="cell">One clinician</div><div role="cell">Consultant anaesthetist and ODP</div></div>
-      <div class="cmp-row" role="row"><div role="rowheader">If they're ill</div><div role="cell">The list is cancelled</div><div role="cell">Cover from our bank, or you pay nothing</div></div>
-      <div class="cmp-row" role="row"><div role="rowheader">Monitoring &amp; kit</div><div role="cell">Varies</div><div role="cell">Ours as backup, checked before the day</div></div>
-      <div class="cmp-row" role="row"><div role="rowheader">Standards</div><div role="cell">Up to the individual</div><div role="cell">A written IACSD agreement with every clinic</div></div>
-      <div class="cmp-row" role="row"><div role="rowheader">Audit</div><div role="cell">Not usually shared</div><div role="cell">Every patient logged, reviewed monthly</div></div>
-      <div class="cmp-row" role="row"><div role="rowheader">Children</div><div role="cell">Depends who you get</div><div role="cell">Led by a consultant paediatric anaesthetist</div></div>
-    </div>
+    <dl class="incl rv" aria-label="What a booking includes">
+      <p class="incl-h mono">Each booking includes</p>
+      <div><dt>Team</dt><dd>Consultant anaesthetist and operating department practitioner</dd></div>
+      <div><dt>Cover</dt><dd>A replacement clinician if one is unavailable. If we cannot cover, there is no charge.</dd></div>
+      <div><dt>Equipment</dt><dd>Portable monitoring and emergency kit where the site needs it, checked before the day</dd></div>
+      <div><dt>Standards</dt><dd>A written agreement following national IACSD sedation standards</dd></div>
+      <div><dt>Audit</dt><dd>Every patient logged and reviewed monthly</dd></div>
+      <div><dt>Children</dt><dd>Clinical leadership from a consultant paediatric anaesthetist</dd></div>
+    </dl>
   </div>
 </section>
 
 <section class="sec services" id="services" data-tone="dark" aria-label="Services">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow mono rv">What we run</p>
-      <h2 class="split">Only the lists that need <em>an anaesthetist.</em></h2>
-      <p class="lede rv">Most adult dental sedation is a single drug a trained dentist can give, so we don't compete for it. We take the work where a doctor-level anaesthetist genuinely matters: children, complex patients, deeper sedation and general anaesthetic.</p>
+      <p class="eyebrow mono rv">Services</p>
+      <h2 class="split">Three services</h2>
+      <p class="lede rv">Each booking is a full day or half-day session with a consultant anaesthetist and an operating department practitioner (ODP).</p>
       <p class="iso mono rv"><b aria-hidden="true"><i style="background:var(--o)"></i><i style="background:var(--y)"></i><i style="background:var(--b)"></i></b>Colour-coded like the syringe labels in every UK theatre</p>
     </div>
 
@@ -448,7 +425,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
       <article class="label rv" style="--lc:var(--o)">
         <div class="label-band"><span class="label-class">Sedation · Dental</span><h3 class="label-name">Paediatric &amp; advanced dental sedation</h3></div>
         <div class="label-body">
-          <p class="label-desc">National standards expect advanced sedation for children to be given by a consultant anaesthetist or someone with equivalent skills. That is the work we are built for.</p>
+          <p class="label-desc">Sedation for children and for adults who need more than standard dental sedation, given in line with national standards for dental sedation.</p>
           <dl class="label-fields">
             <div><dt>Setting</dt><dd>Dental clinics with children's or special-care lists</dd></div>
             <div><dt>Format</dt><dd>Full day, up to 5 patients</dd></div>
@@ -463,14 +440,14 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
       <article class="label rv" style="--lc:var(--y);--dl:.1s">
         <div class="label-band"><span class="label-class">Sedation · Fertility</span><h3 class="label-name">Fertility sedation</h3></div>
         <div class="label-body">
-          <p class="label-desc">Deeper sedation for egg collections, run as tight morning sessions that fit your theatre day. Over 64,000 patients had treatment at UK licensed clinics in 2024.</p>
+          <p class="label-desc">Sedation for egg collection, provided as half-day morning sessions.</p>
           <dl class="label-fields">
             <div><dt>Setting</dt><dd>Licensed fertility clinics</dd></div>
             <div><dt>Format</dt><dd>Half-day morning session</dd></div>
             <div><dt>Team</dt><dd>Consultant anaesthetist + ODP</dd></div>
             <div><dt>Drugs</dt><dd>From your stock, or supplied by us at cost</dd></div>
           </dl>
-          <p class="label-foot">Patient figure: HFEA, Fertility treatment 2024</p>
+          <p class="label-foot">Session length up to four hours</p>
         </div>
         <span class="label-glare"></span>
       </article>
@@ -478,14 +455,14 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
       <article class="label rv" style="--lc:var(--b);--dl:.2s">
         <div class="label-band"><span class="label-class">Anaesthesia · General</span><h3 class="label-name">Private general anaesthetic lists</h3></div>
         <div class="label-body">
-          <p class="label-desc">A complete anaesthesia team for weekend or overflow lists in independent hospitals. You provide the theatre, machine and recovery. We bring the anaesthetists.</p>
+          <p class="label-desc">Anaesthesia for private operating lists in independent hospitals. The hospital provides the theatre, anaesthetic machine, drugs and recovery staff.</p>
           <dl class="label-fields">
             <div><dt>Setting</dt><dd>Independent hospitals with critical care</dd></div>
             <div><dt>Format</dt><dd>Full-day list</dd></div>
             <div><dt>Team</dt><dd>Consultant anaesthetist + ODP, and a second anaesthetist where required</dd></div>
             <div><dt>Also for</dt><dd>Insourcing partners who need anaesthesia-only lists</dd></div>
           </dl>
-          <p class="label-foot">General anaesthetic only where there is critical care</p>
+          <p class="label-foot">Provided only in hospitals with critical care</p>
         </div>
         <span class="label-glare"></span>
       </article>
@@ -493,16 +470,16 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
     <div class="svc-foot">
       <div class="contra rv">
-        <p class="mono" style="color:var(--on-ink-2)">Read before booking</p>
-        <h3>Contraindications</h3>
+        <p class="mono" style="color:var(--on-ink-2)">Scope</p>
+        <h3>What we don't provide</h3>
         <ul>
-          <li><span><b>Routine adult dental sedation.</b> A sedation-trained dentist can do it for less, and should.</span></li>
-          <li><span><b>Staff for someone else to manage.</b> We run our part under our own procedures, or not at all.</span></li>
-          <li><span><b>General anaesthetic without critical care.</b> Dental GA belongs in hospital.</span></li>
+          <li><span><b>Routine adult dental sedation</b>, which sedation-trained dentists usually provide themselves.</span></li>
+          <li><span><b>Individual staff to work under another provider's procedures.</b></span></li>
+          <li><span><b>General anaesthetic outside hospitals with critical care.</b></span></li>
         </ul>
       </div>
       <div class="extras rv" style="--dl:.1s">
-        <p class="mono" style="color:var(--on-ink-2)">Add to any booking</p>
+        <p class="mono" style="color:var(--on-ink-2)">Optional</p>
         <h3>Also available</h3>
         <div class="chips">
           <span>Recovery nurse, on request</span>
@@ -522,14 +499,14 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
       <div class="dev-foot" aria-hidden="true"><span class="led"></span><span class="key"></span><span class="key"></span><span class="key"></span><span class="key"></span><span class="mono">Simulated display</span><span class="knob"></span></div>
     </figure>
     <div>
-      <p class="eyebrow mono rv">On every patient</p>
-      <h2 class="split" style="margin-top:26px;font-size:clamp(44px,5vw,84px)">The screen we <em>never look away from.</em></h2>
-      <p class="lede rv" style="margin-top:28px">Four signals, watched without a break from the first drug to discharge. If your clinic's monitoring isn't complete, we bring ours and check it before the day.</p>
+      <p class="eyebrow mono rv">Monitoring</p>
+      <h2 class="split" style="margin-top:26px;font-size:clamp(38px,4.2vw,64px)">Continuous monitoring for every patient</h2>
+      <p class="lede rv" style="margin-top:28px">Each patient is monitored from the start of sedation until they are ready to leave. Where a clinic does not have full monitoring, we bring our own equipment and check it before the day.</p>
       <ul class="params rv">
         <li><svg class="sw" viewBox="0 0 44 20" aria-hidden="true"><path d="M0 12h12l3-2 3 2h3l2 4 3-15 3 13 2-2h13" fill="none" stroke="#4BEA9C" stroke-width="1.8" stroke-linejoin="round"/></svg><div><b>ECG</b><span>Heart rate and rhythm</span></div></li>
         <li><svg class="sw" viewBox="0 0 44 20" aria-hidden="true"><path d="M0 16c4 0 5-13 9-13s4 9 7 9 3-3 5-3 3 7 8 7c4 0 5-13 9-13s4 9 6 9" fill="none" stroke="#5CD3FF" stroke-width="1.8"/></svg><div><b>SpO₂</b><span>Oxygen saturation, beat by beat</span></div></li>
         <li><svg class="sw" viewBox="0 0 44 20" aria-hidden="true"><path d="M2 10h40M2 5h24M2 15h32" fill="none" stroke="#E9EBF4" stroke-width="1.8" stroke-linecap="round"/></svg><div><b>NIBP</b><span>Blood pressure, cycled automatically</span></div></li>
-        <li class="key"><svg class="sw" viewBox="0 0 44 20" aria-hidden="true"><path d="M0 17h6l2-12h12l2 12h4l2-12h12l2 12h2" fill="none" stroke="#FFD100" stroke-width="1.8" stroke-linejoin="round"/></svg><div><b>Capnography</b><span>Breath-by-breath CO₂. Often the earliest warning that breathing has changed, before oxygen levels fall.</span></div></li>
+        <li class="key"><svg class="sw" viewBox="0 0 44 20" aria-hidden="true"><path d="M0 17h6l2-12h12l2 12h4l2-12h12l2 12h2" fill="none" stroke="#FFD100" stroke-width="1.8" stroke-linejoin="round"/></svg><div><b>Capnography</b><span>Breath-by-breath carbon dioxide, which shows changes in breathing early</span></div></li>
       </ul>
     </div>
   </div>
@@ -538,8 +515,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 <section class="sec day" id="day" data-tone="dark" aria-label="A day with us">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow mono rv">A day with us</p>
-      <h2 class="split">Booked once. <em>Handled from there.</em></h2>
+      <p class="eyebrow mono rv">How it works</p>
+      <h2 class="split">From booking to invoice</h2>
     </div>
     <div class="day-grid">
       <div class="syr-col" aria-hidden="true">
@@ -577,12 +554,12 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
         <div class="step on">
           <p class="mono">Step 1 of 5</p>
           <h3>Four weeks ahead</h3>
-          <p>You book the day. We assign the team and confirm the site checklist: <b>equipment, oxygen, defibrillator and recovery area</b>. Four weeks lets us roster clinicians who also hold NHS posts.</p>
+          <p>You book the day. We assign the team and confirm the site checklist: <b>equipment, oxygen, defibrillator and recovery area</b>.</p>
         </div>
         <div class="step">
           <p class="mono">Step 2 of 5</p>
           <h3>One week ahead</h3>
-          <p>Our anaesthetist reviews <b>every patient's health questionnaire</b>, and turns down anyone who isn't safe to treat in that setting.</p>
+          <p>Our anaesthetist reviews <b>each patient's health questionnaire</b> and confirms whether the setting is suitable for them.</p>
         </div>
         <div class="step">
           <p class="mono">Step 3 of 5</p>
@@ -591,13 +568,13 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
         </div>
         <div class="step">
           <p class="mono">Step 4 of 5</p>
-          <h3>Same evening</h3>
-          <p>Records completed and <b>any incident reported</b>, the same day, every time.</p>
+          <h3>Same day</h3>
+          <p>Records are completed and <b>any incidents are reported</b>.</p>
         </div>
         <div class="step">
           <p class="mono">Step 5 of 5</p>
           <h3>Month end</h3>
-          <p>One invoice, and an updated <b>audit of every patient</b>: complications, cancellations and satisfaction. Evidence you can show your own inspectors.</p>
+          <p>One monthly invoice, and an updated <b>audit of every patient</b>, covering complications, cancellations and patient satisfaction.</p>
         </div>
       </div>
     </div>
@@ -608,27 +585,27 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   <div class="wrap">
     <div class="sec-head">
       <p class="eyebrow mono rv">Standards</p>
-      <h2 class="split">The safety case, <em>in writing.</em></h2>
-      <p class="lede rv">One serious incident could end a sedation service. So these are fixed rules, in place before anyone's first day.</p>
+      <h2 class="split">Standards and safety</h2>
+      <p class="lede rv">These are in place before any clinician's first session.</p>
     </div>
     <div class="std-grid rv">
       <div class="std"><svg viewBox="0 0 30 30"><path d="M7 4h12l5 5v17H7z"/><path d="M19 4v5h5M11 15h9M11 19h9M11 23h5"/></svg><b>IACSD sedation standards</b><span>Followed in every dental case, with a written agreement for each clinic.</span></div>
       <div class="std"><svg viewBox="0 0 30 30"><circle cx="15" cy="10" r="5"/><path d="M5 26c1.5-6 5-9 10-9s8.5 3 10 9"/></svg><b>Checked before day one</b><span>Professional registration, enhanced DBS including the children's barred list, adult and paediatric life support, and evidence of sedation competence.</span></div>
-      <div class="std"><svg viewBox="0 0 30 30"><path d="M4 26V12l11-7 11 7v14"/><path d="M12 26v-7h6v7M15 10v5M12.5 12.5h5"/></svg><b>GA only with critical care</b><span>General anaesthetic happens only in hospitals with critical care on site. A fixed rule.</span></div>
-      <div class="std"><svg viewBox="0 0 30 30"><path d="M15 3l10 4v7c0 7-4.5 11-10 13C9.5 25 5 21 5 14V7z"/></svg><b>Insured from the start</b><span>Company cover plus each clinician's own indemnity, before the first patient.</span></div>
+      <div class="std"><svg viewBox="0 0 30 30"><path d="M4 26V12l11-7 11 7v14"/><path d="M12 26v-7h6v7M15 10v5M12.5 12.5h5"/></svg><b>General anaesthetic in hospital</b><span>General anaesthetic is provided only in hospitals with critical care on site.</span></div>
+      <div class="std"><svg viewBox="0 0 30 30"><path d="M15 3l10 4v7c0 7-4.5 11-10 13C9.5 25 5 21 5 14V7z"/></svg><b>Insurance</b><span>Company cover plus each clinician's own indemnity.</span></div>
       <div class="std"><svg viewBox="0 0 30 30"><path d="M5 25V5M5 25h20"/><path d="M9 19l5-5 4 3 6-8"/></svg><b>Every patient audited</b><span>Complications, cancellations and satisfaction logged, and reviewed every month.</span></div>
       <div class="std"><svg viewBox="0 0 30 30"><circle cx="11" cy="11" r="4"/><circle cx="21" cy="13" r="3"/><path d="M3 25c1-5 4-8 8-8s7 3 8 8M19 19c3 0 6 2 7 6"/></svg><b>Safeguarding</b><span>All staff trained in protecting children and vulnerable adults.</span></div>
       <div class="std"><svg viewBox="0 0 30 30"><rect x="6" y="13" width="18" height="13" rx="2"/><path d="M10 13V9a5 5 0 0 1 10 0v4M15 18v3"/></svg><b>Secure records</b><span>Secure patient records and email from day one, with Cyber Essentials certification during 2027.</span></div>
-      <div class="std"><svg viewBox="0 0 30 30"><circle cx="15" cy="15" r="11"/><path d="M15 9v6l4 3"/></svg><b>Never in NHS time</b><span>Clinicians with NHS posts declare their work with us and only ever work for us in their own time.</span></div>
+      <div class="std"><svg viewBox="0 0 30 30"><circle cx="15" cy="15" r="11"/><path d="M15 9v6l4 3"/></svg><b>Declared interests</b><span>Clinicians with NHS posts declare their work with us and work for us only in their own time.</span></div>
     </div>
 
     <div class="terms">
-      <h3 class="rv">The terms, <em>in plain English.</em></h3>
+      <h3 class="rv">Booking terms</h3>
       <dl class="rv">
         <div><dt>Booking</dt><dd>At least four weeks ahead.</dd></div>
         <div><dt>If we cancel</dt><dd>We find cover from our bank, or you pay nothing.</dd></div>
-        <div><dt>If you cancel</dt><dd>Free more than 20 working days out. Half the fee at 10 to 20 days. The full fee inside 10 days, because by then we've committed to the clinician.</dd></div>
-        <div><dt>Pricing</dt><dd>A fixed price per day or session, agreed up front. You control the bookings.</dd></div>
+        <div><dt>If you cancel</dt><dd>No charge more than 20 working days ahead. Half the fee at 10 to 20 working days. The full fee within 10 working days.</dd></div>
+        <div><dt>Pricing</dt><dd>A fixed price per day or session, agreed in advance.</dd></div>
         <div><dt>Invoicing</dt><dd>One invoice a month, payable within 30 days. We never bill your patients.</dd></div>
         <div><dt>Agreement</dt><dd>12 months, then rolling with three months' notice. Prices reviewed once a year.</dd></div>
       </dl>
@@ -639,18 +616,18 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 <!-- ===================== PHASE III · EMERGENCE ===================== -->
 <section class="emerge" id="emerge" data-tone="dark" aria-label="Emergence">
   <div class="wrap">
-    <p class="eyebrow mono">Phase III · Emergence</p>
+    <p class="eyebrow mono">Recovery</p>
     <p class="awake" id="awake">Wide awake.</p>
-    <p class="awake-sub">Every patient signed off as safe to go home. Every list logged. Every month, a report on how it went.</p>
+    <p class="awake-sub">Each patient is signed off as safe to go home, and every list is logged and reviewed monthly.</p>
   </div>
 </section>
 
 <section class="book" id="book" data-tone="light" aria-label="Book a list">
   <div class="wrap book-grid">
     <div>
-      <p class="eyebrow mono">Bookings</p>
-      <h2 class="split">Book a list <em>for 2027.</em></h2>
-      <p class="lede">We're taking bookings from January 2027 for clinics and hospitals within about an hour of Birmingham. Tell us about your list and we'll talk you through dates, team and price.</p>
+      <p class="eyebrow mono">Enquiries</p>
+      <h2 class="split">Get in touch</h2>
+      <p class="lede">We take bookings from January 2027 for clinics and hospitals within about an hour of Birmingham. Send us a few details and we will reply to discuss dates, team and price.</p>
       <div class="contact">
         <div><span class="mono">Email</span><span class="val" id="mail">bookings@somna.example</span><button class="copybtn" type="button" data-copy="bookings@somna.example">Copy</button></div>
         <div><span class="mono">Area</span><span class="val">Birmingham &amp; the West Midlands</span></div>
@@ -684,7 +661,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
         </select>
       </div>
       <div class="field"><label for="fMsg">About your list</label><textarea id="fMsg" name="msg" placeholder="Patients per list, setting, preferred days, anything we should know"></textarea></div>
-      <button class="btn" type="submit">Prepare my enquiry <span class="arr">→</span></button>
+      <button class="btn" type="submit">Prepare enquiry <span class="arr">→</span></button>
       <p class="mono" id="formErr" style="color:#B5361F;display:none"></p>
       <div class="out" id="out" aria-live="polite">
         <p>Your enquiry is ready. Copy it and email it to <b>bookings@somna.example</b>.</p>
@@ -999,7 +976,7 @@ function frame(now){
     var op=n===7?1-ss(.66,.8,pS):1;
     numWrap.style.filter=blur>.05?"blur("+blur.toFixed(1)+"px)":"none";
     numWrap.style.opacity=op.toFixed(3);
-    numWrap.style.transform="translateY(-54%) scale("+(1+pS*.12).toFixed(4)+")";
+    numWrap.style.transform="translateY(-50%) scale("+(1+pS*.12).toFixed(4)+")";
     var cOp=1-ss(.1,.165,pS);
     copy.style.opacity=cOp.toFixed(3);copy.style.transform="translateY("+((1-cOp)*-24).toFixed(1)+"px)";
     copy.style.visibility=cOp<.01?"hidden":"visible";
@@ -1041,7 +1018,7 @@ function frame(now){
   if(ar.top<innerHeight && ar.bottom>0){
     var k2=clamp((innerHeight-ar.top)/(innerHeight*.75),0,1);
     awake.style.filter="blur("+((1-ss(.05,.85,k2))*26).toFixed(1)+"px)";
-    awake.style.letterSpacing=lerp(.04,-.045,ss(0,.9,k2)).toFixed(3)+"em";
+    awake.style.letterSpacing=lerp(.03,-.025,ss(0,.9,k2)).toFixed(3)+"em";
     awake.style.opacity=ss(0,.5,k2).toFixed(3);
   }
 
